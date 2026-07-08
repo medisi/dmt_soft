@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dmt_soft/static/css/main.64767fc9.css",
+    "main.js": "/dmt_soft/static/js/main.b6ea4460.js",
+    "static/js/453.37fbbde3.chunk.js": "/dmt_soft/static/js/453.37fbbde3.chunk.js",
+    "static/media/main.png": "/dmt_soft/static/media/main.3910573d3e6182245e6b.png",
+    "static/media/web_interfase_dark.png": "/dmt_soft/static/media/web_interfase_dark.c595ae2de03678aba57a.png",
+    "static/media/web_interfase_light.png": "/dmt_soft/static/media/web_interfase_light.32824b33f5da5b9033af.png",
+    "static/media/Roboto-VariableFont_wdth,wght.ttf": "/dmt_soft/static/media/Roboto-VariableFont_wdth,wght.3c9d0f6513f7cfe91016.ttf",
+    "static/media/draw.png": "/dmt_soft/static/media/draw.a2ab9f476467e5399ad5.png",
+    "static/media/pdf.png": "/dmt_soft/static/media/pdf.db6af7a7155ae2167c78.png",
+    "static/media/ms_office.png": "/dmt_soft/static/media/ms_office.93156d5787e63a503d83.png",
+    "static/media/cads.png": "/dmt_soft/static/media/cads.1130d6837a199399f516.png",
+    "index.html": "/dmt_soft/index.html",
+    "main.64767fc9.css.map": "/dmt_soft/static/css/main.64767fc9.css.map",
+    "main.b6ea4460.js.map": "/dmt_soft/static/js/main.b6ea4460.js.map",
+    "453.37fbbde3.chunk.js.map": "/dmt_soft/static/js/453.37fbbde3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64767fc9.css",
+    "static/js/main.b6ea4460.js"
+  ]
+}
