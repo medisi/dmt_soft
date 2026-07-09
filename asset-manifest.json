@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dmt_soft/static/css/main.541f10a5.css",
-    "main.js": "/dmt_soft/static/js/main.37ba648d.js",
+    "main.css": "/dmt_soft/static/css/main.3d125c3d.css",
+    "main.js": "/dmt_soft/static/js/main.b6cb92b9.js",
     "static/js/453.3fd9cfa3.chunk.js": "/dmt_soft/static/js/453.3fd9cfa3.chunk.js",
     "static/media/article3.jpg": "/dmt_soft/static/media/article3.e7d4a3a7e6dcafb91a81.jpg",
     "static/media/article1.jpg": "/dmt_soft/static/media/article1.8f53c42dc68bb8a82ece.jpg",
@@ -16,12 +16,12 @@
     "static/media/ms_office.png": "/dmt_soft/static/media/ms_office.93156d5787e63a503d83.png",
     "static/media/cads.png": "/dmt_soft/static/media/cads.1130d6837a199399f516.png",
     "index.html": "/dmt_soft/index.html",
-    "main.541f10a5.css.map": "/dmt_soft/static/css/main.541f10a5.css.map",
-    "main.37ba648d.js.map": "/dmt_soft/static/js/main.37ba648d.js.map",
+    "main.3d125c3d.css.map": "/dmt_soft/static/css/main.3d125c3d.css.map",
+    "main.b6cb92b9.js.map": "/dmt_soft/static/js/main.b6cb92b9.js.map",
     "453.3fd9cfa3.chunk.js.map": "/dmt_soft/static/js/453.3fd9cfa3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.541f10a5.css",
-    "static/js/main.37ba648d.js"
+    "static/css/main.3d125c3d.css",
+    "static/js/main.b6cb92b9.js"
   ]
 }
