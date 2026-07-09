@@ -20,7 +20,7 @@ const DemoPreview = () => {
 
     return (
         <>
-            <div className="preview">
+            <div className="preview" id="preview">
                 <div className="container">
                     <div className="preview_content">
                         <div className="preview_content_info">

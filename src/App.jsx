@@ -4,6 +4,7 @@ import DemoPreview from "./components/DemoPreview/DemoPreview";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import News from "./components/News/News";
 import StructureBase from "./components/StructureBase/StructureBase";
 import WhyNecessary from "./components/WhyNecessary/WhyNecessary";
 import { SettingsProvider } from "./hooks/useLocalSettings";
@@ -20,6 +21,7 @@ function App() {
         <BaseModules />
         <StructureBase />
         <WhyNecessary />
+        <News />
         <DemoPreview />
         <Footer />
       </>

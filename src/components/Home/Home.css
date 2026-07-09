@@ -132,6 +132,7 @@
     background-color: transparent;
     transition: all .3s ease;
     opacity: 0;
+    text-decoration: none;
 }
 .home_content_item_info_btns_item.tutorial.show {
     opacity: 1;

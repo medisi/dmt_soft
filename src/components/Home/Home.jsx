@@ -54,14 +54,14 @@ const Home = () => {
                                         <img src={require('../../assets/icons/arrow.png')} alt="" />
                                     </div>
                                 </div>
-                                <div className="home_content_item_info_btns_item tutorial box_shadow anim">
+                                <a href="#preview" className="home_content_item_info_btns_item tutorial box_shadow anim">
                                     <span>
                                         {lang === 'ru'
                                             ? 'Смотреть демо'
                                             : 'Watch the demo'
                                         }
                                     </span>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div className="home_content_item image anim">

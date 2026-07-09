@@ -65,9 +65,9 @@ const Header = () => {
                             }
                         </div>
 
-                        <div className="header_content_logo anim">
+                        <a href="#" className="header_content_logo anim">
                             <img src={require('../../assets/images/logo.png')} alt="" />
-                        </div>
+                        </a>
                         <nav className="header_content_menu anim">
                             <a href="#baseModules" className="header_content_menu_item text">
                                 {lang === 'ru'

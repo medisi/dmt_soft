@@ -9,7 +9,8 @@
     background-color: #161E29;
 }
 .landing_page.dark .baseModules_content_slides,
-.landing_page.dark .preview_content
+.landing_page.dark .preview_content,
+.landing_page.dark .news_content_cards_item
 {
     background-color: #161E29;
 }
@@ -37,7 +38,9 @@
 .landing_page.dark .necessary_card_info_text,
 .landing_page.dark .risks-list li,
 .landing_page.dark .description-text,
-.landing_page.dark .preview_content_info_title
+.landing_page.dark .preview_content_info_title,
+.landing_page.dark .news_content_title,
+.landing_page.dark .news_content_cards_item_title
 {
     color: #fff;
 }
@@ -47,7 +50,9 @@
 .landing_page.dark .structure_content_tasks_arrows_text,
 .landing_page.dark .preview_content_info_text,
 .landing_page.dark .footer_content_item_top_menu_item,
-.landing_page.dark .footer_content_item_bottom_item
+.landing_page.dark .footer_content_item_bottom_item,
+.landing_page.dark .news_content_cards_item_time,
+.landing_page.dark .news_content_cards_item_texts_item
 {
     color: #fff5;
 }
@@ -151,7 +156,8 @@
     background-color: #EFEDFF;
 }
 .landing_page.light .baseModules_content_slides,
-.landing_page.light .preview_content
+.landing_page.light .preview_content,
+.landing_page.light .news_content_cards_item
 {
     background-color: #5A61EB15;
 }
@@ -177,7 +183,9 @@
 .landing_page.light .necessary_card_info_text,
 .landing_page.light .risks-list li,
 .landing_page.light .description-text,
-.landing_page.light .preview_content_info_title
+.landing_page.light .preview_content_info_title,
+.landing_page.light .news_content_title,
+.landing_page.light .news_content_cards_item_title
 {
     color: #1C1C1C;
 }
@@ -192,7 +200,9 @@
 .landing_page.light .structure_content_tasks_arrows_text,
 .landing_page.light .preview_content_info_text,
 .landing_page.light .footer_content_item_top_menu_item,
-.landing_page.light .footer_content_item_bottom_item
+.landing_page.light .footer_content_item_bottom_item,
+.landing_page.light .news_content_cards_item_time,
+.landing_page.light .news_content_cards_item_texts_item
 {
     color: #1C1C1C50;
 }
