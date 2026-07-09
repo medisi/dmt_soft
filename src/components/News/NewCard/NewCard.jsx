@@ -1,6 +1,7 @@
 import React from "react";
 import './NewCard.css';
 import { useLocalSettings } from "../../../hooks/useLocalSettings";
+import { Link } from "react-router-dom";
 
 const NewCard = ({ image, time, title, articles }) => {
     const { lang } = useLocalSettings();
@@ -32,9 +33,15 @@ const NewCard = ({ image, time, title, articles }) => {
                     </p>
                 ))}
             </div>
-            <a href="##" className="news_content_cards_item_btn text">
+            <Link
+                to="/new_content"
+                className="news_content_cards_item_btn text"
+            >
                 Подробнее
-            </a>
+            </Link>
+            {/* <a href="##" className="news_content_cards_item_btn text">
+                Подробнее
+            </a> */}
         </div>
     )
 };
