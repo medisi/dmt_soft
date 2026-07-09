@@ -1,0 +1,69 @@
+.mobile_menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 45px;
+    transition: all .5s ease;
+    height: 100%;
+    overflow: hidden;
+}
+.mobile_menu_item {
+    width: 100%;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.mobile_menu_login {
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid #5A61EB;
+    background: linear-gradient(135deg, #5A61EB, #5354E4);
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 20px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.mobile_menu_btns {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.mobile_menu_btns_item {
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.mobile_menu_btns_item.theme {
+    width: 40px;
+    padding: 5px;
+}
+.mobile_menu_btns_item.theme img {
+    height: 30px;
+}
+.mobile_menu_btns_item.lang {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #5A61EB;
+    font-size: 16px;
+}

@@ -1,0 +1,182 @@
+.baseModules {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+}
+.baseModules_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+.baseModules_content_titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.baseModules_content_titles span.title {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform .4s ease, opacity .4s ease;
+}
+.baseModules_content_titles span.text {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform .4s ease .5s, opacity .4s ease .5s;
+}
+.baseModules_content_titles.show span.title {
+    transform: translateY(0);
+    opacity: 1;
+}
+.baseModules_content_titles.show span.text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.baseModules_content_titles span {
+    width: 100%;
+    text-align: center;
+}
+.baseModules_content_main {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 30px;
+}
+.baseModules_content_main.show .baseModules_content_main_line {
+    opacity: 1;
+}
+.baseModules_content_main.show .baseModules_content_main_card .about_modules_content_modules_main_item_image img {
+    transform: translateY(0);
+    opacity: 1;
+}
+.baseModules_content_main.show .baseModules_content_main_card .about_modules_content_modules_main_item_text {
+    transform: translateY(0);
+    opacity: 1;
+}
+.baseModules_content_main_line {
+    width: 100%;
+    height: 34px;
+    opacity: 0;
+    transition: all .4s ease 1.5s;
+}
+.baseModules_content_main_card {
+    width: 100%;
+    max-width: 230px;
+    height: 100%;
+    max-height: 230px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #5A61EB, #5354E4);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.about_modules_content_modules_main_item_image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.about_modules_content_modules_main_item_image img {
+    height: 110px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform .4s ease .5s, opacity .4s ease .5s;
+}
+.about_modules_content_modules_main_item_text {
+    width: 100%;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform .4s ease .5s, opacity .4s ease .5s;
+}
+.baseModules_content_modules {
+    display: grid;
+    gap: 20px;
+}
+.baseModules_content_slides {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    border-radius: 25px;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+
+@media ( min-width: 1440px ) {
+    .baseModules_content_modules {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media ( max-width: 1439px ) {
+    .baseModules_content_modules {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media ( max-width: 1170px ) {
+    .moduleCard_content.web {
+        grid-area: webCard;
+    }
+    .moduleCard_content.ecp {
+        grid-area: ecpCard;
+    }
+    .moduleCard_content.corr {
+        grid-area: corrCard;
+    }
+    .moduleCard_content.tasks {
+        grid-area: tasksCard;
+    }
+    .moduleCard_content.tachspec_approvals {
+        grid-area: tachspec_approvalsCard;
+    }
+    .baseModules_content_modules {
+        grid-template-columns: repeat(3 , 1fr);
+        grid-template-areas:
+            "webCard ecpCard corrCard"
+            "webCard tasksCard tachspec_approvalsCard"
+        ;
+    }
+}
+@media ( max-width: 1023px ) {
+    
+}
+@media ( max-width: 767px ) {
+    .baseModules_content_modules {
+        grid-template-columns: repeat(2 , 1fr);
+        grid-template-areas:
+            "webCard webCard"
+            "ecpCard corrCard"
+            "tasksCard tachspec_approvalsCard"
+        ;
+    }
+    .baseModules_content_main {
+        display: grid;
+        grid-template-columns: 20px 1fr 20px;
+        width: 100%;
+    }
+    .baseModules_content_main_card {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+@media ( max-width: 390px ) {
+    .baseModules_content_modules {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "webCard"
+            "ecpCard"
+            "corrCard"
+            "tasksCard"
+            "tachspec_approvalsCard"
+        ;
+    }
+}

@@ -1,0 +1,66 @@
+.cardProgram {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #5A61EB;
+    border-radius: 20px;
+    box-shadow: 0 0 2px 1px #5A61EB50;
+    padding: 15px;
+    transform: translateY(-100px);
+    opacity: 0;
+}
+.cardProgram_image {
+    height: 118px;
+    width: 95px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.cardProgram_image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.cardProgram_info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.cardProgram_info_title {
+    font-size: 20px;
+}
+
+
+.structure_content_tasks.show .cardProgram {
+    transform: translateY(0);
+    opacity: 1;
+}
+.structure_content_tasks.show .cardProgram:nth-child(1) {
+    transition: opacity .4s ease 2.6s, transform .4s ease 2.6s;
+    z-index: 4;
+}
+.structure_content_tasks.show .cardProgram:nth-child(2) {
+    transition: opacity .4s ease 2.8s, transform .4s ease 2.8s;
+    z-index: 3;
+}
+.structure_content_tasks.show .cardProgram:nth-child(3) {
+    transition: opacity .4s ease 3.0s, transform .4s ease 3.0s;
+    z-index: 2;
+}
+.structure_content_tasks.show .cardProgram:nth-child(4) {
+    transition: opacity .4s ease 3.2s, transform .4s ease 3.2s;
+    z-index: 1;
+}
+
+
+@media ( max-width: 1240px ) {
+    .cardProgram {
+        gap: 15px;
+    }
+    .cardProgram_image {
+        height: 100px;
+        width: 85px;
+    }
+}

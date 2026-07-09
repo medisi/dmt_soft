@@ -1,0 +1,289 @@
+/* DARK STYLES */
+.landing_page.dark {
+    background-color: #131B25;
+}
+.landing_page.dark .header {
+    background-color: #131B2570;
+}
+.landing_page.dark .footer {
+    background-color: #161E29;
+}
+.landing_page.dark .baseModules_content_slides,
+.landing_page.dark .preview_content
+{
+    background-color: #161E29;
+}
+.landing_page.dark .header_content_menu_item,
+.landing_page.dark .home_content_item_info,
+.landing_page.dark .header_content_btns_item.lang,
+.landing_page.dark .home_content_item_info_btns_item.demo,
+.landing_page.dark .home_content_item_info_btns_item.tutorial,
+.landing_page.dark .mobile_menu_btns_item.lang,
+.landing_page.dark .baseModules_content_titles span,
+.landing_page.dark .about_modules_content_modules_main_item_text,
+.landing_page.dark .moduleCard_content_item.name,
+.landing_page.dark .moduleSlide_info h2,
+.landing_page.dark .moduleSlide_info p,
+.landing_page.dark .structure_content_title,
+.landing_page.dark .structure_content_roles_item_text span,
+.landing_page.dark .structure_content_roles_roles_title,
+.landing_page.dark .structure_content_roles_roles_item_text,
+.landing_page.dark .structure_content_tasks_item_text,
+.landing_page.dark .structure_content_tasks_item_image span,
+.landing_page.dark .structure_content_tasks_item_tasks_item,
+.landing_page.dark .cardProgram_info_item,
+.landing_page.dark .whyNecessary_content_title,
+.landing_page.dark .whyNecessary_content_description,
+.landing_page.dark .necessary_card_info_text,
+.landing_page.dark .risks-list li,
+.landing_page.dark .description-text,
+.landing_page.dark .preview_content_info_title
+{
+    color: #fff;
+}
+.landing_page.dark #mobile_menu,
+.landing_page.dark .home_content_item_info_text,
+.landing_page.dark .structure_content_roles_arrows_item_text span,
+.landing_page.dark .structure_content_tasks_arrows_text,
+.landing_page.dark .preview_content_info_text,
+.landing_page.dark .footer_content_item_top_menu_item,
+.landing_page.dark .footer_content_item_bottom_item
+{
+    color: #fff5;
+}
+.landing_page.dark .footer_content_item_bottom_item.copyright {
+    color: #ffffff15;
+}
+.landing_page.dark .mobile_menu_item {
+    background-color: #ffffff10;
+    color: #fff;
+}
+.landing_page.dark .baseModules_prev img,
+.landing_page.dark .baseModules_next img {
+    filter: invert(0%);
+}
+.landing_page.dark .baseModules_content_main_line {
+    border-top: 1px dashed #fff5;
+}
+.landing_page.dark .baseModules_content_main_line.left {
+    border-left: 1px dashed #fff5;
+}
+.landing_page.dark .baseModules_content_main_line.right {
+    border-right: 1px dashed #fff5;
+}
+.landing_page.dark .structure_content_roles,
+.landing_page.dark .structure_content_tasks,
+.landing_page.dark .necessary_card
+{
+    background-color: #131B2550;
+}
+.landing_page.dark .structure_content_roles_arrows_item_text span.round {
+    border: 1px solid #fff5;
+}
+.landing_page.dark .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow {
+    background: linear-gradient(to right, #fff0, #fff);
+}
+.landing_page.dark .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow {
+    background: linear-gradient(to left, #fff0, #fff);
+}
+.landing_page.dark .structure_content_tasks_arrows_arrows_item.one {
+    background: linear-gradient(to left, #fff0, #fff);
+}
+.landing_page.dark .structure_content_tasks_arrows_arrows_item.two {
+    background: linear-gradient(to right, #fff0, #fff);
+}
+.landing_page.dark .structure_content_roles_arrows_item_arrow::before,
+.landing_page.dark .structure_content_roles_arrows_item_arrow::after,
+.landing_page.dark .structure_content_tasks_item_tasks_item::before,
+.landing_page.dark .structure_content_tasks_arrows_arrows_item::before,
+.landing_page.dark .structure_content_tasks_arrows_arrows_item::after
+{
+    background-color: #fff;
+}
+.landing_page.dark .structure_content_roles_roles_item.message {
+    border-left: 1px solid #fff4;
+    border-right: 1px solid #fff4;
+}
+.landing_page.dark .necessary_card.active .necessary_card_front {
+    border-bottom: 1px solid #fff2;
+}
+.landing_page.dark .necessary_card_back {
+  border-top: 1px solid #fff1;
+}
+@media ( max-width: 1170px ) {
+    .landing_page.dark .structure_content_tasks_arrows_arrows_item.one {
+        background: linear-gradient(to top, #fff0, #fff);
+    }
+    .landing_page.dark .structure_content_tasks_arrows_arrows_item.two {
+        background: linear-gradient(to bottom, #fff0, #fff);
+    }
+}
+@media ( max-width: 1000px ) {
+    .landing_page.dark .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow {
+        background: linear-gradient(to bottom, #fff0, #fff);
+    }
+    .landing_page.dark .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow {
+        background: linear-gradient(to top, #fff0, #fff);
+    }
+}
+@media ( max-width: 670px ) {
+    .landing_page.dark .structure_content_roles_roles_item.message {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #fff4;
+        border-bottom: 1px solid #fff4;
+    }
+}
+.landing_page.dark .cardProgram {
+    background-color: #131B2550;
+}
+
+
+
+/* LIGHT STYLES */
+.landing_page.light {
+    background-color: #EDF5FF;
+}
+.landing_page.light .header {
+    background-color: #EDF5FF70;
+}
+.landing_page.light .footer {
+    background-color: #EFEDFF;
+}
+.landing_page.light .baseModules_content_slides,
+.landing_page.light .preview_content
+{
+    background-color: #5A61EB15;
+}
+.landing_page.light .header_content_menu_item,
+.landing_page.light .home_content_item_info,
+.landing_page.light .header_content_btns_item.lang,
+.landing_page.light .home_content_item_info_btns_item.tutorial,
+.landing_page.light .mobile_menu_btns_item.lang,
+.landing_page.light .baseModules_content_titles span,
+.landing_page.light .moduleCard_content_item.name,
+.landing_page.light .moduleSlide_info h2,
+.landing_page.light .moduleSlide_info p,
+.landing_page.light .structure_content_title,
+.landing_page.light .structure_content_roles_item_text span,
+.landing_page.light .structure_content_roles_roles_title,
+.landing_page.light .structure_content_roles_roles_item_text,
+.landing_page.light .structure_content_tasks_item_text,
+.landing_page.light .structure_content_tasks_item_image span,
+.landing_page.light .structure_content_tasks_item_tasks_item,
+.landing_page.light .cardProgram_info_item,
+.landing_page.light .whyNecessary_content_title,
+.landing_page.light .whyNecessary_content_description,
+.landing_page.light .necessary_card_info_text,
+.landing_page.light .risks-list li,
+.landing_page.light .description-text,
+.landing_page.light .preview_content_info_title
+{
+    color: #1C1C1C;
+}
+.landing_page.light .home_content_item_info_btns_item.demo,
+.landing_page.light .about_modules_content_modules_main_item_text
+{
+    color: #fff;
+}
+.landing_page.light #mobile_menu,
+.landing_page.light .home_content_item_info_text,
+.landing_page.light .structure_content_roles_arrows_item_text span,
+.landing_page.light .structure_content_tasks_arrows_text,
+.landing_page.light .preview_content_info_text,
+.landing_page.light .footer_content_item_top_menu_item,
+.landing_page.light .footer_content_item_bottom_item
+{
+    color: #1C1C1C50;
+}
+.landing_page.light .footer_content_item_bottom_item.copyright {
+    color: #1C1C1C25;
+}
+.landing_page.light .mobile_menu_item {
+    background-color: #1C1C1C10;
+    color: #1C1C1C;
+}
+.landing_page.light .baseModules_prev img,
+.landing_page.light .baseModules_next img {
+    filter: invert(100%);
+}
+.landing_page.light .baseModules_content_main_line {
+    border-top: 1px dashed #1C1C1C50;
+}
+.landing_page.light .baseModules_content_main_line.left {
+    border-left: 1px dashed #1C1C1C50;
+}
+.landing_page.light .baseModules_content_main_line.right {
+    border-right: 1px dashed #1C1C1C50;
+}
+.landing_page.light .structure_content_roles,
+.landing_page.light .structure_content_tasks
+{
+    background-color: #b4b8f850;
+}
+.landing_page.light .structure_content_roles_arrows_item_text span.round {
+    border: 1px solid #1C1C1C50;
+}
+.landing_page.light .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow {
+    background: linear-gradient(to right, #1C1C1C00, #1C1C1C);
+}
+.landing_page.light .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow {
+    background: linear-gradient(to left, #1C1C1C00, #1C1C1C);
+}
+.landing_page.light .structure_content_tasks_arrows_arrows_item.one {
+    background: linear-gradient(to left, #fff0, #fff);
+}
+.landing_page.light .structure_content_tasks_arrows_arrows_item.two {
+    background: linear-gradient(to right, #fff0, #fff);
+}
+.landing_page.light .structure_content_roles_arrows_item_arrow::before,
+.landing_page.light .structure_content_roles_arrows_item_arrow::after,
+.landing_page.light .structure_content_tasks_item_tasks_item::before,
+.landing_page.light .structure_content_tasks_arrows_arrows_item::before,
+.landing_page.light .structure_content_tasks_arrows_arrows_item::after
+{
+    background-color: #1C1C1C;
+}
+.landing_page.light .structure_content_roles_roles_item.message {
+    border-left: 1px solid #1C1C1C40;
+    border-right: 1px solid #1C1C1C40;
+}
+.landing_page.light .necessary_card.active .necessary_card_front {
+    border-bottom: 1px solid #1C1C1C20;
+}
+.landing_page.light .necessary_card_back {
+  border-top: 1px solid #1C1C1C20;
+}
+.landing_page.light .structure_content_tasks_arrows_arrows_item.one {
+    background: linear-gradient(to left, #1C1C1C00, #1C1C1C);
+}
+.landing_page.light .structure_content_tasks_arrows_arrows_item.two {
+    background: linear-gradient(to right, #1C1C1C00, #1C1C1C);
+}
+@media ( max-width: 1170px ) {
+    .landing_page.light .structure_content_tasks_arrows_arrows_item.one {
+        background: linear-gradient(to top, #1C1C1C00, #1C1C1C);
+    }
+    .landing_page.light .structure_content_tasks_arrows_arrows_item.two {
+        background: linear-gradient(to bottom, #1C1C1C00, #1C1C1C);
+    }
+}
+@media ( max-width: 1000px ) {
+    .landing_page.light .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow {
+        background: linear-gradient(to bottom, #1C1C1C00, #1C1C1C);
+    }
+    .landing_page.light .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow {
+        background: linear-gradient(to top, #1C1C1C00, #1C1C1C);
+    }
+}
+@media ( max-width: 670px ) {
+    .landing_page.light .structure_content_roles_roles_item.message {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #1C1C1C40;
+        border-bottom: 1px solid #1C1C1C40;
+    }
+}
+.landing_page.light .cardProgram {
+    background-color: #DBE2FD;
+}
