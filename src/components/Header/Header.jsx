@@ -4,6 +4,7 @@ import { useLocalSettings } from '../../hooks/useLocalSettings';
 import darkIcon from '../../assets/icons/dark.png';
 import lightIcon from '../../assets/icons/light.png';
 import MobileMenu from '../MobileMenu/MobileMenu';
+import { ScrollLink } from '../../hooks/ScrollLink';
 
 const Header = () => {
     const { theme, lang, updateTheme, updateLang, isSettingsLoaded } = useLocalSettings();
@@ -65,28 +66,41 @@ const Header = () => {
                             }
                         </div>
 
-                        <a href="#" className="header_content_logo anim">
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' })
+                            }}
+                            className="header_content_logo anim"
+                        >
                             <img src={require('../../assets/images/logo.png')} alt="" />
                         </a>
                         <nav className="header_content_menu anim">
-                            <a href="#baseModules" className="header_content_menu_item text">
+                            <ScrollLink
+                                to="#baseModules"
+                                className="header_content_menu_item text"
+                            >
                                 {lang === 'ru'
                                     ? 'Продукты'
                                     : 'Products'
                                 }
-                            </a>
+                            </ScrollLink>
                             <div className="header_content_menu_item text">
                                 {lang === 'ru'
                                     ? 'Клиенты'
                                     : 'Clients'
                                 }
                             </div>
-                            <div className="header_content_menu_item text">
+                            <ScrollLink
+                                to="#news"
+                                className="header_content_menu_item text"
+                            >
                                 {lang === 'ru'
                                     ? 'Компания'
                                     : 'Company'
                                 }
-                            </div>
+                            </ScrollLink>
                             <div className="header_content_menu_item text">
                                 {lang === 'ru'
                                     ? 'Загрузки'

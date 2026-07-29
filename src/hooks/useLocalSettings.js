@@ -3,9 +3,10 @@ import React, { createContext, useCallback, useContext, useEffect, useState } fr
 const SettingsContext = createContext(null);
 
 export const SettingsProvider = ({ children }) => {
-  const [isSettingsLoaded, setIsSettingsLoaded] = useState(false);
-  const [theme, setTheme] = useState("dark");
-  const [lang, setLang] = useState("ru");
+  const [ isSettingsLoaded, setIsSettingsLoaded ] = useState(false);
+  const [ theme, setTheme ] = useState("dark");
+  const [ lang, setLang ] = useState("ru");
+  const [ animCount, setAnimCount ] = useState(0);
 
   useEffect(() => {
     const loadSettings = () => {
@@ -15,9 +16,10 @@ export const SettingsProvider = ({ children }) => {
           const parsed = JSON.parse(saved);
           setTheme(parsed.theme ?? "dark");
           setLang(parsed.lang ?? "ru");
+          setAnimCount(parsed.animCount ?? 0);
           setIsSettingsLoaded(true);
         } else {
-          localStorage.setItem("dmtSoft_website", JSON.stringify({ theme: "dark", lang: "ru" }));
+          localStorage.setItem("dmtSoft_website", JSON.stringify({ theme: "dark", lang: "ru", animCount: 0 }));
           setIsSettingsLoaded(true);
         }
       } catch (err) {
@@ -28,7 +30,7 @@ export const SettingsProvider = ({ children }) => {
   }, []);
 
   const save = (overrides) => {
-    const data = { theme, lang, ...overrides };
+    const data = { theme, lang, animCount, ...overrides };
     try {
       localStorage.setItem("dmtSoft_website", JSON.stringify(data));
     } catch (e) {
@@ -45,9 +47,17 @@ export const SettingsProvider = ({ children }) => {
     setLang(newLang);
     save({ lang: newLang });
   };
+  const updateAnimCount = (newAnimCount) => {
+    setAnimCount(newAnimCount);
+    save({ animCount: newAnimCount });
+  };
+
+  const resetSettings = () => {
+    save({ theme: 'dark', lang: 'ru', animCount: 0 });
+  };
 
   return (
-    <SettingsContext.Provider value={{ theme, lang, isSettingsLoaded, updateTheme, updateLang }}>
+    <SettingsContext.Provider value={{ theme, lang, animCount, isSettingsLoaded, updateTheme, updateLang, updateAnimCount, resetSettings }}>
       <div className={`landing_page ${theme}`}>
         {children}
       </div>
@@ -62,75 +72,3 @@ export const useLocalSettings = () => {
   }
   return context;
 };
-
-
-
-
-// const useLocalSettings = () => {
-//     const [ isSettingsLoaded, setIsSettingsLoaded ] = useState(false);
-//     const [ theme, setTheme ] = useState('dark');
-//     const [ lang, setLang ] = useState('ru');
-
-//     // чтение из локального хранилища
-//     useEffect(() => {
-//         const loadSettings = () => {
-//             try {
-//                 const savedSettings = localStorage.getItem('dmtSoft_website');
-//                 if (savedSettings) {
-//                     const parsed = JSON.parse(savedSettings);
-//                     setTheme(parsed.theme ?? 'dark');
-//                     setLang(parsed.lang ?? 'ru');
-//                     setIsSettingsLoaded(true);
-//                 } else {
-//                     const defaultSettings = {
-//                         theme: 'dark',
-//                         lang: 'ru'
-//                     };
-//                     localStorage.setItem('dmtSoft_website', JSON.stringify(defaultSettings));
-//                 }
-//             } catch (err) {
-//                 setIsSettingsLoaded(true);
-//             }
-//         };
-//         loadSettings();
-//     }, []);
-
-//     const getCurrentSettings = useCallback(() => ({
-//         theme,
-//         lang
-//     }), [
-//         theme, lang
-//     ]);
-
-//     // универсальная функция сохранения
-//     const saveToLocalStorage = useCallback((overrides = {}) => {
-//         const settings = { ...getCurrentSettings(), ...overrides };
-//         try {
-//             localStorage.setItem('dmtSoft_website', JSON.stringify(settings));
-//         } catch (err) {
-//             console.log('Ошибка сохранения в localStorage: ', err);
-//         }
-//     }, [getCurrentSettings]);
-
-//     // обновление темы
-//     const updateTheme = useCallback((newTheme) => {
-//         setTheme(newTheme);
-//         saveToLocalStorage({ theme: newTheme });
-//     }, [saveToLocalStorage]);
-//     // обновление языка
-//     const updateLang = useCallback((newLang) => {
-//         setLang(newLang);
-//         saveToLocalStorage({ lang: newLang });
-//     }, [saveToLocalStorage]);
-
-//     return {
-//         theme,
-//         lang,
-//         isSettingsLoaded,
-//         updateTheme,
-//         updateLang,
-//         getCurrentSettings
-//     };
-// };
-
-// export default useLocalSettings;

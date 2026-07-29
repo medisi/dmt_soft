@@ -1,0 +1,99 @@
+
+.contentArticle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+    margin-bottom: 50px;
+}
+.contentArticle_content_head {
+    margin-top: 40px;
+    width: 100%;
+    height: 50px;
+}
+#contentArticle_content_head_back {
+    height: 50px;
+    width: 130px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: #5A61EB;
+    cursor: pointer;
+}
+
+.contentArticle_content_article {
+    padding: 50px;
+    background-color: #1c293a;
+    border-radius: 20px;
+}
+.contentArticle_content_article_content_title {
+    font-size: 30px;
+}
+.contentArticle_content_article_content_time {
+    margin: 10px 0 40px;
+}
+
+.contentArticle_content_article_content_image {
+    width: 100%;
+    height: 382px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+.contentArticle_content_article_content_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+.contentArticle_content_article_content_parags {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contentArticle_content_article_content_parags_item {
+    text-align: justify;
+}
+
+
+.contentArticle_content_article_content_item {
+    color: #fff;
+}
+.contentArticle_content_article_content_time {
+    color: #fff5;
+}
+
+@media ( min-width: 1900px ) {
+    .contentArticle_content_article_content_title {
+        font-size: 48px;
+    }
+    .contentArticle_content_article_content_time,
+    .contentArticle_content_article_content_parags_item,
+    #contentArticle_content_head_back
+    {
+        font-size: 22px;
+    }
+}
+@media ( max-width: 800px ) {
+    .contentArticle_content_article_content_image {
+        height: 260px;
+    }
+    .contentArticle_content_article {
+        padding: 35px;
+    }
+}
+@media ( max-width: 550px ) {
+    .contentArticle_content_article_content_image {
+        height: 200px;
+    }
+    .contentArticle_content_article {
+        padding: 25px;
+    }
+}

@@ -14,25 +14,11 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
     const swiperRef = useRef(null);
 
     useEffect(() => {
-        // Синхронизируем слайдер с внешним индексом (если он изменился снаружи)
         if (swiperRef.current) {
             swiperRef.current.slideTo(initialIndex, 300, false);
         }
     }, [initialIndex]);
 
-
-    const cards = document.querySelectorAll('.anim');
-    const checkCards = () => {
-        const trigger = (window.innerHeight / 5) * 4.5;
-        for (const card of cards) {
-            const topOfCard = card.getBoundingClientRect().top;
-            if (topOfCard < trigger) {
-                card.classList.add('show');
-            }
-        }
-    };
-    checkCards();
-    window.addEventListener('scroll', checkCards);
     
     return (
         <>

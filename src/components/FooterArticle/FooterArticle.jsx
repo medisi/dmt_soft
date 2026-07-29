@@ -20,7 +20,7 @@ const FooterArticle = () => {
 
     return (
         <>
-            <footer className="footer anim">
+            <footer className="footer article anim">
                 <div className="container">
                     <div className="footer_content">
                         <div className="footer_content_item_top">
@@ -28,7 +28,7 @@ const FooterArticle = () => {
                                 <div className="footer_content_item_top_logo">
                                     <img src={require('../../assets/images/logo.png')} alt="" />
                                 </div>
-                                <div className="footer_content_item_top_text text">
+                                <div className="footer_content_item_top_text suptext">
                                     {lang === 'ru'
                                         ? 'Единая цифровая среда для создания, хранения, обновления и работы с данными инфраструктурных проектов'
                                         : 'A unified digital environment for creating, storing, updating, and working with infrastructure project data'
@@ -40,7 +40,7 @@ const FooterArticle = () => {
 
                         <div className="footer_content_item_bottom">
                             <div className="footer_content_item_bottom_item copyright">
-                                <span className="text">
+                                <span className="suptext">
                                     {lang === 'ru'
                                         ? '© ДМТ Софт, 2016-2026'
                                         : '© DMT Soft, 2016-2026'
@@ -48,13 +48,13 @@ const FooterArticle = () => {
                                 </span>
                             </div>
                             <div className="footer_content_item_bottom_item">
-                                <span className="text">
+                                <span className="suptext">
                                     {lang === 'ru'
                                         ? 'Политика конфиденциальности'
                                         : 'Privacy policy'
                                     }
                                 </span>
-                                <span className="text">
+                                <span className="suptext">
                                     {lang === 'ru'
                                         ? 'Обработка персональных данных'
                                         : 'Processing of personal data'

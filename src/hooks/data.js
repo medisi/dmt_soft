@@ -81,8 +81,8 @@ export const PROGRAMMS = [
     {
         id: 3,
         title: 'GIMP, FastStone Image Viewer',
-        description_ru: 'Инструменты создания, редактирования и просмотра графических материалов',
-        description_en: 'Tools for creating, editing, and viewing graphic materials',
+        description_ru: 'Инструменты создания, редактирования и просмотра графических материалов и видео файлов',
+        description_en: 'Tools for creating, editing, and viewing graphic materials and video files',
         image: 'draw',
     },
     {

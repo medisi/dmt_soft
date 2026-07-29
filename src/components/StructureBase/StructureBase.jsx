@@ -7,18 +7,18 @@ import CardProgram from "./CardProgram/CardProgram";
 const StructureBase = () => {
     const { lang } = useLocalSettings();
 
-    const cards = document.querySelectorAll('.anim');
-    const checkCards = () => {
-        const trigger = (window.innerHeight / 5) * 4.5;
-        for (const card of cards) {
-            const topOfCard = card.getBoundingClientRect().top;
-            if (topOfCard < trigger) {
-                card.classList.add('show');
-            }
-        }
-    };
-    checkCards();
-    window.addEventListener('scroll', checkCards);
+    // const cards = document.querySelectorAll('.anim');
+    // const checkCards = () => {
+    //     const trigger = (window.innerHeight / 5) * 4.5;
+    //     for (const card of cards) {
+    //         const topOfCard = card.getBoundingClientRect().top;
+    //         if (topOfCard < trigger) {
+    //             card.classList.add('show');
+    //         }
+    //     }
+    // };
+    // checkCards();
+    // window.addEventListener('scroll', checkCards);
 
     return (
         <>

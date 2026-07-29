@@ -14,18 +14,18 @@ const { lang } = useLocalSettings();
   const hasPoints = Array.isArray(item.points) && item.points.length > 0;
   const hasDescription = item.description_ru || item.description_en;
 
-  const cards = document.querySelectorAll('.anim');
-  const checkCards = () => {
-      const trigger = (window.innerHeight / 5) * 4.5;
-      for (const card of cards) {
-          const topOfCard = card.getBoundingClientRect().top;
-          if (topOfCard < trigger) {
-              card.classList.add('show');
-          }
-      }
-  };
-  checkCards();
-  window.addEventListener('scroll', checkCards);
+  // const cards = document.querySelectorAll('.anim');
+  // const checkCards = () => {
+  //     const trigger = (window.innerHeight / 5) * 4.5;
+  //     for (const card of cards) {
+  //         const topOfCard = card.getBoundingClientRect().top;
+  //         if (topOfCard < trigger) {
+  //             card.classList.add('show');
+  //         }
+  //     }
+  // };
+  // checkCards();
+  // window.addEventListener('scroll', checkCards);
 
   return (
     <div

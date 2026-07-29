@@ -15,29 +15,16 @@ const HeaderArticle = () => {
     }, [theme, isSettingsLoaded]);
     const themeIcon = theme === 'dark' ? darkIcon : lightIcon;
 
-    const cards = document.querySelectorAll('.anim');
-    const checkCards = () => {
-        const trigger = (window.innerHeight / 5) * 4.5;
-        for (const card of cards) {
-            const topOfCard = card.getBoundingClientRect().top;
-            if (topOfCard < trigger) {
-                card.classList.add('show');
-            }
-        }
-    };
-    checkCards();
-    window.addEventListener('scroll', checkCards);
-
     return (
         <>
             <div className={`header headerNew`}>
                 <div className="container">
                     <div className="header_content">
-                        <a href="#" className="header_content_logo anim">
+                        <a href="#" className="header_content_logo">
                             <img src={require('../../assets/images/logo.png')} alt="" />
                         </a>
 
-                        <div className={`header_content_btns anim`}>
+                        <div className={`header_content_btns`}>
                             <div
                                 className="header_content_btns_item theme"
                                 onClick={() => updateTheme(theme === 'dark' ? 'light' : 'dark')}

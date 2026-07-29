@@ -18,7 +18,7 @@
     width: 100%;
     margin-bottom: 40px;
 }
-.baseModules_content_titles span.title {
+/* .baseModules_content_titles span.title {
     transform: translateY(-100px);
     opacity: 0;
     transition: transform .4s ease, opacity .4s ease;
@@ -27,12 +27,20 @@
     transform: translateY(-100px);
     opacity: 0;
     transition: transform .4s ease .5s, opacity .4s ease .5s;
-}
-.baseModules_content_titles.show span.title {
+} */
+/* .baseModules_content_titles.show span.title {
     transform: translateY(0);
     opacity: 1;
 }
 .baseModules_content_titles.show span.text {
+    transform: translateY(0);
+    opacity: 1;
+} */
+.baseModules_content_titles span.title {
+    transform: translateY(0);
+    opacity: 1;
+}
+.baseModules_content_titles span.text {
     transform: translateY(0);
     opacity: 1;
 }
@@ -47,7 +55,7 @@
     align-items: end;
     margin-bottom: 30px;
 }
-.baseModules_content_main.show .baseModules_content_main_line {
+/* .baseModules_content_main.show .baseModules_content_main_line {
     opacity: 1;
 }
 .baseModules_content_main.show .baseModules_content_main_card .about_modules_content_modules_main_item_image img {
@@ -55,6 +63,17 @@
     opacity: 1;
 }
 .baseModules_content_main.show .baseModules_content_main_card .about_modules_content_modules_main_item_text {
+    transform: translateY(0);
+    opacity: 1;
+} */
+.baseModules_content_main .baseModules_content_main_line {
+    opacity: 1;
+}
+.baseModules_content_main .baseModules_content_main_card .about_modules_content_modules_main_item_image img {
+    transform: translateY(0);
+    opacity: 1;
+}
+.baseModules_content_main .baseModules_content_main_card .about_modules_content_modules_main_item_text {
     transform: translateY(0);
     opacity: 1;
 }
@@ -110,7 +129,23 @@
     margin-bottom: 50px;
 }
 
-
+@media ( min-width: 1900px ) {
+    .baseModules_content_titles span.title {
+        font-size: 28px;
+    }
+    .baseModules_content_titles span.text,
+    .about_modules_content_modules_main_item_text
+    {
+        font-size: 22px;
+    }
+    .baseModules_content_main_card {
+        max-width: 350px;
+        max-height: 100%;
+    }
+    .about_modules_content_modules_main_item_image img {
+        height: 160px;
+    }
+}
 @media ( min-width: 1440px ) {
     .baseModules_content_modules {
         grid-template-columns: repeat(5, 1fr);

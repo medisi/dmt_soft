@@ -3,6 +3,7 @@ import './MobileMenu.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import darkIcon from '../../assets/icons/dark.png';
 import lightIcon from '../../assets/icons/light.png';
+import { ScrollLink } from "../../hooks/ScrollLink";
 
 const MobileMenu = ({ onTap }) => {
     const { lang, theme, updateTheme, updateLang, isSettingsLoaded } = useLocalSettings();
@@ -18,24 +19,32 @@ const MobileMenu = ({ onTap }) => {
     return (
         <>
             <div className='mobile_menu'>
-                <a href="#baseModules" className="mobile_menu_item text" onClick={onTap}>
+                <ScrollLink
+                    to="#baseModules"
+                    className="mobile_menu_item text"
+                    onClick={onTap}
+                >
                     {lang === 'ru'
                         ? 'Продукты'
                         : 'Products'
                     }
-                </a>
+                </ScrollLink>
                 <div className="mobile_menu_item" onClick={onTap}>
                     {lang === 'ru'
                         ? 'Клиенты'
                         : 'Clients'
                     }
                 </div>
-                <div className="mobile_menu_item text" onClick={onTap}>
+                <ScrollLink
+                    to="#news"
+                    className="mobile_menu_item text"
+                    onClick={onTap}
+                >
                     {lang === 'ru'
                         ? 'Компания'
                         : 'Company'
                     }
-                </div>
+                </ScrollLink>
                 <div className="mobile_menu_item text" onClick={onTap}>
                     {lang === 'ru'
                         ? 'Загрузки'

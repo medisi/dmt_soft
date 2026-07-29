@@ -22,20 +22,30 @@
 }
 .preview_content_info_title {
     font-size: 32px;
-    transform: translateY(-100px);
-    opacity: 0;
+    /* transform: translateY(-100px);
+    opacity: 0; */
     transition: transform .4s ease 0s, opacity .4s ease 0s;
 }
-.preview_content_info_title.show {
+/* .preview_content_info_title.show {
+    font-size: 32px;
+    transform: translateY(0);
+    opacity: 1;
+} */
+.preview_content_info_title {
     font-size: 32px;
     transform: translateY(0);
     opacity: 1;
 }
-.preview_content_info_text {
+/* .preview_content_info_text {
     opacity: 0;
     transition: opacity .4s ease 1s;
-}
-.preview_content_info_text.show {
+} */
+/* .preview_content_info_text.show {
+    animation: textDemoEffect 2s linear 1;
+    animation-delay: 1s;
+    opacity: 1;
+} */
+.preview_content_info_text {
     animation: textDemoEffect 2s linear 1;
     animation-delay: 1s;
     opacity: 1;
@@ -74,11 +84,15 @@
     overflow: hidden;
     height: 69px;
     width: max-content;
-    transform: translateY(100px);
-    opacity: 0;
+    /* transform: translateY(100px);
+    opacity: 0; */
     transition: transform .4s ease .2s, opacity .4s ease .2s;
 }
-.preview_content_info_btn.show {
+/* .preview_content_info_btn.show {
+    transform: translateY(0);
+    opacity: 1;
+} */
+.preview_content_info_btn {
     transform: translateY(0);
     opacity: 1;
 }
@@ -130,11 +144,15 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    transform: scale(0);
-    opacity: 0;
+    /* transform: scale(0);
+    opacity: 0; */
     transition: transform .4s ease .5s, opacity .4s ease .5s;
 }
-.preview_content_video_content.show {
+/* .preview_content_video_content.show {
+    transform: scale(1);
+    opacity: 1;
+} */
+.preview_content_video_content {
     transform: scale(1);
     opacity: 1;
 }
@@ -219,7 +237,19 @@
     }
 }
 
-
+@media ( min-width: 1900px ) {
+    .preview_content_info_title {
+        font-size: 40px;
+    }
+    .preview_content_info_text,
+    .preview_content_info_btn span
+    {
+        font-size: 22px;
+    }
+    .preview_content_info_btn img {
+        height: 25px;
+    }
+}
 @media ( max-width: 1200px ) {
     .preview_content {
         gap: 20px;

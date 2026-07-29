@@ -40,14 +40,13 @@
 .landing_page.dark .description-text,
 .landing_page.dark .preview_content_info_title,
 .landing_page.dark .news_content_title,
-.landing_page.dark .news_content_cards_item_title
+.landing_page.dark .news_content_cards_item_title,
+.landing_page.dark .structure_content_roles_arrows_item_text span,
+.landing_page.dark .structure_content_tasks_arrows_text
 {
     color: #fff;
 }
 .landing_page.dark #mobile_menu,
-.landing_page.dark .home_content_item_info_text,
-.landing_page.dark .structure_content_roles_arrows_item_text span,
-.landing_page.dark .structure_content_tasks_arrows_text,
 .landing_page.dark .preview_content_info_text,
 .landing_page.dark .footer_content_item_top_menu_item,
 .landing_page.dark .footer_content_item_bottom_item,
@@ -55,6 +54,9 @@
 .landing_page.dark .news_content_cards_item_texts_item
 {
     color: #fff5;
+}
+.landing_page.dark .home_content_item_info_text {
+    color: #fff9;
 }
 .landing_page.dark .footer_content_item_bottom_item.copyright {
     color: #ffffff15;
@@ -68,13 +70,13 @@
     filter: invert(0%);
 }
 .landing_page.dark .baseModules_content_main_line {
-    border-top: 1px dashed #fff5;
+    border-top: 1px dashed #fff9;
 }
 .landing_page.dark .baseModules_content_main_line.left {
-    border-left: 1px dashed #fff5;
+    border-left: 1px dashed #fff9;
 }
 .landing_page.dark .baseModules_content_main_line.right {
-    border-right: 1px dashed #fff5;
+    border-right: 1px dashed #fff9;
 }
 .landing_page.dark .structure_content_roles,
 .landing_page.dark .structure_content_tasks,
@@ -142,6 +144,9 @@
 .landing_page.dark .cardProgram {
     background-color: #131B2550;
 }
+.landing_page.dark .header_content::before {
+    background: linear-gradient(to right, #fff0, #fff5, #fff0);
+}
 
 
 
@@ -185,7 +190,9 @@
 .landing_page.light .description-text,
 .landing_page.light .preview_content_info_title,
 .landing_page.light .news_content_title,
-.landing_page.light .news_content_cards_item_title
+.landing_page.light .news_content_cards_item_title,
+.landing_page.light .structure_content_roles_arrows_item_text span,
+.landing_page.light .structure_content_tasks_arrows_text
 {
     color: #1C1C1C;
 }
@@ -195,9 +202,6 @@
     color: #fff;
 }
 .landing_page.light #mobile_menu,
-.landing_page.light .home_content_item_info_text,
-.landing_page.light .structure_content_roles_arrows_item_text span,
-.landing_page.light .structure_content_tasks_arrows_text,
 .landing_page.light .preview_content_info_text,
 .landing_page.light .footer_content_item_top_menu_item,
 .landing_page.light .footer_content_item_bottom_item,
@@ -205,6 +209,9 @@
 .landing_page.light .news_content_cards_item_texts_item
 {
     color: #1C1C1C50;
+}
+.landing_page.light .home_content_item_info_text {
+    color: #1C1C1C90;
 }
 .landing_page.light .footer_content_item_bottom_item.copyright {
     color: #1C1C1C25;
@@ -218,13 +225,13 @@
     filter: invert(100%);
 }
 .landing_page.light .baseModules_content_main_line {
-    border-top: 1px dashed #1C1C1C50;
+    border-top: 1px dashed #1C1C1C90;
 }
 .landing_page.light .baseModules_content_main_line.left {
-    border-left: 1px dashed #1C1C1C50;
+    border-left: 1px dashed #1C1C1C90;
 }
 .landing_page.light .baseModules_content_main_line.right {
-    border-right: 1px dashed #1C1C1C50;
+    border-right: 1px dashed #1C1C1C90;
 }
 .landing_page.light .structure_content_roles,
 .landing_page.light .structure_content_tasks
@@ -296,4 +303,7 @@
 }
 .landing_page.light .cardProgram {
     background-color: #DBE2FD;
+}
+.landing_page.light .header_content::before {
+    background: linear-gradient(to right, #1C1C1C00, #1C1C1C50, #1C1C1C00);
 }

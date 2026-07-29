@@ -1,22 +1,10 @@
 import React from "react";
 import './Footer.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
+import { ScrollLink } from "../../hooks/ScrollLink";
 
 const Footer = () => {
     const { lang } = useLocalSettings();
-
-    const cards = document.querySelectorAll('.anim');
-    const checkCards = () => {
-        const trigger = (window.innerHeight / 5) * 4;
-        for (const card of cards) {
-            const topOfCard = card.getBoundingClientRect().top;
-            if (topOfCard < trigger) {
-                card.classList.add('show');
-            }
-        }
-    };
-    checkCards();
-    window.addEventListener('scroll', checkCards);
 
     return (
         <>
@@ -28,7 +16,7 @@ const Footer = () => {
                                 <div className="footer_content_item_top_logo">
                                     <img src={require('../../assets/images/logo.png')} alt="" />
                                 </div>
-                                <div className="footer_content_item_top_text text">
+                                <div className="footer_content_item_top_text suptext">
                                     {lang === 'ru'
                                         ? 'Единая цифровая среда для создания, хранения, обновления и работы с данными инфраструктурных проектов'
                                         : 'A unified digital environment for creating, storing, updating, and working with infrastructure project data'
@@ -37,24 +25,30 @@ const Footer = () => {
                             </div>
                             <div className="footer_content_item_top_menu">
                                 <nav>
-                                    <a href="#baseModules" className="footer_content_item_top_menu_item text">
+                                    <ScrollLink
+                                        to="#baseModules"
+                                        className="footer_content_item_top_menu_item text"
+                                    >
                                         {lang === 'ru'
                                             ? 'Продукты'
                                             : 'Products'
                                         }
-                                    </a>
+                                    </ScrollLink>
                                     <div className="footer_content_item_top_menu_item text">
                                         {lang === 'ru'
                                             ? 'Клиенты'
                                             : 'Clients'
                                         }
                                     </div>
-                                    <div className="footer_content_item_top_menu_item text">
+                                    <ScrollLink
+                                        to="#news"
+                                        className="footer_content_item_top_menu_item text"
+                                    >
                                         {lang === 'ru'
                                             ? 'Компания'
                                             : 'Company'
                                         }
-                                    </div>
+                                    </ScrollLink>
                                     <div className="footer_content_item_top_menu_item text">
                                         {lang === 'ru'
                                             ? 'Загрузки'
@@ -73,7 +67,7 @@ const Footer = () => {
 
                         <div className="footer_content_item_bottom">
                             <div className="footer_content_item_bottom_item copyright">
-                                <span className="text">
+                                <span className="suptext">
                                     {lang === 'ru'
                                         ? '© ДМТ Софт, 2016-2026'
                                         : '© DMT Soft, 2016-2026'
@@ -81,13 +75,13 @@ const Footer = () => {
                                 </span>
                             </div>
                             <div className="footer_content_item_bottom_item">
-                                <span className="text">
+                                <span className="suptext">
                                     {lang === 'ru'
                                         ? 'Политика конфиденциальности'
                                         : 'Privacy policy'
                                     }
                                 </span>
-                                <span className="text">
+                                <span className="suptext">
                                     {lang === 'ru'
                                         ? 'Обработка персональных данных'
                                         : 'Processing of personal data'

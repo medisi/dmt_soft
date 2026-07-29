@@ -41,13 +41,16 @@
     width: 100%;
     height: auto;
 }
+
 .footer_content_item_top_text {
     color: #B4B4B4;
     width: 100%;
-    max-width: 430px;
     transform: translateX(-100px);
     opacity: 0;
     transition: transform .4s ease .3s, opacity .4s ease .3s;
+}
+.footer.article .footer_content_item_top_text {
+    max-width: 100%;
 }
 .footer.show .footer_content_item_top_text {
     transform: translateX(0);

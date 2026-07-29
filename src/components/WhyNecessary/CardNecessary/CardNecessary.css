@@ -83,14 +83,18 @@
 
 
 .necessary_card {
-  transform: translateY(-100px);
-  opacity: 0;
+  /* transform: translateY(-100px);
+  opacity: 0; */
 }
-.necessary_card.show {
+/* .necessary_card.show {
+  transform: translateY(0);
+  opacity: 1;
+} */
+.necessary_card {
   transform: translateY(0);
   opacity: 1;
 }
-.whyNecessary_content_cards .necessary_card:nth-child(1).show {
+/* .whyNecessary_content_cards .necessary_card:nth-child(1).show {
   transition: transform .4s ease .5s, opacity .4s ease .5s;
 }
 .whyNecessary_content_cards .necessary_card:nth-child(2).show {
@@ -98,8 +102,24 @@
 }
 .whyNecessary_content_cards .necessary_card:nth-child(3).show {
   transition: transform .4s ease .9s, opacity .4s ease .9s;
-}
+} */
 
+@media ( min-width: 1900px ) {
+  .necessary_card_info_text,
+  .necessary_card_back ol li,
+  .necessary_card_back p
+  {
+    font-size: 22px;
+  }
+  .necessary_card_info_icon {
+    width: 62px;
+    height: 62px;
+  }
+  .necessary_card_info_icon img {
+    width: 45px;
+    height: 45px;
+  }
+}
 @media (max-width: 768px) {
   .risks-list {
     column-count: 1;
