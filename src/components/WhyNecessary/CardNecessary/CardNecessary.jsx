@@ -9,23 +9,11 @@ const { lang } = useLocalSettings();
 
   const getText = () => (lang === "ru" ? item.title_ru : item.title_en);
   const getDescription = () => (lang === "ru" ? item.description_ru : item.description_en);
+  const getMore = (mor) => (lang === "ru" ? mor.title_ru : mor.title_en);
   const getPoint = (point) => (lang === "ru" ? point.point_ru : point.point_en);
 
-  const hasPoints = Array.isArray(item.points) && item.points.length > 0;
+  const hasPoints = Array.isArray(item.more) && item.more.length > 0;
   const hasDescription = item.description_ru || item.description_en;
-
-  // const cards = document.querySelectorAll('.anim');
-  // const checkCards = () => {
-  //     const trigger = (window.innerHeight / 5) * 4.5;
-  //     for (const card of cards) {
-  //         const topOfCard = card.getBoundingClientRect().top;
-  //         if (topOfCard < trigger) {
-  //             card.classList.add('show');
-  //         }
-  //     }
-  // };
-  // checkCards();
-  // window.addEventListener('scroll', checkCards);
 
   return (
     <div
@@ -77,11 +65,21 @@ const { lang } = useLocalSettings();
         <div className="necessary_card_back">
           {hasPoints ? (
             <ol className="risks-list">
-              {item.points.map((point) => (
+              {item.more.map((m) => (
+                <>
+                  <li key={m.id} className="text">
+                    {getMore(m)}
+                  </li>
+                  {m.points.map((point) => (
+                    <span className="text risks-list-text">{getPoint(point)}</span>
+                  ))}
+                </>
+              ))}
+              {/* {item.points.map((point) => (
                 <li key={point.id} className="text">
                   {getPoint(point)}
                 </li>
-              ))}
+              ))} */}
             </ol>
           ) : hasDescription ? (
             <p className="text description-text">{getDescription()}</p>

@@ -11,8 +11,8 @@ const BlockForDemo = () => {
                     <div className="blockForDemo_content">
                         <div className="blockForDemo_content_title text">
                             {lang === 'ru'
-                                ? 'Узнайте, как работает DMT Base — всего 2 минуты'
-                                : 'Learn how DMT Base works in just 2 minutes'
+                                ? 'Узнайте, как работает наш программный комплекс'
+                                : 'Find out how our software package works'
                             }
                         </div>
                         <div className="blockForDemo_content_image">

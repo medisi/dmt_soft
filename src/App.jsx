@@ -4,6 +4,7 @@ import { SettingsProvider } from "./hooks/useLocalSettings";
 import "./styles/theme.css";
 import MainPage from "./pages/MainPage";
 import ArticlePage from "./pages/ArticlePage";
+import ArticlesPage from "./pages/ArticlesPage";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/new_content" element={<ArticlePage />} />
+          <Route path="/article/:idArticle" element={<ArticlePage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
         </Routes>
       </>
     </SettingsProvider>

@@ -10,22 +10,15 @@ const BaseModules = () => {
     const [ activeModule, setActiveModule ] = useState(1);
     const [ activeIndex, setActiveIndex ] = useState(0);
     
-    const handleClick = (moduleId) => {
-        setActiveModule(moduleId);
-    };
-    
-    // const cards = document.querySelectorAll('.anim');
-    // const checkCards = () => {
-    //     const trigger = (window.innerHeight / 5) * 4.5;
-    //     for (const card of cards) {
-    //         const topOfCard = card.getBoundingClientRect().top;
-    //         if (topOfCard < trigger) {
-    //             card.classList.add('show');
-    //         }
-    //     }
+    // const handleClick = (moduleId) => {
+    //     setActiveModule(moduleId);
     // };
-    // checkCards();
-    // window.addEventListener('scroll', checkCards);
+    const handleClick = () => {
+        const el = document.getElementById("sliderCustom");
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <>
@@ -70,7 +63,10 @@ const BaseModules = () => {
                                     title={lang === 'ru' ? item.title_ru : item.title_en}
                                     image={item.image}
                                     isActive={activeIndex === idx}
-                                    onClick={() => setActiveIndex(idx)}
+                                    onClick={() => {
+                                        setActiveIndex(idx);
+                                        handleClick();
+                                    }}
                                 />
                             ))}
                         </div>

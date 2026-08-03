@@ -7,7 +7,7 @@ const NewCard = ({ id, image, time, title, articles }) => {
     const { lang } = useLocalSettings();
 
     return (
-        <div className="news_content_cards_item box_shadow anim">
+        <div className="news_content_cards_item box_shadow">
             <div className="news_content_cards_item_image">
                 <img src={require(`../../../assets/images/${image}`)} alt="" />
             </div>
@@ -16,16 +16,19 @@ const NewCard = ({ id, image, time, title, articles }) => {
             <div className="news_content_cards_item_texts">
                 {articles.map((item) => (
                     <p className="news_content_cards_item_texts_item text">
-                        {lang === 'ru' ? item.article_ru : item.article_en}
+                        {item.article}
                     </p>
                 ))}
             </div>
             <Link
-                to="/new_content"
+                to={`/article/${encodeURIComponent(id)}`}
+                target="_blank"
                 className="news_content_cards_item_btn text"
-                state={id}
             >
-                Подробнее
+                {lang === 'ru'
+                    ? 'Подробнее'
+                    : 'More detailed'
+                }
             </Link>
         </div>
     )

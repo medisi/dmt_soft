@@ -9,8 +9,10 @@ const CardProgram = ({ image, title, description}) => {
                     <img src={require(`../../../assets/images/${image}.png`)} alt="" />
                 </div>
                 <div className="cardProgram_info">
-                    <div className="cardProgram_info_item cardProgram_info_title bold">{title}</div>
-                    <div className="cardProgram_info_item cardProgram_info_text text">{description}</div>
+                    {title && (
+                        <div className="cardProgram_info_item cardProgram_info_title bold">{title}</div>
+                    )}
+                    <div className={`cardProgram_info_item cardProgram_info_text text ${title ? '' : 'notitle'}`}>{description}</div>
                 </div>
             </div>
         </>

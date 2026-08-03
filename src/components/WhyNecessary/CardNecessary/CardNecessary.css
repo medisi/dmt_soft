@@ -74,6 +74,7 @@
 .risks-list li {
   line-height: 1.5;
   break-inside: avoid;
+  font-weight: 600;
 }
 
 .description-text {

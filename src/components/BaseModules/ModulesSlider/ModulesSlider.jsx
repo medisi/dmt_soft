@@ -60,7 +60,7 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
             >
                 {MODULES.map((module) => (
                     <SwiperSlide key={module.id}>
-                        <div className="moduleSlide">
+                        <div className="moduleSlide" id="sliderCustom">
                             <div className="moduleSlide_image anim">
                                 <img
                                     src={require(`../../../assets/images/${theme === 'dark' ? module.image_dark : module.image_light}.png`)}

@@ -12,10 +12,12 @@
 }
 
 .moduleCard_content:hover {
-    background: linear-gradient(135deg, #5A61EB10, #5354E410);
+    /* background: linear-gradient(135deg, #5A61EB10, #5354E410); */
+    background: linear-gradient(135deg, #F8855B20, #E5613120);
 }
 .moduleCard_content.active {
-    background: linear-gradient(135deg, #5A61EB50, #5354E450);
+    /* background: linear-gradient(135deg, #5A61EB50, #5354E450); */
+    background: linear-gradient(135deg, #F8855B10, #E56131);
 }
 .moduleCard_content_item.image {
     height: 110px;

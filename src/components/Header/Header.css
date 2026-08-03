@@ -86,7 +86,7 @@
     bottom: -5px;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, #6d74ff, #5A61EB);
+    background: linear-gradient(to right, #F8855B, #E56131);
     width: 0;
     height: 2px;
     border-radius: 2px;
@@ -136,14 +136,14 @@
 }
 .header_content_btns_item.lang {
     width: 70px;
-    border: 1px solid #5A61EB;
+    border: 1px solid #E56131;
     background-color: transparent;
     text-transform: uppercase;
 }
 .header_content_btns_item.login {
     width: 98px;
-    border: 1px solid #5A61EB;
-    background: linear-gradient(135deg, #5A61EB, #5354E4);
+    border: 1px solid #E56131;
+    background: linear-gradient(135deg, #F8855B, #E56131);
     color: #fff;
 }
 .header_content_btns_item.theme img {

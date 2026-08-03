@@ -1,6 +1,7 @@
 /* DARK STYLES */
 .landing_page.dark {
-    background-color: #131B25;
+    /* background-color: #131B25; */
+    background: linear-gradient(to right, #0F1620, #09121C, #060D15);
 }
 .landing_page.dark .header {
     background-color: #131B2570;
@@ -12,7 +13,7 @@
 .landing_page.dark .preview_content,
 .landing_page.dark .news_content_cards_item
 {
-    background-color: #161E29;
+    background-color: #1F2227;
 }
 .landing_page.dark .header_content_menu_item,
 .landing_page.dark .home_content_item_info,
@@ -37,12 +38,16 @@
 .landing_page.dark .whyNecessary_content_description,
 .landing_page.dark .necessary_card_info_text,
 .landing_page.dark .risks-list li,
+.landing_page.dark .risks-list-text,
 .landing_page.dark .description-text,
 .landing_page.dark .preview_content_info_title,
 .landing_page.dark .news_content_title,
 .landing_page.dark .news_content_cards_item_title,
 .landing_page.dark .structure_content_roles_arrows_item_text span,
-.landing_page.dark .structure_content_tasks_arrows_text
+.landing_page.dark .structure_content_tasks_arrows_text,
+.landing_page.dark .contentArticle_content_article_content_title,
+.landing_page.dark .contentArticle_content_article_content_parags_item,
+.landing_page.dark .news_content_btn button
 {
     color: #fff;
 }
@@ -51,12 +56,13 @@
 .landing_page.dark .footer_content_item_top_menu_item,
 .landing_page.dark .footer_content_item_bottom_item,
 .landing_page.dark .news_content_cards_item_time,
-.landing_page.dark .news_content_cards_item_texts_item
+.landing_page.dark .news_content_cards_item_texts_item,
+.landing_page.dark .contentArticle_content_article_content_time
 {
     color: #fff5;
 }
 .landing_page.dark .home_content_item_info_text {
-    color: #fff9;
+    color: #fff;
 }
 .landing_page.dark .footer_content_item_bottom_item.copyright {
     color: #ffffff15;
@@ -147,6 +153,9 @@
 .landing_page.dark .header_content::before {
     background: linear-gradient(to right, #fff0, #fff5, #fff0);
 }
+.landing_page.dark .contentArticle_content_article {
+    background-color: #1c293a;
+}
 
 
 
@@ -162,7 +171,8 @@
 }
 .landing_page.light .baseModules_content_slides,
 .landing_page.light .preview_content,
-.landing_page.light .news_content_cards_item
+.landing_page.light .news_content_cards_item,
+.landing_page.light .contentArticle_content_article
 {
     background-color: #5A61EB15;
 }
@@ -187,12 +197,16 @@
 .landing_page.light .whyNecessary_content_description,
 .landing_page.light .necessary_card_info_text,
 .landing_page.light .risks-list li,
+.landing_page.light .risks-list-text,
 .landing_page.light .description-text,
 .landing_page.light .preview_content_info_title,
 .landing_page.light .news_content_title,
 .landing_page.light .news_content_cards_item_title,
 .landing_page.light .structure_content_roles_arrows_item_text span,
-.landing_page.light .structure_content_tasks_arrows_text
+.landing_page.light .structure_content_tasks_arrows_text,
+.landing_page.light .contentArticle_content_article_content_title,
+.landing_page.light .contentArticle_content_article_content_parags_item,
+.landing_page.light .news_content_btn button
 {
     color: #1C1C1C;
 }
@@ -206,12 +220,13 @@
 .landing_page.light .footer_content_item_top_menu_item,
 .landing_page.light .footer_content_item_bottom_item,
 .landing_page.light .news_content_cards_item_time,
-.landing_page.light .news_content_cards_item_texts_item
+.landing_page.light .news_content_cards_item_texts_item,
+.landing_page.light .contentArticle_content_article_content_time
 {
     color: #1C1C1C50;
 }
 .landing_page.light .home_content_item_info_text {
-    color: #1C1C1C90;
+    color: #1C1C1C;
 }
 .landing_page.light .footer_content_item_bottom_item.copyright {
     color: #1C1C1C25;

@@ -11,7 +11,7 @@
     width: 309px;
     height: 309px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #5A61EB50, #5354E450);
+    background: linear-gradient(135deg, #F8855B50, #E5613150);
     filter: blur(89.2px);
     top: -80px;
     left: -200px;
@@ -28,7 +28,7 @@
     width: 309px;
     height: 309px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #5A61EB50, #5354E450);
+    background: linear-gradient(135deg, #F8855B50, #E5613150);
     filter: blur(89.2px);
     bottom: -80px;
     right: -230px;
@@ -60,7 +60,7 @@
 }
 .structure_content_roles {
     border-radius: 25px;
-    box-shadow: 0 0 2px 1px #5A61EB50;
+    box-shadow: 0 0 2px 1px #E5613150;
     padding: 50px 30px;
     backdrop-filter: blur(50px);
     display: flex;
@@ -74,8 +74,8 @@
     grid-template-columns: repeat(5, 1fr);
 }
 .structure_content_roles_item {
-    border: 1px solid #5A61EB;
-    box-shadow: 0 0 2px 1px #5A61EB50;
+    border: 1px solid #E56131;
+    box-shadow: 0 0 2px 1px #E5613150;
     border-radius: 20px;
     padding: 30px 20px;
     display: flex;
@@ -197,12 +197,12 @@
 }
 @media (hover :hover) {
     .structure_content_roles_roles_item:hover .structure_content_roles_roles_item_image {
-        box-shadow: 0 3px 3px 2px #5A61EB90;
+        box-shadow: 0 3px 3px 2px #E5613190;
     }
 }
 @media (hover :active) {
     .structure_content_roles_roles_item:active .structure_content_roles_roles_item_image {
-        box-shadow: 0 3px 3px 2px #5A61EB90;
+        box-shadow: 0 3px 3px 2px #E5613190;
     }
 }
 .structure_content_roles_roles_item_image {
@@ -246,7 +246,7 @@
 
 .structure_content_tasks {
     border-radius: 25px;
-    box-shadow: 0 0 2px 1px #5A61EB50;
+    box-shadow: 0 0 2px 1px #E5613150;
     backdrop-filter: blur(50px);
     display: grid;
     grid-template-columns: 1fr 1fr 3fr 1fr 1.5fr;
@@ -319,7 +319,7 @@
     text-transform: uppercase;
 }
 .structure_content_tasks_item {
-    border: 1px solid #5A61EB;
+    border: 1px solid #E56131;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -332,7 +332,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     height: 90px;
 }
 .structure_content_tasks_item_image.server img {
@@ -726,11 +726,25 @@
     .structure_content_roles_roles_item.server img {
         height: 30px;
     }
+    .structure_content_tasks_item_image,
+    .structure_content_roles_item_image
+    {
+        height: 70px;
+        width: max-content;
+    }
+    .structure_content_roles_item {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .structure_content_roles_arrows {
+        padding: 0;
+        gap: 20px;
+    }
+    .structure_content_roles_arrows_item_text span {
+        font-size: 18px;
+    }
 }
 @media ( max-width: 430px ) {
-    .structure_content_roles_arrows_item_text span {
-        font-size: 12px;
-    }
     .structure_content_roles_item_image {
         height: 90px;
     }

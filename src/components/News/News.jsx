@@ -17,20 +17,31 @@ const News = () => {
                                 ? 'Последние новости'
                                 : 'Latest news'
                             }
+
                         </div>
 
                         <div className="news_content_cards">
-                            {NEWS.map((item) => (
+                            {NEWS.slice(0, 3).map((item) => (
                                 <NewCard
                                     key={item.id}
                                     id={item.id}
                                     image={item.image}
-                                    time={lang === 'ru' ? item.time_ru : item.time_en }
-                                    title={lang === 'ru' ? item.title_ru : item.title_en }
+                                    time={lang === 'ru' ? item.time_ru : item.time_en}
+                                    title={item.title}
                                     articles={item.articles}
                                 />
                             ))}
                         </div>
+                        {NEWS.length > 3 && (
+                            <div className="news_content_btn">
+                                <button className="text">
+                                    {lang === 'ru'
+                                        ? 'Все новости'
+                                        : 'All news'
+                                    }
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

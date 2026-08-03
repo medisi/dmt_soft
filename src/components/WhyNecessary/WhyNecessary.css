@@ -33,7 +33,6 @@
 }
 .whyNecessary_content_description {
     width: 100%;
-    font-weight: 300;
     line-height: 150%;
     margin-bottom: 20px;
     /* transform: translateY(-100px);
@@ -62,7 +61,7 @@
     max-width: 800px;
     max-height: 800px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #5A61EB50, #5354E450);
+    background: linear-gradient(135deg, #F8855B50, #E5613150);
     filter: blur(150px);
     z-index: 1;
 }
