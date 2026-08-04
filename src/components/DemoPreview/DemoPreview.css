@@ -23,11 +23,6 @@
 .preview_content_info_title {
     font-size: 28px;
 }
-.preview_content_info_text {
-    animation: textDemoEffect 2s linear 1;
-    animation-delay: 1s;
-    opacity: 1;
-}
 @keyframes textDemoEffect {
     0% {
         opacity: 0;
@@ -219,7 +214,6 @@
     .preview_content_info_title {
         font-size: 40px;
     }
-    .preview_content_info_text,
     .preview_content_info_btn span
     {
         font-size: 22px;

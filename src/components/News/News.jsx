@@ -3,6 +3,7 @@ import './News.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import { NEWS } from "../../hooks/data";
 import NewCard from "./NewCard/NewCard";
+import { Link } from "react-router-dom";
 
 const News = () => {
     const { lang } = useLocalSettings();
@@ -34,12 +35,12 @@ const News = () => {
                         </div>
                         {NEWS.length > 3 && (
                             <div className="news_content_btn">
-                                <button className="text">
+                                <Link to="/articles" className="news_content_btn_link text">
                                     {lang === 'ru'
                                         ? 'Все новости'
                                         : 'All news'
                                     }
-                                </button>
+                                </Link>
                             </div>
                         )}
                     </div>

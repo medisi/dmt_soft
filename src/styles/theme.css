@@ -11,9 +11,13 @@
 }
 .landing_page.dark .baseModules_content_slides,
 .landing_page.dark .preview_content,
-.landing_page.dark .news_content_cards_item
+.landing_page.dark .news_content_cards_item,
+.landing_page.dark .allArticlesContent_content_cards_item
 {
     background-color: #1F2227;
+}
+.landing_page.dark .qrcode_content_qr {
+    background-color: #1F222770;
 }
 .landing_page.dark .header_content_menu_item,
 .landing_page.dark .home_content_item_info,
@@ -47,7 +51,11 @@
 .landing_page.dark .structure_content_tasks_arrows_text,
 .landing_page.dark .contentArticle_content_article_content_title,
 .landing_page.dark .contentArticle_content_article_content_parags_item,
-.landing_page.dark .news_content_btn button
+.landing_page.dark .news_content_btn_link,
+.landing_page.dark .allArticlesContent_content_title,
+.landing_page.dark .allArticlesContent_content_cards_item_title,
+.landing_page.dark .allArticlesContent_content_cards_item_texts_item,
+.landing_page.dark .allArticlesContent_content_title_item
 {
     color: #fff;
 }
@@ -57,7 +65,8 @@
 .landing_page.dark .footer_content_item_bottom_item,
 .landing_page.dark .news_content_cards_item_time,
 .landing_page.dark .news_content_cards_item_texts_item,
-.landing_page.dark .contentArticle_content_article_content_time
+.landing_page.dark .contentArticle_content_article_content_time,
+.landing_page.dark .allArticlesContent_content_cards_item_time
 {
     color: #fff5;
 }
@@ -172,9 +181,11 @@
 .landing_page.light .baseModules_content_slides,
 .landing_page.light .preview_content,
 .landing_page.light .news_content_cards_item,
-.landing_page.light .contentArticle_content_article
+.landing_page.light .contentArticle_content_article,
+.landing_page.light .qrcode_content_qr,
+.landing_page.light .allArticlesContent_content_cards_item
 {
-    background-color: #5A61EB15;
+    background-color: #d7d7e670;
 }
 .landing_page.light .header_content_menu_item,
 .landing_page.light .home_content_item_info,
@@ -206,7 +217,11 @@
 .landing_page.light .structure_content_tasks_arrows_text,
 .landing_page.light .contentArticle_content_article_content_title,
 .landing_page.light .contentArticle_content_article_content_parags_item,
-.landing_page.light .news_content_btn button
+.landing_page.light .news_content_btn_link,
+.landing_page.light .allArticlesContent_content_title,
+.landing_page.light .allArticlesContent_content_cards_item_title,
+.landing_page.light .allArticlesContent_content_cards_item_texts_item,
+.landing_page.light .allArticlesContent_content_title_item
 {
     color: #1C1C1C;
 }
@@ -221,7 +236,8 @@
 .landing_page.light .footer_content_item_bottom_item,
 .landing_page.light .news_content_cards_item_time,
 .landing_page.light .news_content_cards_item_texts_item,
-.landing_page.light .contentArticle_content_article_content_time
+.landing_page.light .contentArticle_content_article_content_time,
+.landing_page.light .allArticlesContent_content_cards_item_time
 {
     color: #1C1C1C50;
 }
@@ -249,9 +265,10 @@
     border-right: 1px dashed #1C1C1C90;
 }
 .landing_page.light .structure_content_roles,
-.landing_page.light .structure_content_tasks
+.landing_page.light .structure_content_tasks,
+.landing_page.light .cardProgram
 {
-    background-color: #b4b8f850;
+    background-color: #fcf2ee;
 }
 .landing_page.light .structure_content_roles_arrows_item_text span.round {
     border: 1px solid #1C1C1C50;
@@ -315,9 +332,6 @@
         border-top: 1px solid #1C1C1C40;
         border-bottom: 1px solid #1C1C1C40;
     }
-}
-.landing_page.light .cardProgram {
-    background-color: #DBE2FD;
 }
 .landing_page.light .header_content::before {
     background: linear-gradient(to right, #1C1C1C00, #1C1C1C50, #1C1C1C00);

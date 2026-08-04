@@ -51,28 +51,9 @@ const StructureBase = () => {
 
                                 <div className="structure_content_roles_arrows">
                                     <div className="structure_content_roles_arrows_item one top">
-                                        <div className="structure_content_roles_arrows_item_text text">
-                                            <span className="round text">1</span>
-                                            <span className="request text">
-                                                {lang === 'ru'
-                                                    ? 'отправка запросов и выбор действий'
-                                                    : 'sending requests and selecting actions'
-                                                }
-                                            </span>
-                                        </div>
                                         <div className="structure_content_roles_arrows_item_arrow"></div>
                                     </div>
                                     <div className="structure_content_roles_arrows_item one bottom">
-                                        <div className="structure_content_roles_arrows_item_text">
-                                            <span className="round text">4</span>
-                                            <span className="request text">
-                                                {lang === 'ru'
-                                                    ? 'показ результата запроса пользователю'
-                                                    : 'showing the query result to the user'
-                                                }
-                                            </span>
-                                            
-                                        </div>
                                         <div className="structure_content_roles_arrows_item_arrow"></div>
                                     </div>
                                 </div>
@@ -93,23 +74,9 @@ const StructureBase = () => {
 
                                 <div className="structure_content_roles_arrows">
                                     <div className="structure_content_roles_arrows_item two top">
-                                        <div className="structure_content_roles_arrows_item_text">
-                                            <span className="round text">2</span>
-                                            {lang === 'ru'
-                                                ? <span className="request text">отправляет <span style={{whiteSpace: 'nowrap'}}>SQL-запрос</span></span>
-                                                : <span className="request text">sends an <span style={{whiteSpace: 'nowrap'}}>SQL query</span></span>
-                                            }
-                                        </div>
                                         <div className="structure_content_roles_arrows_item_arrow"></div>
                                     </div>
                                     <div className="structure_content_roles_arrows_item two bottom">
-                                        <div className="structure_content_roles_arrows_item_text">
-                                            <span className="round text">3</span>
-                                            {lang === 'ru'
-                                                ? <span className="request text">передаёт результат <span style={{whiteSpace: 'nowrap'}}>SQL-запроса</span></span>
-                                                : <span className="request text">transmits the result of an <span style={{whiteSpace: 'nowrap'}}>SQL query</span></span>
-                                            }
-                                        </div>
                                         <div className="structure_content_roles_arrows_item_arrow"></div>
                                     </div>
                                 </div>
@@ -240,7 +207,7 @@ const StructureBase = () => {
                                 </div>
                                 <div className="structure_content_tasks_item_tasks">
                                     {TASKS_SERVER.map((item) => (
-                                        <div className="structure_content_tasks_item_tasks_item" key={item.id}>
+                                        <div className="structure_content_tasks_item_tasks_item text" key={item.id}>
                                             {lang === 'ru' ? item.name_ru : item.name_en}
                                         </div>
                                     ))}

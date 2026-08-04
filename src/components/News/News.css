@@ -40,15 +40,16 @@
     display: flex;
     justify-content: right;
 }
-.news_content_btn button {
+.news_content_btn .news_content_btn_link {
     padding: 10px 5px;
     border-radius: 10px;
     border: none;
     background-color: transparent;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
 }
-.news_content_btn button::after {
+.news_content_btn .news_content_btn_link::after {
     content: '';
     position: absolute;
     bottom: 3px;
@@ -60,7 +61,7 @@
     border-radius: 2px;
     transition: all .3s cubic-bezier(0.69, 0.73, 0, 0.98);
 }
-.news_content_btn button:hover::after {
+.news_content_btn .news_content_btn_link:hover::after {
     width: 100%;
 }
 

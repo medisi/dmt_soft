@@ -9,6 +9,7 @@ import Footer from "../components/Footer/Footer";
 import BlockForDemo from "../components/BlockForDemo/BlockForDemo";
 import Home from "../components/Home/Home";
 import { useLocalSettings } from "../hooks/useLocalSettings";
+import QRCode from "../components/QRCode/QRCode";
 
 const MainPage = () => {
     document.title = "ООО «ДМТ Софт» — компания информационных технологий, выделенная из проектной компании «ДМТ Групп» в 2016 году, с целью увеличить скорость развития программного обеспечения DMT Base.";
@@ -24,7 +25,9 @@ const MainPage = () => {
             <News />
             <DemoPreview />
             <Footer />
-            </>
+
+            <QRCode />
+        </>
     )
 };
 export default MainPage;

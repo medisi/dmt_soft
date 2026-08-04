@@ -24,19 +24,13 @@ const DemoPreview = () => {
                 <div className="container">
                     <div className="preview_content">
                         <div className="preview_content_info">
-                            <div className="preview_content_info_title bold anim">
+                            <div className="preview_content_info_title bold">
                                 {lang === 'ru'
                                     ? 'Посмотрите, как DMT Base может изменить ваши проекты'
                                     : 'See how DMT Base can change your projects.'
                                 }
                             </div>
-                            <div className="preview_content_info_text text anim">
-                                {lang === 'ru'
-                                    ? 'Демо за 2 минуты'
-                                    : 'Demo in 2 minutes'
-                                }
-                            </div>
-                            <button className="preview_content_info_btn anim">
+                            <button className="preview_content_info_btn">
                                 <img src={require('../../assets/icons/play.png')} id="preview_content_info_btn_img1" alt="" />
                                 <img src={require('../../assets/icons/playAct.png')} id="preview_content_info_btn_img2" alt="" />
                                 <span className="text">
@@ -49,7 +43,7 @@ const DemoPreview = () => {
                         </div>
 
                         <div className="preview_content_video">
-                            <div className="preview_content_video_content anim">
+                            <div className="preview_content_video_content">
                                 <img className="preview_content_video_content_bg" src={require('../../assets/images/bg_video.png')} alt="v" />
                                 <button>
                                     <img className="preview_content_video_content_btn_img" src={require('../../assets/icons/play2.png')} alt="" />

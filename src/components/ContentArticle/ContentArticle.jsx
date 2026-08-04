@@ -15,13 +15,6 @@ const ContentArticle = () => {
     
     const { idArticle } = useParams();
     const dataArticle = NEWS.find(item => item.id === Number(idArticle));
-    console.log('id статьи: ', idArticle);
-
-    useEffect(() => {
-        // Сбрасываем скролл только один раз при входе на страницу
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    }, []);
-
 
     return (
         <>

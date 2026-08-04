@@ -112,40 +112,20 @@
     padding: 40px 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     justify-content: space-between;
 }
 .structure_content_roles_arrows_item {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    height: 100%;
 }
-.structure_content_roles_arrows_item_text {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-.structure_content_roles_arrows_item_text span.round {
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    width: 25px;
-    height: 25px;
-}
-.structure_content_roles_arrows_item_text span.request {
-    text-align: center;
-    width: 100%;
-    padding: 0 25px;
+.structure_content_roles_arrows_item.top {
+    align-items: flex-end;
 }
 .structure_content_roles_arrows_item_arrow {
   position: relative;
   width: 100%;
-  height: 2.75px;
+  height: 5px;
   border-radius: 5px;
 }
 .structure_content_roles_arrows_item_arrow::before,
@@ -153,7 +133,7 @@
     content: '';
     position: absolute;
     width: 28px;
-    height: 2.75px;
+    height: 5px;
     border-radius: 5px;
 }
 .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow::before {
@@ -169,7 +149,7 @@
 .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow::before {
     left: -3px;
     transform: rotate(145deg);
-    top: -7.5px;
+    top: -7px;
 }
 .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow::after {
     left: -3px;
@@ -498,7 +478,8 @@
         font-size: 28px;
     }
     .structure_content_tasks_item_text span,
-    .structure_content_tasks_item_image.server span
+    .structure_content_tasks_item_image.server span,
+    .structure_content_tasks_item_tasks_item
     {
         font-size: 26px;
     }

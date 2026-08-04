@@ -22,7 +22,6 @@ const NewCard = ({ id, image, time, title, articles }) => {
             </div>
             <Link
                 to={`/article/${encodeURIComponent(id)}`}
-                target="_blank"
                 className="news_content_cards_item_btn text"
             >
                 {lang === 'ru'
