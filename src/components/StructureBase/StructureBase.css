@@ -492,6 +492,9 @@
     .structure_content_roles_roles_item_text {
         line-height: 1.3em;
     }
+    .structure_content_tasks_item_tasks_item::before {
+        top: 14px;
+    }
 }
 @media ( max-width: 1170px ) {
     .structure_content_roles_roles_item {
