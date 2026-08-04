@@ -21,6 +21,9 @@
     text-decoration: none;
     transition: color .3s ease;
 }
+.allArticlesContent_content_title_item.home {
+    padding: 10px 0;
+}
 .allArticlesContent_content_title_item.home:hover {
     color: #E56131;
 }
@@ -55,6 +58,14 @@
     transform: scale(1);
     transition: transform .7s ease;
 }
+.allArticlesContent_content_cards_item_texts_item {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.allArticlesContent_content_cards_item_texts .allArticlesContent_content_cards_item_texts_item:nth-child(1) {
+    -webkit-line-clamp: 3;
+}
 .allArticlesContent_content_cards_item_btn {
     border: 1px solid transparent;
     border-radius: 15px;
@@ -78,5 +89,61 @@
 @media (hover: active) {
     .allArticlesContent_content_cards_item_btn:active {
         border: 1px solid #E56131;
+    }
+}
+
+@media ( min-width: 1900px ) {
+    .allArticlesContent_content_cards_item_title
+    {
+        font-size: 22px;
+    }
+}
+@media ( max-width: 1100px ) {
+    .allArticlesContent_content_cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media ( max-width: 670px ) {
+    .allArticlesContent_content_title_item {
+        font-size: 20px;
+    }
+    .allArticlesContent_content_cards {
+        grid-template-columns: 1fr;
+    }
+    .allArticlesContent_content_cards_item_image {
+        grid-area: cardImage;
+        height: 100%;
+        width: 100px;
+    }
+    .allArticlesContent_content_cards_item_time {
+        grid-area: cardTime;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .allArticlesContent_content_cards_item_title {
+        grid-area: cardTitle;
+        margin-left: 10px;
+    }
+    .allArticlesContent_content_cards_item_texts {
+        grid-area: cardTexts;
+    }
+    .allArticlesContent_content_cards_item_btn {
+        grid-area: cardBtn;
+    }
+    .allArticlesContent_content_cards_item {
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-areas: 
+            "cardImage cardTitle"
+            "cardImage cardTime"
+            "cardImage cardTexts"
+            "cardImage cardBtn"
+        ;
+        gap: 5px;
+    }
+    .allArticlesContent_content_cards_item_texts_item {
+        font-size: 14px;
+        margin-left: 10px;
     }
 }

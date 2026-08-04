@@ -31,7 +31,7 @@
     padding: 0 25px 30px;
     display: flex;
     gap: 50px;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: start;
     overflow: hidden;
 }
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100%;
+    height: auto;
     /* transform: translateX(-150%);
     opacity: 0; */
     transition: transform .4s ease .5s, opacity .4s ease .5s;
@@ -149,6 +149,6 @@
     }
     .baseModules_prev,
     .baseModules_next {
-        width: 40px;
+        width: 20px;
     }
 }

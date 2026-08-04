@@ -484,7 +484,7 @@
         font-size: 26px;
     }
     .structure_content_roles_arrows_item_text span,
-    .structure_content_roles_roles_item_tex,
+    .structure_content_roles_roles_item_text,
     .structure_content_tasks_arrows_text
     {
         font-size: 22px;
@@ -600,70 +600,51 @@
         grid-template-columns: 1fr;
     }
     .structure_content_roles_arrows {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 0;
-        gap: 40px;
+        flex-direction: row;
+        padding: 0 40px;
+        height: 100px;
+        justify-content: center;
+        gap: 50%;
     }
     .structure_content_roles_arrows_item {
-        flex-direction: row;
+        width: 100%;
+    }
+    .structure_content_roles_arrows_item.top {
+        /* align-items: flex-end; */
+        justify-content: right;
     }
     .structure_content_roles_arrows_item_arrow {
         height: 100%;
-        width: 2.75px;
-    }
-    .structure_content_roles_arrows_item.bottom {
-        flex-direction: row-reverse;
+        width: 5px;
     }
     .structure_content_roles_arrows_item_arrow::before,
     .structure_content_roles_arrows_item_arrow::after {
-        height: 28px;
-        width: 2.75px;
+        width: 28px;
+        height: 5px;
+        border-radius: 5px;
     }
     .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow::before {
-        right: 7px;
-        transform: rotate(145deg);
+        right: -3px;
+        transform: rotate(45deg);
         top: auto;
-        bottom: -3px;
+        bottom: 7.5px;
     }
     .structure_content_roles_arrows_item.top .structure_content_roles_arrows_item_arrow::after {
-        right: -8px;
-        transform: rotate(-145deg);
-        bottom: -3px;
+        right: auto;
+        left: -4px;
+        transform: rotate(-45deg);
+        bottom: 7.5px;
     }
     .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow::before {
-        left: -7px;
-        transform: rotate(35deg);
-        top: -3px;
+        left: auto;
+        right: -3px;
+        transform: rotate(135deg);
+        top: 8px;
     }
     .structure_content_roles_arrows_item.bottom .structure_content_roles_arrows_item_arrow::after {
-        left: 7.5px;
-        transform: rotate(-35deg);
-        bottom: auto;
-        top: -3px;
-    }
-    .structure_content_roles_arrows_item_text {
-        padding: 20px 0;
-    }
-    .structure_content_roles_item.one,
-    .structure_content_roles_item.three
-    {
-        /* transform: translateX(-100px);
-        opacity: 0; */
-        transition: transform .4s ease .2s, opacity .4s ease .2s;
-    }
-    .structure_content_roles_item.two {
-        /* transform: translateX(100px);
-        opacity: 0; */
-        transition: transform .4s ease .5s, opacity .4s ease .5s;
-    }
-    /* .structure_content_roles_item.show {
-        transform: translateX(0);
-        opacity: 1;
-    } */
-    .structure_content_roles_item {
-        transform: translateX(0);
-        opacity: 1;
+        left: -3px;
+        transform: rotate(-135deg);
+        top: 8px;
     }
 }
 @media ( max-width: 767px ) {
@@ -716,10 +697,6 @@
     .structure_content_roles_item {
         flex-direction: row;
         justify-content: center;
-    }
-    .structure_content_roles_arrows {
-        padding: 0;
-        gap: 20px;
     }
     .structure_content_roles_arrows_item_text span {
         font-size: 18px;

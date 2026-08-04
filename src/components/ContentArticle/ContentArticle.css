@@ -101,4 +101,7 @@
     .contentArticle_content_article {
         padding: 25px;
     }
+    .contentArticle_content_article_content_parags_item {
+        font-size: 16px;
+    }
 }

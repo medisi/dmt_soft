@@ -60,7 +60,7 @@ const StructureBase = () => {
 
                                 <div className="structure_content_roles_item two anim">
                                     <div className="structure_content_roles_item_image">
-                                        <img src={require('../../assets/images/client.png')} alt="" />
+                                        <img src={require('../../assets/images/web.png')} alt="" />
                                     </div>
                                     <div className="structure_content_roles_item_text">
                                         <span className="bold">

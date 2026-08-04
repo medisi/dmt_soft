@@ -32,14 +32,15 @@
 }
 .qrcode_content_qr {
     overflow: hidden;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
+    transform: translate(-100px, -200px);
 }
 .qrcode_content_qr img {
     width: 100%;
@@ -57,8 +58,8 @@
         height: 65px;
     }
     .qrcode_content_qr {
-        width: 450px;
-        height: 450px;
+        width: 700px;
+        height: 700px;
     }
 }
 @media ( min-width: 1900px ) and ( max-width: 2299px) {
@@ -71,7 +72,7 @@
         height: 50px;
     }
     .qrcode_content_qr {
-        width: 350px;
-        height: 350px;
+        width: 370px;
+        height: 370px;
     }
 }

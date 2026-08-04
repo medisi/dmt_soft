@@ -40,7 +40,7 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
                 }}
                 pagination={{ clickable: true }}
                 autoplay={{
-                    delay: 7500,
+                    delay: 35000,
                     disableOnInteraction: false,
                 }}
                 style={{ width: '100%' }}

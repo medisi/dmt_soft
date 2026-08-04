@@ -92,12 +92,12 @@ export const PROGRAMMS = [
         description_en: 'Basic PDF document processing and editing tools',
         image: 'pdf',
     },
-    {
-        id: 5,
-        description_ru: 'Любые другие форматы',
-        description_en: 'Any other formats',
-        image: 'file',
-    },
+    // {
+    //     id: 5,
+    //     description_ru: 'Любые другие форматы',
+    //     description_en: 'Any other formats',
+    //     image: 'file',
+    // },
 ];
 export const TASKS_SERVER = [
     {

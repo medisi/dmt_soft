@@ -14,7 +14,7 @@ const QRCode = () => {
     const handleCloseQR = (e) => {
         if (!activeQrCode) return;
 
-        const isClickInside = e.target.closest('.qrcode');
+        const isClickInside = e.target.closest('.qrcode_content_qr');
         if (!isClickInside) {
             setActiveQrCode(false);
         }
