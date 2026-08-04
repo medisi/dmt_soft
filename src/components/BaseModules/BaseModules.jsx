@@ -10,13 +10,30 @@ const BaseModules = () => {
     const [ activeModule, setActiveModule ] = useState(1);
     const [ activeIndex, setActiveIndex ] = useState(0);
     
-    // const handleClick = (moduleId) => {
-    //     setActiveModule(moduleId);
-    // };
     const handleClick = () => {
         const el = document.getElementById("sliderCustom");
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Полная видимость: верхняя граница >= 0 и нижняя граница <= высоты окна
+        const isFullyVisible = rect.top >= 0 && rect.bottom <= windowHeight;
+        
+        // Частичная видимость: пересекается с окном (top < windowHeight && bottom > 0)
+        const isPartiallyVisible = rect.top < windowHeight && rect.bottom > 0;
+
+        if (isFullyVisible) {
+            // Ничего не делаем
+            return;
+        }
+
+        if (isPartiallyVisible) {
+            // Слегка прокручиваем вниз, чтобы выровнять по нижней грани экрана
+            el.scrollIntoView({ behavior: "smooth", block: "end" });
+        } else {
+            // Совсем не видно — прокручиваем, чтобы элемент появился (можно тоже block: "end")
+            el.scrollIntoView({ behavior: "smooth", block: "end" });
         }
     };
 
