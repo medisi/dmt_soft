@@ -40,7 +40,6 @@
     padding: 10px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    transform: translate(-100px, -200px);
 }
 .qrcode_content_qr img {
     width: 100%;
@@ -60,6 +59,7 @@
     .qrcode_content_qr {
         width: 700px;
         height: 700px;
+        transform: translate(-100px, -200px);
     }
 }
 @media ( min-width: 1900px ) and ( max-width: 2299px) {
