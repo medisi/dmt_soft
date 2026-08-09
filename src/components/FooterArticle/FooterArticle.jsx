@@ -42,8 +42,8 @@ const FooterArticle = () => {
                             <div className="footer_content_item_bottom_item copyright">
                                 <span className="suptext">
                                     {lang === 'ru'
-                                        ? '© ДМТ Софт, 2016-2026'
-                                        : '© DMT Soft, 2016-2026'
+                                        ? '© ДМТ Софт 2026'
+                                        : '© DMT Soft 2026'
                                     }
                                 </span>
                             </div>

@@ -53,7 +53,7 @@
     gap: 15px;
 }
 
-.whyNecessary::before {
+/* .whyNecessary::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -64,7 +64,7 @@
     background: linear-gradient(135deg, #F8855B50, #E5613150);
     filter: blur(150px);
     z-index: 1;
-}
+} */
 
 @media ( min-width: 1900px ) {
     .whyNecessary_content_title {

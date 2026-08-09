@@ -1,0 +1,10 @@
+.clients {
+    width: 100%;
+    display: flex;
+}
+.clients_content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: center;
+}

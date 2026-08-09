@@ -65,8 +65,8 @@ const StructureBase = () => {
                                     <div className="structure_content_roles_item_text">
                                         <span className="bold">
                                             {lang === 'ru'
-                                                ? 'Клиент'
-                                                : 'Client'
+                                                ? 'Толстый и тонкий клиент'
+                                                : 'Fat and thin client'
                                             }
                                         </span>
                                     </div>
@@ -97,14 +97,14 @@ const StructureBase = () => {
                             </div>
 
                             <div className="structure_content_roles_roles anim">
-                                <div className="structure_content_roles_roles_title title bold">
+                                {/* <div className="structure_content_roles_roles_title title bold">
                                     {lang === 'ru'
                                         ? 'Роли:'
                                         : 'Roles:'
                                     }
-                                </div>
+                                </div> */}
                                 <div className="structure_content_roles_roles_items">
-                                    <div className="structure_content_roles_roles_item user">
+                                    {/* <div className="structure_content_roles_roles_item user">
                                         <div className="structure_content_roles_roles_item_image box_shadow">
                                             <img src={require('../../assets/icons/role_user.png')} alt="" />
                                         </div>
@@ -136,6 +136,32 @@ const StructureBase = () => {
                                                 : 'query processing, access control, data optimization, performing operations with data'
                                             }
                                         </div>
+                                    </div> */}
+                                    <div className="structure_content_roles_roles_item">
+                                        <div className="structure_content_roles_roles_item_text text">
+                                            {lang === 'ru'
+                                                ? 'Сотрудник организации'
+                                                : 'An employee of the organization'
+                                            }
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                    <div className="structure_content_roles_roles_item">
+                                        <div className="structure_content_roles_roles_item_text text">
+                                            {lang === 'ru'
+                                                ? 'Рабочий инструмент пользователя'
+                                                : "User's Working Tool"
+                                            }
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                    <div className="structure_content_roles_roles_item">
+                                        <div className="structure_content_roles_roles_item_text text">
+                                            {lang === 'ru'
+                                                ? 'Хранилище, механизм управления и передачи данных'
+                                                : 'Storage, data managment and data transmission'
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -152,22 +178,29 @@ const StructureBase = () => {
                                     <span className="bold">
                                         {lang === 'ru'
                                             ? 'Пользователь'
-                                            : 'DMT Base'
+                                            : 'User'
                                         }
                                     </span>
+                                    <span className="bold">DMT Base</span>
                                 </div>
                             </div>
 
                             <div className="structure_content_tasks_arrows">
-                                <div className="structure_content_tasks_arrows_text text">
+                                <div className="structure_content_tasks_arrows_text text one">
                                     {lang === 'ru'
-                                        ? 'работа пользователей с прикладными программами'
-                                        : 'user experience with application programs'
+                                        ? 'работа пользователей'
+                                        : 'user experience'
                                     }
                                 </div>
                                 <div className="structure_content_tasks_arrows_arrows">
                                     <div className="structure_content_tasks_arrows_arrows_item one"></div>
                                     <div className="structure_content_tasks_arrows_arrows_item two"></div>
+                                </div>
+                                <div className="structure_content_tasks_arrows_text text two">
+                                    {lang === 'ru'
+                                        ? 'в прикладных программах'
+                                        : 'in application programs'
+                                    }
                                 </div>
                             </div>
 
@@ -183,10 +216,10 @@ const StructureBase = () => {
                             </div>
                             
                             <div className="structure_content_tasks_arrows">
-                                <div className="structure_content_tasks_arrows_text text">
+                                <div className="structure_content_tasks_arrows_text text one">
                                     {lang === 'ru'
-                                        ? 'хранение, обработка, и контроль документов и информации'
-                                        : 'storage, processing, and control of documents and information'
+                                        ? 'управление и передача данных'
+                                        : 'data management and transmission'
                                     }
                                 </div>
                                 <div className="structure_content_tasks_arrows_arrows">

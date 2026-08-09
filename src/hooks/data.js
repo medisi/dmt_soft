@@ -1,4 +1,14 @@
 export const MODULES = [
+    // {
+    //     id: 1,
+    //     title_ru: 'Базовая платформа',
+    //     title_en: 'The basic platform',
+    //     image: 'web',
+    //     image_light: 'base_light',
+    //     image_dark: 'base_dark',
+    //     about_ru: '',
+    //     about_en: ' ',
+    // },
     {
         id: 1,
         title_ru: 'Веб-интерфейс',
@@ -37,7 +47,7 @@ export const MODULES = [
         title_en: 'Correspondence module',
         image: 'corr',
         image_light: 'corr_light',
-        image_dark: 'web_interfase_dark',
+        image_dark: 'corr_dark',
         about_ru: 'Модуль корреспонденции обеспечивает централизованную регистрацию, хранение и обработку входящей и исходящей корреспонденции. Благодаря гибкому поиску и мощному механизму фильтрации обеспечивается быстрый доступ к истории переписки и необходимым приложениям. Реализована поддержка резолюций с назначением исполнителей и их автоматическим оповещением, а также генерация писем по заранее подготовленным шаблонам непосредственно из карточки корреспонденции. Модуль позволяет прикреплять приложения к письмам, назначать статусы входящей корреспонденции и контролировать ход исполнения поручений.',
         about_en: 'The correspondence module provides centralized registration, storage and processing of incoming and outgoing correspondence. Thanks to the flexible search and powerful filtering mechanism, quick access to the correspondence history and necessary applications is provided. Support for resolutions with the appointment of performers and their automatic notification has been implemented, as well as the generation of letters using pre-prepared templates directly from the correspondence card. The module allows you to attach attachments to emails, assign incoming correspondence statuses, and monitor the progress of orders.',
     },
@@ -47,7 +57,7 @@ export const MODULES = [
         title_en: 'The Tasks and Planning module',
         image: 'tasks',
         image_light: 'tasks_light',
-        image_dark: 'web_interfase_dark',
+        image_dark: 'tasks_dark',
         about_ru: 'Модуль технических условий и согласований обеспечивает централизованное ведение, хранение и контроль технических условий и согласований по объектам. Реализована интеграция реестра технических условий и согласований с модулем состава проекта, назначение и отслеживание статусов согласований, контроль сроков действия технических условий с автоматическими напоминаниями об их истечении, перенос технических условий между проектами, ведение истории согласования документации и назначение ответственных исполнителей на каждом этапе согласования.',
         about_en: 'The technical specifications and Approvals module provides centralized management, storage and control of technical specifications and approvals for facilities. The integration of the register of technical specifications and approvals with the project composition module has been implemented, the assignment and tracking of approval statuses, the monitoring of the validity period of technical specifications with automatic reminders of their expiration, the transfer of technical specifications between projects, the maintenance of the history of documentation approval and the appointment of responsible executors at each stage of approval.',
     },
@@ -57,7 +67,7 @@ export const MODULES = [
         title_en: 'Technical specifications and approvals module',
         image: 'tachspec_approvals',
         image_light: 'tachspec_approvals_light',
-        image_dark: 'web_interfase_dark',
+        image_dark: 'tachspec_approvals_dark',
         about_ru: 'Модуль заданий и планирования обеспечивает создание, редактирование и контроль выполнения задач по проектам. Может использоваться как инструмент календарного планирования для комплексного ГИПа, а также как полноценная система управления задачами с назначением исполнителей, контролем сроков и мониторингом выполнения работ. Встроенная диаграмма Ганта наглядно отображает этапы реализации проекта и взаимосвязи между задачами.',
         about_en: 'The Tasks and Planning module provides the creation, editing, and monitoring of project tasks. It can be used as a calendar planning tool for a comprehensive ISU, as well as as a full-fledged task management system with the appointment of performers, timing control and monitoring of work performance. The built-in Gantt chart clearly shows the stages of project implementation and the relationship between tasks.',
     },
@@ -157,8 +167,8 @@ export const NECESSARY = [
     {
         id: 3,
         icon: 'why_risks',
-        title_ru: 'Все риски при работе с данными при использовании традиционных файловых систем Windows',
-        title_en: 'All the risks of working with data when using traditional Windows file systems',
+        title_ru: 'Риски при работе с данными при использовании традиционных файловых систем Windows',
+        title_en: 'Risks of working with data when using traditional Windows file systems',
         more: [
             {
                 id: 1,
@@ -338,4 +348,25 @@ export const NEWS = [
         ],
     },
     
+];
+
+export const CLIENTS = [
+    {
+        id: 1,
+        title: 'DMT',
+        image: 'DMT.png',
+
+    },
+    {
+        id: 2,
+        title: 'MP-3',
+        image: 'MP-3.png',
+
+    },
+    {
+        id: 3,
+        title: 'Promos',
+        image: 'Promos.png',
+
+    },
 ];

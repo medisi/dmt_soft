@@ -31,6 +31,21 @@
 .box_shadow {
     box-shadow: 0 1px 3px 2px #E5613170;
 }
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: #535353;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #E56131;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-button {
+    width: 8px;
+    height: 10px;
+    background-color: #F8855B;
+}
 
 @media ( max-width: 767px ) {
     .container {

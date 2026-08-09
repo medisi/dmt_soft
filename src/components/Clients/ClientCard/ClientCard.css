@@ -1,0 +1,19 @@
+.clientCard {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.clientCard_image {
+    width: auto;
+    height: 160px;
+    pointer-events: none;
+    opacity: .5;
+    transition: opacity .3s ease;
+}
+.clientCard:hover .clientCard_image {
+    opacity: 1;
+}

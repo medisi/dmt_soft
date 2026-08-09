@@ -65,13 +65,14 @@
     backdrop-filter: blur(50px);
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     position: relative;
     z-index: 2;
 }
 .structure_content_roles_cards {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-columns: repeat(5, 1fr); */
+    grid-template-columns: 1fr 100px 1fr 100px 1fr;
 }
 .structure_content_roles_item {
     border: 1px solid #E56131;
@@ -167,12 +168,14 @@
 }
 .structure_content_roles_roles_items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 1fr 100px 1fr 100px 1fr;
 }
 .structure_content_roles_roles_item {
     display: flex;
     gap: 25px;
-    justify-content: left;
+    /* justify-content: left; */
+    justify-content: center;
     align-items: center;
 }
 @media (hover :hover) {
@@ -219,7 +222,8 @@
     height: 47px;
 }
 .structure_content_roles_roles_item_text {
-    text-align: left;
+    /* text-align: left; */
+    text-align: center;
     line-height: 20px;
 }
 
@@ -295,6 +299,15 @@
     object-fit: cover;
 }
 .structure_content_tasks_item_text {
+    /* font-size: 18px;
+    text-transform: uppercase; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.structure_content_tasks_item_text span {
+    width: 100%;
+    text-align: center;
     font-size: 18px;
     text-transform: uppercase;
 }
@@ -352,16 +365,22 @@
 }
 .structure_content_tasks_arrows {
     height: 100%;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 15px; */
+    display: grid;
+    grid-template-rows: 1fr 35px 1fr;
 }
 .structure_content_tasks_arrows_text {
     width: 100%;
     text-align: center;
     padding: 0 20px;
+}
+.structure_content_tasks_arrows_text.one {
+    display: flex;
+    align-items: flex-end;
 }
 .structure_content_tasks_arrows_arrows {
     display: flex;
