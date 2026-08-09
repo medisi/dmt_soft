@@ -137,7 +137,7 @@ const StructureBase = () => {
                                             }
                                         </div>
                                     </div> */}
-                                    <div className="structure_content_roles_roles_item">
+                                    <div className="structure_content_roles_roles_item mob">
                                         <div className="structure_content_roles_roles_item_text text">
                                             {lang === 'ru'
                                                 ? 'Сотрудник организации'
@@ -146,7 +146,7 @@ const StructureBase = () => {
                                         </div>
                                     </div>
                                     <div></div>
-                                    <div className="structure_content_roles_roles_item">
+                                    <div className="structure_content_roles_roles_item mob">
                                         <div className="structure_content_roles_roles_item_text text">
                                             {lang === 'ru'
                                                 ? 'Рабочий инструмент пользователя'

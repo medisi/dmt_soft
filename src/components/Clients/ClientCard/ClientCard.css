@@ -17,3 +17,19 @@
 .clientCard:hover .clientCard_image {
     opacity: 1;
 }
+
+@media ( max-width: 1100px ) {
+    .clientCard_image {
+        height: 120px;
+    }
+}
+@media ( max-width: 678px ) {
+    .clientCard_image {
+        width: 100%;
+        height: auto;
+    }
+    .clientCard {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
