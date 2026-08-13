@@ -83,7 +83,7 @@
 .moduleSlide_info h2,
 .moduleSlide_info p
 {
-    user-select: none;
+    /* user-select: none; */
 }
 .moduleSlide_info h2 {
     font-size: 36px;

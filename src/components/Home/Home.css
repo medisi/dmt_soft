@@ -24,7 +24,7 @@
 }
 .home_content_item_info {
     letter-spacing: 3%;
-    user-select: none;
+    /* user-select: none; */
 }
 .home_content_item_info_title {
     font-size: 48px;
