@@ -70,8 +70,8 @@ const StructureBase = () => {
                                     <div className="structure_content_roles_item_text">
                                         <span className="bold">
                                             {lang === 'ru'
-                                                ? 'Толстый и тонкий клиент'
-                                                : 'Fat and thin client'
+                                                ? 'Декстопное приложение и веб-интерфейс'
+                                                : 'Desktop application and web interface'
                                             }
                                         </span>
                                     </div>

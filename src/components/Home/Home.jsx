@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './Home.css';
 import { useLocalSettings } from '../../hooks/useLocalSettings';
 import { ScrollLink } from '../../hooks/ScrollLink';
@@ -19,8 +19,8 @@ const Home = () => {
                             </div>
                             <div className={`home_content_item_info home_content_item_info_title bold`}>
                                 {lang === 'ru'
-                                    ? 'Единая цифровая среда для вашей проектной организации'
-                                    : 'A unified digital environment for your project organization'
+                                    ? 'Единая цифровая среда вашей проектной организации'
+                                    : 'A unified digital environment your project organization'
                                 }
                             </div>
                             <div className={`home_content_item_info home_content_item_info_subtitle`}>
