@@ -38,14 +38,19 @@ const StructureBase = () => {
                                     <div className="structure_content_roles_item_image">
                                         <img src={require('../../assets/images/user.png')} alt="" />
                                     </div>
-                                    <div className="structure_content_roles_item_text">
+                                    <div className="structure_content_roles_item_text user">
                                         <span className="bold">
                                             {lang === 'ru'
-                                                ? 'Пользователь'
-                                                : 'User'
+                                                ? 'Пользователь DMT Base'
+                                                : 'User DMT Base'
                                             }
                                         </span>
-                                        <span className="bold">DMT Base</span>
+                                    </div>
+                                    <div className="structure_content_roles_item_text_info text">
+                                        {lang === 'ru'
+                                            ? 'Сотрудник организации'
+                                            : 'An employee of the organization'
+                                        }
                                     </div>
                                 </div>
 
@@ -70,6 +75,12 @@ const StructureBase = () => {
                                             }
                                         </span>
                                     </div>
+                                    <div className="structure_content_roles_item_text_info text">
+                                        {lang === 'ru'
+                                            ? 'Простой и понятный рабочий инструмент пользователя'
+                                            : "A simple and intuitive user's work tool"
+                                        }
+                                    </div>
                                 </div>
 
                                 <div className="structure_content_roles_arrows">
@@ -92,6 +103,12 @@ const StructureBase = () => {
                                                 : 'Server'
                                             }
                                         </span>
+                                    </div>
+                                    <div className="structure_content_roles_item_text_info text">
+                                        {lang === 'ru'
+                                            ? 'Уверенность в том, что все данные данные проекта находятся на сервере вашей организации, всегда доступны и актуальны'
+                                            : "Make sure that all the project data is on your organization's server, always available and up-to-date."
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +154,7 @@ const StructureBase = () => {
                                             }
                                         </div>
                                     </div> */}
-                                    <div className="structure_content_roles_roles_item mob">
+                                    {/* <div className="structure_content_roles_roles_item mob">
                                         <div className="structure_content_roles_roles_item_text text">
                                             {lang === 'ru'
                                                 ? 'Сотрудник организации'
@@ -149,8 +166,8 @@ const StructureBase = () => {
                                     <div className="structure_content_roles_roles_item mob">
                                         <div className="structure_content_roles_roles_item_text text">
                                             {lang === 'ru'
-                                                ? 'Рабочий инструмент пользователя'
-                                                : "User's Working Tool"
+                                                ? 'Простой и понятный рабочий инструмент пользователя'
+                                                : "A simple and intuitive user's work tool"
                                             }
                                         </div>
                                     </div>
@@ -160,9 +177,13 @@ const StructureBase = () => {
                                             {lang === 'ru'
                                                 ? 'Хранилище, механизм управления и передачи данных'
                                                 : 'Storage, data managment and data transmission'
+                                            } 
+                                            {lang === 'ru'
+                                                ? 'Уверенность в том, что все данные данные проекта находятся на сервере вашей организации, всегда доступны и актуальны'
+                                                : "Make sure that all the project data is on your organization's server, always available and up-to-date."
                                             }
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -198,8 +219,8 @@ const StructureBase = () => {
                                 </div>
                                 <div className="structure_content_tasks_arrows_text text two">
                                     {lang === 'ru'
-                                        ? 'в прикладных программах'
-                                        : 'in application programs'
+                                        ? 'в привычных программах'
+                                        : 'in the usual programs'
                                     }
                                 </div>
                             </div>

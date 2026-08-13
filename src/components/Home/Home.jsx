@@ -15,9 +15,12 @@ const Home = () => {
                     <div className="home_content">
                         <div className="home_content_item info">
                             <div className={`home_content_item_info home_content_item_info_title bold`}>
+                                DMT Base
+                            </div>
+                            <div className={`home_content_item_info home_content_item_info_title bold`}>
                                 {lang === 'ru'
-                                    ? 'Единая цифровая среда'
-                                    : 'Unified digital environment'
+                                    ? 'Единая цифровая среда для вашей проектной организации'
+                                    : 'A unified digital environment for your project organization'
                                 }
                             </div>
                             <div className={`home_content_item_info home_content_item_info_subtitle`}>

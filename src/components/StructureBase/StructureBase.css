@@ -79,15 +79,19 @@
     box-shadow: 0 0 2px 1px #E5613150;
     border-radius: 20px;
     padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    /* display: flex;
+    flex-direction: column; */
+    /* gap: 20px; */
+    gap: 0;
     justify-content: center;
     align-items: center;
+    display: grid;
+    grid-template-rows: 145px 75px 1fr;
 }
 .structure_content_roles_item_image {
     width: 100%;
-    height: 185px;
+    height: 100%;
+    object-fit: cover;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -100,14 +104,25 @@
 }
 .structure_content_roles_item_text {
     display: flex;
-    flex-direction: column;
     gap: 5px;
+    margin: 10px 0 10px;
 }
 .structure_content_roles_item_text span {
     width: 100%;
     text-align: center;
     font-size: 22px;
     text-transform: uppercase;
+}
+.structure_content_roles_item_text_info {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 400;
+    border-top: 1px solid #E56131;
+    padding-top: 10px;
 }
 .structure_content_roles_arrows {
     padding: 40px 0;
@@ -514,6 +529,9 @@
     .structure_content_tasks_item_tasks_item::before {
         top: 14px;
     }
+    .structure_content_tasks_arrows_text {
+        padding: 0 40px;
+    }
 }
 @media ( max-width: 1170px ) {
     .structure_content_roles_roles_item {
@@ -701,21 +719,21 @@
     .structure_content_tasks_item_image,
     .structure_content_roles_item_image
     {
-        height: 70px;
-        width: max-content;
+        height: 100%;
+        /* width: max-content; */
     }
-    .structure_content_roles_item {
+    .structure_content_roles_item_image img {
+        height: 100%;
+    }
+    /* .structure_content_roles_item {
         flex-direction: row;
         justify-content: center;
-    }
+    } */
     .structure_content_roles_arrows_item_text span {
         font-size: 18px;
     }
 }
 @media ( max-width: 430px ) {
-    .structure_content_roles_item_image {
-        height: 90px;
-    }
     .structure_content_roles_item_text span
     {
         font-size: 18px;

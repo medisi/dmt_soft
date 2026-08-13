@@ -55,7 +55,9 @@
 .landing_page.dark .allArticlesContent_content_title,
 .landing_page.dark .allArticlesContent_content_cards_item_title,
 .landing_page.dark .allArticlesContent_content_cards_item_texts_item,
-.landing_page.dark .allArticlesContent_content_title_item
+.landing_page.dark .allArticlesContent_content_title_item,
+.landing_page.dark .clients_content_title,
+.landing_page.dark .structure_content_roles_item_text_info
 {
     color: #fff;
 }
@@ -230,7 +232,9 @@
 .landing_page.light .allArticlesContent_content_title,
 .landing_page.light .allArticlesContent_content_cards_item_title,
 .landing_page.light .allArticlesContent_content_cards_item_texts_item,
-.landing_page.light .allArticlesContent_content_title_item
+.landing_page.light .allArticlesContent_content_title_item,
+.landing_page.light .clients_content_title,
+.landing_page.light .structure_content_roles_item_text_info
 {
     color: #1C1C1C;
 }

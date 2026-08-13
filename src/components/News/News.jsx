@@ -35,7 +35,7 @@ const News = () => {
                         </div>
                         {NEWS.length > 3 && (
                             <div className="news_content_btn">
-                                <Link to="/articles" className="news_content_btn_link text">
+                                <Link to="/articles" className="news_content_btn_link bold text">
                                     {lang === 'ru'
                                         ? 'Все новости'
                                         : 'All news'
