@@ -56,6 +56,8 @@
     align-items: center;
     height: 60px;
     border-radius: 10px;
+    position: relative;
+    z-index: 1;
 }
 .formRequest_content_form_inputs_item_image {
     height: 100%;
@@ -85,6 +87,15 @@
     border: none;
     outline: none;
     font-size: 18px;
+}
+.formRequest_content_form_inputs_item_error {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: -13px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: #f75252;
 }
 .formRequest_content_form_btn {
     width: 100%;

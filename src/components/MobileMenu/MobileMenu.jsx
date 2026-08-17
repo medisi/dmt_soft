@@ -29,12 +29,16 @@ const MobileMenu = ({ onTap }) => {
                         : 'Products'
                     }
                 </ScrollLink>
-                <div className="mobile_menu_item" onClick={onTap}>
+                <ScrollLink
+                    to="#clients"
+                    className="mobile_menu_item text"
+                    onClick={onTap}
+                >
                     {lang === 'ru'
                         ? 'Клиенты'
                         : 'Clients'
                     }
-                </div>
+                </ScrollLink>
                 <ScrollLink
                     to="#news"
                     className="mobile_menu_item text"

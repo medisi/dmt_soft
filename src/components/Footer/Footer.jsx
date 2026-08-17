@@ -34,12 +34,15 @@ const Footer = () => {
                                             : 'Products'
                                         }
                                     </ScrollLink>
-                                    <div className="footer_content_item_top_menu_item text">
+                                    <ScrollLink
+                                        to="#clients"
+                                        className="footer_content_item_top_menu_item text"
+                                    >
                                         {lang === 'ru'
                                             ? 'Клиенты'
                                             : 'Clients'
                                         }
-                                    </div>
+                                    </ScrollLink>
                                     <ScrollLink
                                         to="#news"
                                         className="footer_content_item_top_menu_item text"

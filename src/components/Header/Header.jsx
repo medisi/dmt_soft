@@ -86,12 +86,15 @@ const Header = () => {
                                     : 'Products'
                                 }
                             </ScrollLink>
-                            <div className="header_content_menu_item text">
+                            <ScrollLink
+                                to="#clients"
+                                className="header_content_menu_item text"
+                            >
                                 {lang === 'ru'
                                     ? 'Клиенты'
                                     : 'Clients'
                                 }
-                            </div>
+                            </ScrollLink>
                             <ScrollLink
                                 to="#news"
                                 className="header_content_menu_item text"

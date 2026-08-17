@@ -12,6 +12,7 @@ import { useLocalSettings } from "../hooks/useLocalSettings";
 import QRCode from "../components/QRCode/QRCode";
 import Clients from "../components/Clients/Clients";
 import FormRequest from "../components/FormRequest/FormRequest";
+import BlockForForm from "../components/BlockForForm/BlockForForm";
 
 const MainPage = () => {
     document.title = "ООО «ДМТ Софт» — компания информационных технологий, выделенная из проектной компании «ДМТ Групп» в 2016 году, с целью увеличить скорость развития программного обеспечения DMT Base.";
@@ -21,6 +22,7 @@ const MainPage = () => {
             <Header />
             <Home />
             <BaseModules />
+            <BlockForForm />
             <StructureBase />
             <BlockForDemo />
             <WhyNecessary />

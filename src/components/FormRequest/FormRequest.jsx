@@ -3,19 +3,39 @@ import './FormRequest.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 
 const FormRequest = () => {
-    const { lang, theme } = useLocalSettings();
-    const [ checked, setChecked ] = useState(false);
+    const { lang } = useLocalSettings();
     // STATES
+    const [ checked, setChecked ] = useState(false);
     const [ userName, setUserName ] = useState('');
     const [ userCompany, setUserCompany ] = useState('');
     const [ userEmail, setUserEmail ] = useState('');
     const [ userPhone, setUserPhone ] = useState('');
+    const [ errorsForm, setErrorsForm ] = useState({
+        nameUser: false,
+        companyUser: false,
+        emailUser: false,
+        phoneUser: false,
+    });
     // REFS
     const userNameRef = useRef(null);
     const userCompanyRef = useRef(null);
     const userEmailRef = useRef(null);
     const userPhoneRef = useRef(null);
 
+    // валидация имени
+    const validateName = (name) => {
+        const trimmed = name.trim();
+        if (!trimmed) return false;
+        const regex = /^[A-Za-zA-Яа-яЁё]+$/;
+        return regex.test(trimmed);
+    };
+
+    // валидация email
+    const validateEmail = (email) => {
+        if (!email) return false;
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
     // маска для номера телефона
     const handlePhoneChange = (event) => {
         const input = event.target;
@@ -30,6 +50,8 @@ const FormRequest = () => {
         }
         // если не начинается с 7, очищаем
         if (!value.startsWith("7")) {
+            setUserPhone("");
+            setErrorsForm((prev) => ({ ...prev, phoneUser: true }));
             return;
         }
         // форматирование
@@ -40,20 +62,53 @@ const FormRequest = () => {
         if (value.length > 9) maskedValue += `-${value.slice(9, 11)}`;
 
         setUserPhone(maskedValue);
+
+        // если длина 11 - значит номер полный, убираем ошибку
+        const hasError = value.length !== 11;
+        setErrorsForm((prev) => ({ ...prev, phoneUser: hasError }));
     }; 
 
     const checkForm = (e) => {
         e.preventDefault();
-        
+
+        // валидация имени
+        const nameHasError = !validateName(userName);
+        // валидация наименования компании
+        const companyHasError = !userCompany.trim();
+        // валидация почты
+        const emailHasError = !validateEmail(userEmail);
+        // валидация телефона
+        const phoneHasError = userPhone.replace(/\D/g, "").length !== 11;
+
+        // обновление всех ошибок сразу
+        setErrorsForm({
+            nameUser: nameHasError,
+            companyUser: companyHasError,
+            emailUser: emailHasError,
+            phoneUser: phoneHasError,
+        });
+        // если ошибки имеются, то ставим фокус в первое поле с ошибкой
+        if (nameHasError && userNameRef.current) {
+            userNameRef.current.focus();
+            return;
+        }
+        if (companyHasError && userCompanyRef.current) {
+            userCompanyRef.current.focus();
+            return;
+        }
+        if (emailHasError && userEmailRef.current) {
+            userEmailRef.current.focus();
+            return;
+        }
+        if (phoneHasError && userPhoneRef.current) {
+            userPhoneRef.current.focus();
+            return;
+        }
+
         // для отправки лучше брать «чистый» номер - убираем всё, кроме цифр
-        const rawPhone = userPhone.replace(/\D/g, "");
+        // const rawPhone = userPhone.replace(/\D/g, "");
 
-        const userNameValue = userNameRef.current.value;
-        const userCompanyValue = userCompanyRef.current.value;
-        const userEmailValue = userEmailRef.current.value;
-
-        if (!userNameValue || !userCompanyValue || !userEmailValue || !userPhone) return; 
-
+        
         // console.log({
         //     userName: userNameValue,
         //     userCompany: userCompanyValue,
@@ -66,6 +121,13 @@ const FormRequest = () => {
         setUserCompany("");
         setUserEmail("");
         setUserPhone("");
+        setErrorsForm({
+            nameUser: false,
+            companyUser: false,
+            emailUser: false,
+            phoneUser: false,
+        });
+        setChecked(false);
     };
 
     return (
@@ -110,8 +172,19 @@ const FormRequest = () => {
                                             placeholder={lang === 'ru' ? 'Ваше имя' : 'Your name'}
                                             ref={userNameRef}
                                             value={userName}
-                                            onChange={(e) => setUserName(e.target.value)}
+                                            onChange={(e) => {
+                                                setUserName(e.target.value);
+                                                setErrorsForm((prev) => ({ ...prev, nameUser: false }));
+                                            }}
                                         />
+                                        {errorsForm.nameUser && (
+                                            <div className="formRequest_content_form_inputs_item_error">
+                                                *{lang === 'ru'
+                                                    ? ' Некорректное имя'
+                                                    : ' Incorrect name'
+                                                }
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="formRequest_content_form_inputs_item">
                                         <div className="formRequest_content_form_inputs_item_image" id="formRequest_image_company">
@@ -124,8 +197,19 @@ const FormRequest = () => {
                                             placeholder={lang === 'ru' ? 'Компания' : 'Company'}
                                             ref={userCompanyRef}
                                             value={userCompany}
-                                            onChange={(e) => setUserCompany(e.target.value)}
+                                            onChange={(e) => {
+                                                setUserCompany(e.target.value);
+                                                setErrorsForm((prev) => ({ ...prev, companyUser: false }));
+                                            }}
                                         />
+                                        {errorsForm.companyUser && (
+                                            <div className="formRequest_content_form_inputs_item_error">
+                                                *{lang === 'ru'
+                                                    ? ' Некорректное наименование'
+                                                    : ' Incorrect name'
+                                                }
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="formRequest_content_form_inputs_item">
                                         <div className="formRequest_content_form_inputs_item_image" id="formRequest_image_email">
@@ -133,13 +217,25 @@ const FormRequest = () => {
                                         </div>
                                         <input
                                             className="formRequest_content_form_inputs_item_input"
-                                            type="email"
+                                            type="text"
                                             id="formRequest_email"
                                             placeholder={lang === 'ru' ? 'E-mail' : 'E-mail'}
                                             ref={userEmailRef}
                                             value={userEmail}
-                                            onChange={(e) => setUserEmail(e.target.value)}
+                                            onChange={(e) => {
+                                                setUserEmail(e.target.value);
+                                                setErrorsForm((prev) => ({ ...prev, emailUser: false }));
+                                            }}
+                                            autoComplete="email"
                                         />
+                                        {errorsForm.emailUser && (
+                                            <div className="formRequest_content_form_inputs_item_error">
+                                                *{lang === 'ru'
+                                                    ? ' Некорректная почта'
+                                                    : ' Incorrect email'
+                                                }
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="formRequest_content_form_inputs_item">
                                         <div className="formRequest_content_form_inputs_item_image" id="formRequest_image_phone">
@@ -156,6 +252,14 @@ const FormRequest = () => {
                                             inputMode="numeric"
                                             autoComplete="tel"
                                         />
+                                        {errorsForm.phoneUser && (
+                                            <div className="formRequest_content_form_inputs_item_error">
+                                                *{lang === 'ru'
+                                                    ? ' Некорректный телефон'
+                                                    : ' Incorrect phone'
+                                                }
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                                 <div className={`formRequest_content_form_btn ${checked ? 'active' : 'noactive'}`}>

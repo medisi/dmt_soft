@@ -203,6 +203,9 @@
 .landing_page.dark .formRequest_content_form_btn.noactive button span {
     color: #fff5;
 }
+.landing_page.dark .formRequest_content_form_inputs_item_error {
+    background-color: #1c2633;
+}
 
 
 
@@ -323,7 +326,7 @@
 .landing_page.light .structure_content_tasks,
 .landing_page.light .cardProgram
 {
-    background-color: #fcf2ee;
+    background-color: #fcf2ee70;
 }
 .landing_page.light .structure_content_roles_arrows_item_text span.round {
     border: 1px solid #1C1C1C50;
@@ -392,7 +395,7 @@
     background: linear-gradient(to right, #1C1C1C00, #1C1C1C50, #1C1C1C00);
 }
 .landing_page.light .formRequest_content_form {
-    background-color: #fcf2ee;
+    background-color: #fcf2ee80;
 }
 .landing_page.light .formRequest_content_form_inputs_item {
     border: 2px solid #1C1C1C20;

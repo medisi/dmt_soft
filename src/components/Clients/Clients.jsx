@@ -10,7 +10,7 @@ const Clients = () => {
     return (
         <>
             
-            <div className="clients">
+            <div className="clients" id="clients">
                 <div className="container">
                     <div className="clients_content">
                         <div className="clients_content_title title bold">
