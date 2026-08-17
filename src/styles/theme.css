@@ -420,3 +420,6 @@
 .landing_page.light .formRequest_content_form_btn.active:hover button img {
     filter: invert(100%);
 }
+.landing_page.light .formRequest_content_form_inputs_item_error {
+    background-color: #d1cfcf;
+}

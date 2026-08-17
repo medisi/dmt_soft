@@ -180,8 +180,8 @@ const FormRequest = () => {
                                         {errorsForm.nameUser && (
                                             <div className="formRequest_content_form_inputs_item_error">
                                                 *{lang === 'ru'
-                                                    ? ' Некорректное имя'
-                                                    : ' Incorrect name'
+                                                    ? 'Некорректное имя'
+                                                    : 'Incorrect name'
                                                 }
                                             </div>
                                         )}
@@ -205,8 +205,8 @@ const FormRequest = () => {
                                         {errorsForm.companyUser && (
                                             <div className="formRequest_content_form_inputs_item_error">
                                                 *{lang === 'ru'
-                                                    ? ' Некорректное наименование'
-                                                    : ' Incorrect name'
+                                                    ? 'Некорректное наименование'
+                                                    : 'Incorrect name'
                                                 }
                                             </div>
                                         )}
@@ -231,8 +231,8 @@ const FormRequest = () => {
                                         {errorsForm.emailUser && (
                                             <div className="formRequest_content_form_inputs_item_error">
                                                 *{lang === 'ru'
-                                                    ? ' Некорректная почта'
-                                                    : ' Incorrect email'
+                                                    ? 'Некорректная почта'
+                                                    : 'Incorrect email'
                                                 }
                                             </div>
                                         )}
@@ -255,8 +255,8 @@ const FormRequest = () => {
                                         {errorsForm.phoneUser && (
                                             <div className="formRequest_content_form_inputs_item_error">
                                                 *{lang === 'ru'
-                                                    ? ' Некорректный телефон'
-                                                    : ' Incorrect phone'
+                                                    ? 'Некорректный телефон'
+                                                    : 'Incorrect phone'
                                                 }
                                             </div>
                                         )}
