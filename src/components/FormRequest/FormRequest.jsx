@@ -1,10 +1,72 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import './FormRequest.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 
 const FormRequest = () => {
     const { lang, theme } = useLocalSettings();
     const [ checked, setChecked ] = useState(false);
+    // STATES
+    const [ userName, setUserName ] = useState('');
+    const [ userCompany, setUserCompany ] = useState('');
+    const [ userEmail, setUserEmail ] = useState('');
+    const [ userPhone, setUserPhone ] = useState('');
+    // REFS
+    const userNameRef = useRef(null);
+    const userCompanyRef = useRef(null);
+    const userEmailRef = useRef(null);
+    const userPhoneRef = useRef(null);
+
+    // маска для номера телефона
+    const handlePhoneChange = (event) => {
+        const input = event.target;
+        let value = input.value.replace(/\D/g, '');
+        // если начинается с 8, заменяем на 7
+        if (value.startsWith('8')) {
+            value = "7" + value.slice(1);
+        }
+        // обрезаем до 11 цифр
+        if (value.length > 11) {
+            value = value.slice(0, 11);
+        }
+        // если не начинается с 7, очищаем
+        if (!value.startsWith("7")) {
+            return;
+        }
+        // форматирование
+        let maskedValue = "+7";
+        if (value.length > 1) maskedValue += ` (${value.slice(1, 4)}`;
+        if (value.length > 4) maskedValue += `) ${value.slice(4, 7)}`;
+        if (value.length > 7) maskedValue += `-${value.slice(7, 9)}`;
+        if (value.length > 9) maskedValue += `-${value.slice(9, 11)}`;
+
+        setUserPhone(maskedValue);
+    }; 
+
+    const checkForm = (e) => {
+        e.preventDefault();
+        
+        // для отправки лучше брать «чистый» номер - убираем всё, кроме цифр
+        const rawPhone = userPhone.replace(/\D/g, "");
+
+        const userNameValue = userNameRef.current.value;
+        const userCompanyValue = userCompanyRef.current.value;
+        const userEmailValue = userEmailRef.current.value;
+
+        if (!userNameValue || !userCompanyValue || !userEmailValue || !userPhone) return; 
+
+        // console.log({
+        //     userName: userNameValue,
+        //     userCompany: userCompanyValue,
+        //     userEmail: userEmailValue,
+        //     userPhone: userPhone,
+        //     userPhoneFormatted: rawPhone,
+        // })
+        // очистка полей
+        setUserName("");
+        setUserCompany("");
+        setUserEmail("");
+        setUserPhone("");
+    };
 
     return (
         <>
@@ -13,7 +75,7 @@ const FormRequest = () => {
                     <div className="formRequest_content">
                         <img className="formRequest_content_image" src={require('../../assets/images/contact.png')} alt="" />
                         <div className="formRequest_content_form box_shadow">
-                            <form>
+                            <form onSubmit={checkForm}>
                                 <div className="formRequest_content_form_title bold">
                                     {lang === 'ru'
                                         ? 'Оформите'
@@ -46,6 +108,9 @@ const FormRequest = () => {
                                             type="text"
                                             id="formRequest_name"
                                             placeholder={lang === 'ru' ? 'Ваше имя' : 'Your name'}
+                                            ref={userNameRef}
+                                            value={userName}
+                                            onChange={(e) => setUserName(e.target.value)}
                                         />
                                     </div>
                                     <div className="formRequest_content_form_inputs_item">
@@ -57,6 +122,9 @@ const FormRequest = () => {
                                             type="text"
                                             id="formRequest_company"
                                             placeholder={lang === 'ru' ? 'Компания' : 'Company'}
+                                            ref={userCompanyRef}
+                                            value={userCompany}
+                                            onChange={(e) => setUserCompany(e.target.value)}
                                         />
                                     </div>
                                     <div className="formRequest_content_form_inputs_item">
@@ -65,9 +133,12 @@ const FormRequest = () => {
                                         </div>
                                         <input
                                             className="formRequest_content_form_inputs_item_input"
-                                            type="text"
+                                            type="email"
                                             id="formRequest_email"
                                             placeholder={lang === 'ru' ? 'E-mail' : 'E-mail'}
+                                            ref={userEmailRef}
+                                            value={userEmail}
+                                            onChange={(e) => setUserEmail(e.target.value)}
                                         />
                                     </div>
                                     <div className="formRequest_content_form_inputs_item">
@@ -79,12 +150,19 @@ const FormRequest = () => {
                                             type="tel"
                                             id="formRequest_phone"
                                             placeholder={lang === 'ru' ? 'Телефон' : 'Phone'}
+                                            ref={userPhoneRef}
+                                            value={userPhone}
+                                            onChange={handlePhoneChange}
+                                            inputMode="numeric"
+                                            autoComplete="tel"
                                         />
                                     </div>
                                 </div>
                                 <div className={`formRequest_content_form_btn ${checked ? 'active' : 'noactive'}`}>
                                     <button
                                         disabled={!checked}
+                                        type="submit"
+                                        // onClick={(e) => {checkForm(e)}}
                                     >
                                         <span>
                                             {lang === 'ru'
