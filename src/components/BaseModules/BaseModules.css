@@ -1,7 +1,7 @@
 .baseModules {
     display: flex;
     justify-content: center;
-    padding-top: 80px;
+    margin-top: 80px;
 }
 .baseModules_content {
     width: 100%;

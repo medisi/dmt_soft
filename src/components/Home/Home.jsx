@@ -36,7 +36,10 @@ const Home = () => {
                                 }
                             </div>
                             <div className="home_content_item_info_btns">
-                                <div className="home_content_item_info_btns_item demo">
+                                <ScrollLink
+                                    to="#form_request"
+                                    className="home_content_item_info_btns_item demo"
+                                >
                                     <span>
                                         {lang === 'ru'
                                             ? 'Попробовать бесплатно'
@@ -46,7 +49,8 @@ const Home = () => {
                                     <div className="home_content_item_info_btns_item_round">
                                         <img src={require('../../assets/icons/arrow.png')} alt="" />
                                     </div>
-                                </div>
+                                </ScrollLink>
+
                                 <ScrollLink
                                     to="#preview"
                                     className="home_content_item_info_btns_item tutorial box_shadow"

@@ -66,6 +66,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 .home_content_item_info_btns_item.demo {
     background: linear-gradient(135deg, #F8855B, #E56131);
