@@ -20,7 +20,6 @@
 }
 .formRequest_content_form {
     width: 100%;
-    background-color: #131B2550;
     overflow: hidden;
     border-radius: 25px;
     margin-bottom: 40px;
@@ -31,7 +30,6 @@
     padding: 50px 40px;
 }
 .formRequest_content_form_title {
-    color: #fff;
     font-size: 40px;
 }
 .formRequest_content_form_title span {
@@ -44,7 +42,6 @@
 }
 .formRequest_content_form_description {
     font-size: 22px;
-    color: #fff7;
     margin: 25px 0;
 }
 .formRequest_content_form_inputs {
@@ -58,7 +55,6 @@
     display: flex;
     align-items: center;
     height: 60px;
-    border: 2px solid #fff2;
     border-radius: 10px;
 }
 .formRequest_content_form_inputs_item_image {
@@ -88,11 +84,7 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: #fff;
     font-size: 18px;
-}
-.formRequest_content_form_inputs_item_input::placeholder {
-    color: #fff7;
 }
 .formRequest_content_form_btn {
     width: 100%;
@@ -121,21 +113,9 @@
 .formRequest_content_form_btn.active button:hover {
     background-color: transparent;
 }
-.formRequest_content_form_btn.active button span {
-    color: #fff;
-}
 /* не активная кнопка */
 .formRequest_content_form_btn.noactive button {
-    background-color: #6e6e6e;
-    border: 2px solid #6e6e6e;
     cursor: default;
-}
-.formRequest_content_form_btn.noactive button:hover {
-    background-color: #575757;
-    border: 2px solid #575757;
-}
-.formRequest_content_form_btn.noactive button span {
-    color: #fff5;
 }
 .formRequest_content_form_btn.noactive button img {
     opacity: .5;
@@ -163,12 +143,10 @@
     align-items: center;
     padding: 3px;
     cursor: pointer;
-    color: #fff;
     user-select: none;
 }
 .formRequest_content_form_checkbox_label {
     width: 100%;
-    color: #fff;
     font-size: 16px;
     user-select: none;
     cursor: pointer;

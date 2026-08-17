@@ -57,7 +57,13 @@
 .landing_page.dark .allArticlesContent_content_cards_item_texts_item,
 .landing_page.dark .allArticlesContent_content_title_item,
 .landing_page.dark .clients_content_title,
-.landing_page.dark .structure_content_roles_item_text_info
+.landing_page.dark .structure_content_roles_item_text_info,
+.landing_page.dark .formRequest_content_form_title,
+.landing_page.dark .formRequest_content_form_inputs_item_input,
+.landing_page.dark .formRequest_content_form_btn.active button span,
+.landing_page.dark .formRequest_content_form_checkbox_div,
+.landing_page.dark .formRequest_content_form_checkbox_label
+
 {
     color: #fff;
 }
@@ -71,6 +77,10 @@
 .landing_page.dark .allArticlesContent_content_cards_item_time
 {
     color: #fff5;
+}
+.landing_page.dark .formRequest_content_form_description,
+.landing_page.dark .formRequest_content_form_inputs_item_input::placeholder {
+    color: #fff7;
 }
 .landing_page.dark .home_content_item_info_text {
     color: #fff;
@@ -176,6 +186,23 @@
 .landing_page.dark .clientCard.MP-3 {
     filter: invert(100%);
 }
+.landing_page.dark .formRequest_content_form {
+    background-color: #131B2550;
+}
+.landing_page.dark .formRequest_content_form_inputs_item {
+    border: 2px solid #fff2;
+}
+.landing_page.dark .formRequest_content_form_btn.noactive button {
+    background-color: #6e6e6e;
+    border: 2px solid #6e6e6e;
+}
+.landing_page.dark .formRequest_content_form_btn.noactive button:hover {
+    background-color: #575757;
+    border: 2px solid #575757;
+}
+.landing_page.dark .formRequest_content_form_btn.noactive button span {
+    color: #fff5;
+}
 
 
 
@@ -234,7 +261,12 @@
 .landing_page.light .allArticlesContent_content_cards_item_texts_item,
 .landing_page.light .allArticlesContent_content_title_item,
 .landing_page.light .clients_content_title,
-.landing_page.light .structure_content_roles_item_text_info
+.landing_page.light .structure_content_roles_item_text_info,
+.landing_page.light .formRequest_content_form_title,
+.landing_page.light .formRequest_content_form_inputs_item_input,
+.landing_page.light .formRequest_content_form_btn.active button span,
+.landing_page.light .formRequest_content_form_checkbox_div,
+.landing_page.light .formRequest_content_form_checkbox_label
 {
     color: #1C1C1C;
 }
@@ -253,6 +285,10 @@
 .landing_page.light .allArticlesContent_content_cards_item_time
 {
     color: #1C1C1C50;
+}
+.landing_page.light .formRequest_content_form_description,
+.landing_page.light .formRequest_content_form_inputs_item_input::placeholder {
+    color: #1C1C1C70;
 }
 .landing_page.light .home_content_item_info_text {
     color: #1C1C1C;
@@ -354,4 +390,30 @@
 }
 .landing_page.light .header_content::before {
     background: linear-gradient(to right, #1C1C1C00, #1C1C1C50, #1C1C1C00);
+}
+.landing_page.light .formRequest_content_form {
+    background-color: #fcf2ee;
+}
+.landing_page.light .formRequest_content_form_inputs_item {
+    border: 2px solid #1C1C1C20;
+}
+.landing_page.light .formRequest_content_form_btn.noactive button {
+    background-color: #b9b9b9;
+    border: 2px solid #b9b9b9;
+}
+.landing_page.light .formRequest_content_form_btn.noactive button:hover {
+    background-color: #aaaaaa;
+    border: 2px solid #aaaaaa;
+}
+.landing_page.light .formRequest_content_form_btn.noactive button span {
+    color: #fff5;
+}
+.landing_page.light .formRequest_content_form_btn.active button span {
+    color: #fff;
+}
+.landing_page.light .formRequest_content_form_btn.active:hover button span {
+    color: #1C1C1C;
+}
+.landing_page.light .formRequest_content_form_btn.active:hover button img {
+    filter: invert(100%);
 }
