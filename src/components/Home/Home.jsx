@@ -25,8 +25,8 @@ const Home = () => {
                             </div>
                             <div className={`home_content_item_info home_content_item_info_subtitle`}>
                                 {lang === 'ru'
-                                    ? 'Для создания, централизованного хранения, управления и совместной работы с документами и данными проектов.'
-                                    : 'To create, centrally store, manage, and collaborate with project documents and data.'
+                                    ? 'Предназначенная для создания, централизованного хранения, управления и совместной работы с документами и данными проектов'
+                                    : 'Designed for creating, centrally storing, managing, and collaborating on project documents and data'
                                 }
                             </div>
                             <div className="home_content_item_info home_content_item_info_text text">
@@ -62,6 +62,14 @@ const Home = () => {
                                         }
                                     </span>
                                 </ScrollLink>
+                                <div className="home_content_item_info_btns_item tutorial presentation box_shadow">
+                                    <span>
+                                        {lang === 'ru'
+                                            ? 'Скачать презентацию'
+                                            : 'Download the presentation'
+                                        }
+                                    </span>
+                                </div>
                             </div>
                         </div>
 

@@ -21,6 +21,7 @@
     align-items: start;
     gap: 30px;
     overflow: hidden;
+    padding: 10px;
 }
 .home_content_item_info {
     letter-spacing: 3%;
@@ -28,7 +29,7 @@
 }
 .home_content_item_info_title {
     font-size: 48px;
-    line-height: 90.3%;
+    line-height: 1.1em;
 }
 .home_content_item_info_subtitle {
     font-size: 24px;
@@ -71,7 +72,8 @@
 .home_content_item_info_btns_item.demo {
     background: linear-gradient(135deg, #F8855B, #E56131);
     border-radius: 7px 35px 35px 7px;
-    padding: 25px 90px 25px 60px;
+    padding: 25px 80px 25px 40px;
+    text-align: center;
 }
 .home_content_item_info_btns_item_round {
     background-color: #fff;
@@ -99,6 +101,7 @@
     background-color: transparent;
     transition: all .3s ease;
     text-decoration: none;
+    text-align: center;
 }
 @media (hover :hover) {
     .home_content_item_info_btns_item.tutorial:hover {
@@ -142,6 +145,32 @@
     .home_content_item_info_btns_item span
     {
         font-size: 22px;
+    }
+    .home_content_item_info_btns_item.demo {
+        border-radius: 7px 35px 35px 7px;
+        padding: 25px 90px 25px 60px;
+    }
+}
+@media ( max-width: 1340px ) {
+    .home_content_item_info_btns_item.demo {
+        grid-area: demo;
+    }
+    .home_content_item_info_btns_item.tutorial:not(.presentation) {
+        grid-area: tutorial;
+    }
+    .home_content_item_info_btns_item.presentation {
+        grid-area: presentation;
+    }
+    .home_content_item_info_btns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "demo demo"
+            "tutorial presentation"
+        ;
+    }
+    .home_content {
+        gap: 30px;
     }
 }
 @media ( max-width: 1170px ) {
@@ -190,6 +219,9 @@
         border: 1px solid #E56131;
         box-shadow: none;
     }
+    .home_content_item_info_btns {
+        width: 100%;
+    }
 }
 @media ( max-width: 550px ) {
     /* .home {
@@ -202,5 +234,15 @@
     }
     .home_content_item_info_btns_item {
         width: 100%;
+    }
+}
+@media ( max-width: 420px ) {
+    .home_content_item_info_btns {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "demo"
+            "tutorial"
+            "presentation"
+        ;
     }
 }

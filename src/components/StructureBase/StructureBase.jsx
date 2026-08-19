@@ -190,7 +190,7 @@ const StructureBase = () => {
 
                         <div className="structure_row_for_two_round"></div>
 
-                        <div className="structure_content_tasks anim">
+                        {/* <div className="structure_content_tasks anim">
                             <div className="structure_content_roles_item">
                                 <div className="structure_content_tasks_item_image user">
                                     <img src={require('../../assets/images/user.png')} alt="" />
@@ -267,7 +267,7 @@ const StructureBase = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

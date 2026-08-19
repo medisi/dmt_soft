@@ -86,8 +86,8 @@ const Footer = () => {
                                 </span>
                                 <span className="suptext">
                                     {lang === 'ru'
-                                        ? 'Обработка персональных данных'
-                                        : 'Processing of personal data'
+                                        ? 'Пользовательское соглашение'
+                                        : 'User agreement'
                                     }
                                 </span>
                             </div>

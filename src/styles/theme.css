@@ -62,7 +62,13 @@
 .landing_page.dark .formRequest_content_form_inputs_item_input,
 .landing_page.dark .formRequest_content_form_btn.active button span,
 .landing_page.dark .formRequest_content_form_checkbox_div,
-.landing_page.dark .formRequest_content_form_checkbox_label
+.landing_page.dark .formRequest_content_form_checkbox_label,
+.landing_page.dark .blockForForm_content_title,
+.landing_page.dark .blockForForm_content_description,
+.landing_page.dark .blockForForm_content_inputs_item_input,
+.landing_page.dark .blockForForm_content_checks_div,
+.landing_page.dark .blockForForm_content_checks_label,
+.landing_page.dark .blockForForm_content_checks_button.active button span
 
 {
     color: #fff;
@@ -79,7 +85,9 @@
     color: #fff5;
 }
 .landing_page.dark .formRequest_content_form_description,
-.landing_page.dark .formRequest_content_form_inputs_item_input::placeholder {
+.landing_page.dark .formRequest_content_form_inputs_item_input::placeholder,
+.landing_page.dark .blockForForm_content_inputs_item_input::placeholder
+{
     color: #fff7;
 }
 .landing_page.dark .home_content_item_info_text {
@@ -189,21 +197,31 @@
 .landing_page.dark .formRequest_content_form {
     background-color: #131B2550;
 }
-.landing_page.dark .formRequest_content_form_inputs_item {
+.landing_page.dark .formRequest_content_form_inputs_item,
+.landing_page.dark .blockForForm_content_inputs_item
+{
     border: 2px solid #fff2;
 }
-.landing_page.dark .formRequest_content_form_btn.noactive button {
+.landing_page.dark .formRequest_content_form_btn.noactive button,
+.landing_page.dark .blockForForm_content_checks_button.noactive button
+{
     background-color: #6e6e6e;
     border: 2px solid #6e6e6e;
 }
-.landing_page.dark .formRequest_content_form_btn.noactive button:hover {
+.landing_page.dark .formRequest_content_form_btn.noactive button:hover,
+.landing_page.dark .blockForForm_content_checks_button.noactive button:hover
+{
     background-color: #575757;
     border: 2px solid #575757;
 }
-.landing_page.dark .formRequest_content_form_btn.noactive button span {
+.landing_page.dark .formRequest_content_form_btn.noactive button span,
+.landing_page.dark .blockForForm_content_checks_button.noactive button span
+{
     color: #fff5;
 }
-.landing_page.dark .formRequest_content_form_inputs_item_error {
+.landing_page.dark .formRequest_content_form_inputs_item_error,
+.landing_page.dark .blockForForm_content_inputs_item_error
+{
     background-color: #1c2633;
 }
 
@@ -269,7 +287,13 @@
 .landing_page.light .formRequest_content_form_inputs_item_input,
 .landing_page.light .formRequest_content_form_btn.active button span,
 .landing_page.light .formRequest_content_form_checkbox_div,
-.landing_page.light .formRequest_content_form_checkbox_label
+.landing_page.light .formRequest_content_form_checkbox_label,
+.landing_page.light .blockForForm_content_title,
+.landing_page.light .blockForForm_content_description,
+.landing_page.light .blockForForm_content_inputs_item_input,
+.landing_page.light .blockForForm_content_checks_div,
+.landing_page.light .blockForForm_content_checks_label,
+.landing_page.light .blockForForm_content_checks_button.active button span
 {
     color: #1C1C1C;
 }
@@ -290,7 +314,9 @@
     color: #1C1C1C50;
 }
 .landing_page.light .formRequest_content_form_description,
-.landing_page.light .formRequest_content_form_inputs_item_input::placeholder {
+.landing_page.light .formRequest_content_form_inputs_item_input::placeholder,
+.landing_page.light .blockForForm_content_inputs_item_input::placeholder
+{
     color: #1C1C1C70;
 }
 .landing_page.light .home_content_item_info_text {
@@ -397,29 +423,45 @@
 .landing_page.light .formRequest_content_form {
     background-color: #fcf2ee80;
 }
-.landing_page.light .formRequest_content_form_inputs_item {
+.landing_page.light .formRequest_content_form_inputs_item,
+.landing_page.light .blockForForm_content_inputs_item
+{
     border: 2px solid #1C1C1C20;
 }
-.landing_page.light .formRequest_content_form_btn.noactive button {
+.landing_page.light .formRequest_content_form_btn.noactive button,
+.landing_page.light .blockForForm_content_checks_button.noactive button
+{
     background-color: #b9b9b9;
     border: 2px solid #b9b9b9;
 }
-.landing_page.light .formRequest_content_form_btn.noactive button:hover {
+.landing_page.light .formRequest_content_form_btn.noactive button:hover,
+.landing_page.light .blockForForm_content_checks_button.noactive button:hover
+{
     background-color: #aaaaaa;
     border: 2px solid #aaaaaa;
 }
-.landing_page.light .formRequest_content_form_btn.noactive button span {
+.landing_page.light .formRequest_content_form_btn.noactive button span,
+.landing_page.light .blockForForm_content_checks_button.noactive button span
+{
     color: #fff5;
 }
-.landing_page.light .formRequest_content_form_btn.active button span {
+.landing_page.light .formRequest_content_form_btn.active button span,
+.landing_page.light .blockForForm_content_checks_button.active button span
+{
     color: #fff;
 }
-.landing_page.light .formRequest_content_form_btn.active:hover button span {
+.landing_page.light .formRequest_content_form_btn.active:hover button span,
+.landing_page.light .blockForForm_content_checks_button.active:hover button span
+{
     color: #1C1C1C;
 }
-.landing_page.light .formRequest_content_form_btn.active:hover button img {
+.landing_page.light .formRequest_content_form_btn.active:hover button img,
+.landing_page.light .blockForForm_content_checks_button.active:hover button img
+{
     filter: invert(100%);
 }
-.landing_page.light .formRequest_content_form_inputs_item_error {
+.landing_page.light .formRequest_content_form_inputs_item_error,
+.landing_page.light .blockForForm_content_inputs_item_error
+{
     background-color: #d1cfcf;
 }
