@@ -13,6 +13,9 @@ import QRCode from "../components/QRCode/QRCode";
 import Clients from "../components/Clients/Clients";
 import FormRequest from "../components/FormRequest/FormRequest";
 import BlockForForm from "../components/BlockForForm/BlockForForm";
+import TrustLine from "../components/TrustLine/TrustLine";
+import DownloadClient from "../components/DownloadClient/DownloadClient";
+import WhyDMTBase from "../components/WhyDMTBase/WhyDMTBase";
 
 const MainPage = () => {
     document.title = "ООО «ДМТ Софт» — компания информационных технологий, выделенная из проектной компании «ДМТ Групп» в 2016 году, с целью увеличить скорость развития программного обеспечения DMT Base.";
@@ -21,14 +24,17 @@ const MainPage = () => {
         <>
             <Header />
             <Home />
+            <TrustLine />
             <BaseModules />
             <BlockForForm />
             <StructureBase />
             <BlockForDemo />
-            <WhyNecessary />
+            {/* <WhyNecessary /> */}
             <News />
             <Clients />
             <DemoPreview />
+            <DownloadClient />
+            <WhyDMTBase />
             <FormRequest />
             <Footer />
 

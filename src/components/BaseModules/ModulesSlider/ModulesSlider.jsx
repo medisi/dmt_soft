@@ -13,11 +13,27 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
     const { lang, theme } = useLocalSettings();
     const swiperRef = useRef(null);
 
+    const [ isMobile, setIsMobile ] = useState(false);
+    const [ isVisibleContent, setIsVisibleContent ] = useState(false);
+
     useEffect(() => {
         if (swiperRef.current) {
             swiperRef.current.slideTo(initialIndex, 300, false);
         }
     }, [initialIndex]);
+
+    useEffect(() => {
+        if (window.innerWidth <= 767) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    }, []);
+
+    const handleClickContent = () => {
+        setIsVisibleContent((prev) => !prev);
+    };
+    
 
     
     return (
@@ -38,7 +54,6 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
                     prevEl: '.baseModules_prev',
                     nextEl: '.baseModules_next',
                 }}
-                pagination={{ clickable: true }}
                 autoplay={{
                     delay: 35000,
                     disableOnInteraction: false,
@@ -75,12 +90,29 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
                                         : module.title_en
                                     }
                                 </h2>
-                                <p className='text'>
+                                <p
+                                    className={`moduleSlide_info_text text 
+                                        ${isMobile ? 'mobile' : ''}
+                                        ${isVisibleContent ? 'visible' : ''}
+                                    `}
+                                >
                                     {lang === 'ru'
                                         ? module.about_ru
                                         : module.about_en
                                     }
                                 </p>
+                                {isMobile && (
+                                    <span
+                                        className='moduleSlide_reveal_btn'
+                                        onClick={handleClickContent}
+                                    >
+                                        {isVisibleContent ? (
+                                            lang === 'ru' ? 'скрыть' : 'hide'
+                                        ) : (
+                                            lang === 'ru' ? 'раскрыть' : 'expand'
+                                        )}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </SwiperSlide>

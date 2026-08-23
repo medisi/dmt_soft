@@ -52,12 +52,15 @@ const Footer = () => {
                                             : 'Company'
                                         }
                                     </ScrollLink>
-                                    <div className="footer_content_item_top_menu_item text">
+                                    <ScrollLink
+                                        to="#downloadClient"
+                                        className="footer_content_item_top_menu_item text"
+                                    >
                                         {lang === 'ru'
                                             ? 'Загрузки'
                                             : 'Download'
                                         }
-                                    </div>
+                                    </ScrollLink>
                                     <div className="footer_content_item_top_menu_item text">
                                         {lang === 'ru'
                                             ? 'Поддержка'

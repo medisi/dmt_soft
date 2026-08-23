@@ -104,12 +104,15 @@ const Header = () => {
                                     : 'Company'
                                 }
                             </ScrollLink>
-                            <div className="header_content_menu_item text">
+                            <ScrollLink
+                                to="#downloadClient"
+                                className="header_content_menu_item text"
+                            >
                                 {lang === 'ru'
                                     ? 'Загрузки'
                                     : 'Download'
                                 }
-                            </div>
+                            </ScrollLink>
                             <div className="header_content_menu_item text">
                                 {lang === 'ru'
                                     ? 'Поддержка'

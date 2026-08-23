@@ -33,8 +33,8 @@ export const MODULES = [
     },
     {
         id: 2,
-        title_ru: 'Модуь ЭЦП',
-        title_en: 'The EDS module',
+        title_ru: 'ЭЦП',
+        title_en: 'The EDS',
         image: 'ecp',
         image_light: 'ecp_light',
         image_dark: 'ecp_dark',
@@ -43,8 +43,8 @@ export const MODULES = [
     },
     {
         id: 3,
-        title_ru: 'Модуль корреспонденции',
-        title_en: 'Correspondence module',
+        title_ru: 'Корреспонденция',
+        title_en: 'Correspondence',
         image: 'corr',
         image_light: 'corr_light',
         image_dark: 'corr_dark',
@@ -53,8 +53,8 @@ export const MODULES = [
     },
     {
         id: 4,
-        title_ru: 'Модуль заданий и планирования',
-        title_en: 'The Tasks and Planning module',
+        title_ru: 'Задания и планирование',
+        title_en: 'The Tasks and Planning',
         image: 'tasks',
         image_light: 'tasks_light',
         image_dark: 'tasks_dark',
@@ -63,8 +63,8 @@ export const MODULES = [
     },
     {
         id: 5,
-        title_ru: 'Модуль ТУ и согласований',
-        title_en: 'Technical specifications and approvals module',
+        title_ru: 'ТУ и согласования',
+        title_en: 'Technical specifications and approvals',
         image: 'tachspec_approvals',
         image_light: 'tachspec_approvals_light',
         image_dark: 'tachspec_approvals_dark',
@@ -355,18 +355,75 @@ export const CLIENTS = [
         id: 1,
         title: 'DMT',
         image: 'DMT.png',
-
     },
     {
         id: 2,
         title: 'MP-3',
         image: 'MP-3.png',
-
     },
     {
         id: 3,
         title: 'Promos',
         image: 'Promos.png',
+    },
+];
 
+export const TRUSTS = [
+    {
+        id: 1,
+        count: '20+',
+        title_ru: 'лет безотказной работы',
+        title_en: 'years of trouble-free operation',
+    },
+    {
+        id: 2,
+        count: '6',
+        title_ru: 'компаний',
+        title_en: 'companies',
+    },
+    {
+        id: 3,
+        count: '500+',
+        title_ru: 'пользователей в одной организации',
+        title_en: 'users in the same organization',
+    },
+    {
+        id: 4,
+        count: '0',
+        title_ru: 'случаев потери данных',
+        title_en: 'cases of data loss',
+    },
+];
+
+export const WHIESDMTBASE = [
+    {
+        id: 1,
+        image: 'engineer.png',
+        text_ru: 'Создана инженерами для инженеров',
+        text_en: 'Created by engineers for engineers',
+    },
+    {
+        id: 2,
+        image: 'time.png',
+        text_ru: 'Проверена в реальной проектной работе на длинных дистанциях',
+        text_en: 'Verified in real project work over long distances.',
+    },
+    {
+        id: 3,
+        image: 'platform.png',
+        text_ru: 'Всё необходимое — уже внутри базовой платформы',
+        text_en: 'Everything you need is already inside the base platform.',
+    },
+    {
+        id: 4,
+        image: 'users.png',
+        text_ru: 'Развивается вместе с пользователями',
+        text_en: 'Develops together with users',
+    },
+    {
+        id: 5,
+        image: 'reliability.png',
+        text_ru: 'Надёжность, проверенная временем',
+        text_en: 'Time-tested reliability',
     },
 ];

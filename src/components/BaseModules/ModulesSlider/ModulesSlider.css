@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all .4s ease;
 }
 .baseModules_prev img {
     transform: rotate(180deg);
@@ -28,7 +29,7 @@
 .moduleSlide {
     width: 100%;
     height: 100%;
-    padding: 0 25px 30px;
+    padding: 0 25px;
     display: flex;
     gap: 50px;
     /* justify-content: center; */
@@ -66,16 +67,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
     height: 100%;
-    /* transform: translateX(150%);
-    opacity: 0; */
-    transition: transform .4s ease .5s, opacity .4s ease .5s;
 }
-/* .moduleSlide_info.show {
-    transform: translateX(0);
-    opacity: 1;
-} */
 .moduleSlide_info {
     transform: translateX(0);
     opacity: 1;
@@ -85,10 +78,88 @@
 {
     /* user-select: none; */
 }
-.moduleSlide_info h2 {
-    font-size: 36px;
+.moduleSlide_info_text:not(.mobile) {
+    margin-top: 25px;
 }
-.swiper-pagination {
+.moduleSlide_info_text.mobile:not(.visible) {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 25px 0 5px;
+    line-height: 1.3em;
+    max-height: calc(1.3em * 5);
+    transition: all .4s ease;
+}
+.moduleSlide_info_text.mobile.visible {
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 25px 0 5px;
+    line-height: 1.3em;
+    max-height: 100%;
+    transition: all .4s ease;
+}
+.moduleSlide_reveal_btn {
+    display: flex;
+    vertical-align: bottom;
+    cursor: pointer;
+    color: #E56131;
+}
+.moduleSlide_reveal_btn:hover {
+    text-decoration: underline;
+}
+/* Стили для текста */
+/* .moduleSlide_info p.text {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;    
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+    max-height: 3.6em;          
+    transition: max-height 0.4s ease-out, visibility 0.4s ease-out;
+    line-height: 1.2;
+    margin-bottom: 10px;
+} */
+/* Состояние "Раскрыто" */
+/* .moduleSlide_info p.text.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    max-height: 100vh;        
+    visibility: visible;
+} */
+/* Кнопка "раскрыть/скрыть" */
+/* .toggle-btn {
+    background: none;
+    border: none;
+    color: #E56131;
+    cursor: pointer;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.toggle-btn:hover {
+    color: #ff7a4a;
+    text-decoration: none;
+} */
+
+/* Адаптив для кнопки на мобильных */
+@media (max-width: 767px) {
+    .toggle-btn {
+        font-size: 14px;
+        color: #E56131;
+    }
+}
+.moduleSlide_info h2 {
+    font-size: 34px;
+}
+/* .swiper-pagination {
     bottom: 0px !important;
 }
 .swiper-pagination-bullet {
@@ -104,7 +175,7 @@
     display: flex;
     justify-content: center;
     gap: 5px;
-}
+} */
 
 @media ( min-width: 1900px ) {
     .moduleSlide_info h2 {
@@ -116,7 +187,7 @@
 }
 @media ( max-width: 925px ) {
     .moduleSlide {
-        padding: 0 20px 30px;
+        padding: 0 20px;
         gap: 30px;
     }
     .moduleSlide_image {
@@ -145,7 +216,7 @@
         font-size: 26px;
     }
     .moduleSlide {
-        padding: 0 10px 40px;
+        padding: 0 10px;
     }
     .baseModules_prev,
     .baseModules_next {

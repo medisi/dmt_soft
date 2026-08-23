@@ -43,7 +43,21 @@ const BaseModules = () => {
                 <div className="container">
                     <div className="baseModules_content">
                         <div className="baseModules_content_titles anim">
-                            <span className='title bold'>
+                            {/* <div className='baseModules_content_titles_comment'>
+                                <div className="baseModules_content_titles_comment_line one">
+                                    <span></span>
+                                </div>
+                                <div className='baseModules_content_titles_comment_text'>
+                                    {lang === 'ru'
+                                        ? 'технологии. опыт. надежность'
+                                        : 'technologies. experience. reliability'
+                                    }
+                                </div>
+                                <div className="baseModules_content_titles_comment_line two">
+                                    <span></span>
+                                </div>
+                            </div> */}
+                            {/* <span className='title bold'>
                                 {lang === 'ru'
                                     ? 'Модульная система DMT Base'
                                     : 'DMT Base Modular System'
@@ -54,7 +68,7 @@ const BaseModules = () => {
                                 ? 'Подключайте только те модули, которые нужны именно вам'
                                 : 'Connect only the modules that you need.'
                             }
-                            </span>
+                            </span> */}
                         </div>
 
                         <div className="baseModules_content_main anim">
@@ -63,15 +77,21 @@ const BaseModules = () => {
                                 <div className="about_modules_content_modules_main_item_image">
                                     <img src={require('../../assets/images/dmt_base.png')} alt="" />
                                 </div>
-                                <span className="about_modules_content_modules_main_item_text">
+                                <span className="about_modules_content_modules_main_item_text bold">
                                     {lang === 'ru' 
-                                        ? 'Базовая платформа' 
-                                        : 'Basic platform'
+                                        ? 'Базовая платформа с широким функционалом' 
+                                        : 'Basic platform with extensive functionality'
                                     }
                                 </span>
                             </div>
                             <div className="baseModules_content_main_line right"></div>
                         </div>
+                        <span className='baseModules_content_main_description text'>
+                            {lang === 'ru'
+                            ? 'Дополнительные модули для расширения возможностей системы'
+                            : "Additional modules to expand the system's capabilities"
+                        }
+                        </span>
 
                         <div className="baseModules_content_modules">
                             {MODULES.map((item, idx) => (

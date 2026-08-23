@@ -135,7 +135,9 @@ const FormRequest = () => {
             <div className="formRequest" id="form_request">
                 <div className="container">
                     <div className="formRequest_content">
-                        <img className="formRequest_content_image" src={require('../../assets/images/contact.png')} alt="" />
+                        <div className="formRequest_content_image">
+                            <img src={require('../../assets/images/contact.png')} alt="" />
+                        </div>
                         <div className="formRequest_content_form box_shadow">
                             <form onSubmit={checkForm}>
                                 <div className="formRequest_content_form_title bold">

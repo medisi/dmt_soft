@@ -35,7 +35,7 @@ const AllArticlesContent = () => {
                                     <img src={require(`../../assets/images/${item.image}`)} alt="" />
                                 </div>
                                 <div className="allArticlesContent_content_cards_item_time">{lang === 'ru' ? item.time_ru : item.time_en}</div>
-                                <div className="allArticlesContent_content_cards_item_title text">{item.title}</div>
+                                <div className="allArticlesContent_content_cards_item_title text bold">{item.title}</div>
                                 <div className="allArticlesContent_content_cards_item_texts">
                                     {item.articles.slice(0, 1).map((item) => (
                                         <p className="allArticlesContent_content_cards_item_texts_item text">{item.article}</p>

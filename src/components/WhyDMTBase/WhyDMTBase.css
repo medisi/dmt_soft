@@ -1,0 +1,94 @@
+.whyDMTBase {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+}
+.whyDMTBase_content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+}
+.whyDMTBase_content_title {
+    width: 100%;
+    font-size: 36px;
+}
+.whyDMTBase_content_cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+.whyDMTBase_content_cards_item {
+    padding: 20px 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+}
+.whyDMTBase_content_cards_item_image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.whyDMTBase_content_cards_item_image img {
+    height: 100%;
+    width: auto;
+}
+.whyDMTBase_content_cards_item_text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@media ( max-width: 1050px ) {
+    .whyDMTBase_content_cards_item_1 {
+        grid-area: block1;
+    }
+    .whyDMTBase_content_cards_item_2 {
+        grid-area: block2;
+    }
+    .whyDMTBase_content_cards_item_3 {
+        grid-area: block3;
+    }
+    .whyDMTBase_content_cards_item_4 {
+        grid-area: block4;
+    }
+    .whyDMTBase_content_cards_item_5 {
+        grid-area: block5;
+    }
+    .whyDMTBase_content_cards {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas:
+            "block1 block1 block2 block2 block3 block3"
+            "block4 block4 block4 block5 block5 block5"
+        ;
+    }
+}
+@media ( max-width: 580px ) {
+    .whyDMTBase_content_cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "block1 block2"
+            "block3 block4"
+            "block5 block5"
+        ;
+    }
+}
+@media ( max-width: 400px ) {
+    .whyDMTBase_content_cards {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "block1"
+            "block2"
+            "block3"
+            "block4"
+            "block5"
+        ;
+    }
+}

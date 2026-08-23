@@ -31,6 +31,15 @@ const HeaderArticle = () => {
                             >
                                 <img src={themeIcon} alt="" />
                             </div>
+                            <div 
+                                className="header_content_btns_item lang text"
+                                onClick={() => updateLang(lang === 'ru' ? 'en' : 'ru')}
+                            >
+                                {lang === 'ru'
+                                    ? 'ru'
+                                    : 'en'
+                                }
+                            </div>
                             <a
                                 href="https://base.dmtsoft.com/"
                                 className="header_content_btns_item login text"
