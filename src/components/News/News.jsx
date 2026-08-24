@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './News.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import { NEWS } from "../../hooks/data";
@@ -7,6 +7,15 @@ import { Link } from "react-router-dom";
 
 const News = () => {
     const { lang } = useLocalSettings();
+    const [ countCards, setCountCards ] = useState(3);
+
+    useEffect(() => {
+        if (window.innerWidth <= 1899) {
+            setCountCards(3);
+        } else if (window.innerWidth >= 1900) {
+            setCountCards(4);
+        }
+    }, []);
 
     return (
         <>
@@ -22,7 +31,7 @@ const News = () => {
                         </div>
 
                         <div className="news_content_cards">
-                            {NEWS.slice(0, 3).map((item) => (
+                            {NEWS.slice(0, countCards).map((item) => (
                                 <NewCard
                                     key={item.id}
                                     id={item.id}

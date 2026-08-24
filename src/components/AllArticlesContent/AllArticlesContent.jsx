@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './AllArticlesContent.css';
 import { NEWS } from "../../hooks/data";
 import { useLocalSettings } from "../../hooks/useLocalSettings";
@@ -6,6 +6,16 @@ import { Link } from "react-router-dom";
 
 const AllArticlesContent = () => {
     const { lang } = useLocalSettings();
+    const [ isMobile, setIsMobile ] = useState(false);
+
+    useEffect(() => {
+        if (window.innerWidth <= 670) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    }, []);
+    
     return (
         <div className="allArticlesContent">
             <div className="container">
@@ -30,27 +40,52 @@ const AllArticlesContent = () => {
                     </div>
                     <div className="allArticlesContent_content_cards">
                         {NEWS.map((item) => (
-                            <div className="allArticlesContent_content_cards_item" key={item.id}>
-                                <div className="allArticlesContent_content_cards_item_image">
-                                    <img src={require(`../../assets/images/${item.image}`)} alt="" />
+                            !isMobile ? (
+                                <div className="allArticlesContent_content_cards_item" key={item.id}>
+                                    <div className="allArticlesContent_content_cards_item_image">
+                                        <img src={require(`../../assets/images/${item.image}`)} alt="" />
+                                    </div>
+                                    <div className="allArticlesContent_content_cards_item_time">{lang === 'ru' ? item.time_ru : item.time_en}</div>
+                                    <div className="allArticlesContent_content_cards_item_title text bold">{item.title}</div>
+                                    <div className="allArticlesContent_content_cards_item_texts">
+                                        {item.articles.slice(0, 1).map((item) => (
+                                            <p className="allArticlesContent_content_cards_item_texts_item text">{item.article}</p>
+                                        ))}
+                                    </div>
+                                    <Link
+                                        to={`/article/${encodeURIComponent(item.id)}`}
+                                        className="allArticlesContent_content_cards_item_btn text"
+                                    >
+                                        {lang === 'ru'
+                                            ? 'Подробнее'
+                                            : 'More detailed'
+                                        }
+                                    </Link>
                                 </div>
-                                <div className="allArticlesContent_content_cards_item_time">{lang === 'ru' ? item.time_ru : item.time_en}</div>
-                                <div className="allArticlesContent_content_cards_item_title text bold">{item.title}</div>
-                                <div className="allArticlesContent_content_cards_item_texts">
-                                    {item.articles.slice(0, 1).map((item) => (
-                                        <p className="allArticlesContent_content_cards_item_texts_item text">{item.article}</p>
-                                    ))}
+                            ) : (
+                                <div className="modileNews_content_cards_item">
+                                    <div className="modileNews_content_cards_item_image">
+                                        <img src={require(`../../assets/images/${item.image}`)} alt="" />
+                                    </div>
+                                    <div className="modileNews_content_cards_item_info">
+                                        <div className="modileNews_content_cards_item_info_time">{item.time}</div>
+                                        <div className="modileNews_content_cards_item_info_title bold">{item.title}</div>
+                                        <div className="modileNews_content_cards_item_info_texts">
+                                            {item.articles.map((item) => (
+                                                <p className="modileNews_content_cards_item_info_texts_item text">
+                                                    {item.article}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <Link
+                                        to={`/article/${encodeURIComponent(item.id)}`}
+                                        className="modileNews_content_cards_item_link"
+                                    >
+                                        <img src={require('../../assets/icons/arrow.png')} alt="" />
+                                    </Link>
                                 </div>
-                                <Link
-                                    to={`/article/${encodeURIComponent(item.id)}`}
-                                    className="allArticlesContent_content_cards_item_btn text"
-                                >
-                                    {lang === 'ru'
-                                        ? 'Подробнее'
-                                        : 'More detailed'
-                                    }
-                                </Link>
-                            </div>
+                            )
                         ))}
                     </div>
                 </div>

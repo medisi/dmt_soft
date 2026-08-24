@@ -103,6 +103,14 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+@media ( min-width: 671px ) {
+    .allArticlesContent .modileNews_content_cards_item {
+        display: none;
+    }
+    .allArticlesContent .allArticlesContent_content_cards_item {
+        display: flex;
+    }
+}
 @media ( max-width: 670px ) {
     .allArticlesContent_content_title_item {
         font-size: 20px;
@@ -145,5 +153,11 @@
     .allArticlesContent_content_cards_item_texts_item {
         font-size: 14px;
         margin-left: 10px;
+    }
+    .allArticlesContent .modileNews_content_cards_item {
+        display: flex;
+    }
+    .allArticlesContent .allArticlesContent_content_cards_item {
+        display: none;
     }
 }

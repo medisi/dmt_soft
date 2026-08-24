@@ -12,6 +12,7 @@
 .landing_page.dark .baseModules_content_slides,
 .landing_page.dark .preview_content,
 .landing_page.dark .news_content_cards_item,
+.landing_page.dark .modileNews_content_cards_item,
 .landing_page.dark .allArticlesContent_content_cards_item
 {
     background-color: #1F2227;
@@ -47,6 +48,7 @@
 .landing_page.dark .preview_content_info_title,
 .landing_page.dark .news_content_title,
 .landing_page.dark .news_content_cards_item_title,
+.landing_page.dark .modileNews_content_cards_item_info_title,
 .landing_page.dark .structure_content_roles_arrows_item_text span,
 .landing_page.dark .structure_content_tasks_arrows_text,
 .landing_page.dark .contentArticle_content_article_content_title,
@@ -88,7 +90,9 @@
 .landing_page.dark .footer_content_item_top_menu_item,
 .landing_page.dark .footer_content_item_bottom_item,
 .landing_page.dark .news_content_cards_item_time,
+.landing_page.dark .modileNews_content_cards_item_info_time,
 .landing_page.dark .news_content_cards_item_texts_item,
+.landing_page.dark .modileNews_content_cards_item_info_texts_item,
 .landing_page.dark .contentArticle_content_article_content_time,
 .landing_page.dark .allArticlesContent_content_cards_item_time,
 .landing_page.dark .download_client_block_data_item_text
@@ -287,6 +291,7 @@
 .landing_page.light .baseModules_content_slides,
 .landing_page.light .preview_content,
 .landing_page.light .news_content_cards_item,
+.landing_page.light .modileNews_content_cards_item,
 .landing_page.light .contentArticle_content_article,
 .landing_page.light .qrcode_content_qr,
 .landing_page.light .allArticlesContent_content_cards_item
@@ -319,6 +324,7 @@
 .landing_page.light .preview_content_info_title,
 .landing_page.light .news_content_title,
 .landing_page.light .news_content_cards_item_title,
+.landing_page.light .modileNews_content_cards_item_info_title,
 .landing_page.light .structure_content_roles_arrows_item_text span,
 .landing_page.light .structure_content_tasks_arrows_text,
 .landing_page.light .contentArticle_content_article_content_title,
@@ -364,7 +370,9 @@
 .landing_page.light .footer_content_item_top_menu_item,
 .landing_page.light .footer_content_item_bottom_item,
 .landing_page.light .news_content_cards_item_time,
+.landing_page.light .modileNews_content_cards_item_info_time,
 .landing_page.light .news_content_cards_item_texts_item,
+.landing_page.light .modileNews_content_cards_item_info_texts_item,
 .landing_page.light .contentArticle_content_article_content_time,
 .landing_page.light .allArticlesContent_content_cards_item_time,
 .landing_page.light .download_client_block_data_item_text
