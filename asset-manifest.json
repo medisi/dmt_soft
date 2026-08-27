@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dmt_soft/static/css/main.791e4192.css",
-    "main.js": "/dmt_soft/static/js/main.7d280592.js",
+    "main.css": "/dmt_soft/static/css/main.f71964fa.css",
+    "main.js": "/dmt_soft/static/js/main.eca17083.js",
     "static/js/453.3fd9cfa3.chunk.js": "/dmt_soft/static/js/453.3fd9cfa3.chunk.js",
     "static/media/article3.jpg": "/dmt_soft/static/media/article3.e7d4a3a7e6dcafb91a81.jpg",
     "static/media/article1.jpg": "/dmt_soft/static/media/article1.8f53c42dc68bb8a82ece.jpg",
@@ -41,12 +41,12 @@
     "static/media/dmt_base.png": "/dmt_soft/static/media/dmt_base.27bfa2082088715f807e.png",
     "static/media/cads.png": "/dmt_soft/static/media/cads.1130d6837a199399f516.png",
     "index.html": "/dmt_soft/index.html",
-    "main.791e4192.css.map": "/dmt_soft/static/css/main.791e4192.css.map",
-    "main.7d280592.js.map": "/dmt_soft/static/js/main.7d280592.js.map",
+    "main.f71964fa.css.map": "/dmt_soft/static/css/main.f71964fa.css.map",
+    "main.eca17083.js.map": "/dmt_soft/static/js/main.eca17083.js.map",
     "453.3fd9cfa3.chunk.js.map": "/dmt_soft/static/js/453.3fd9cfa3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.791e4192.css",
-    "static/js/main.7d280592.js"
+    "static/css/main.f71964fa.css",
+    "static/js/main.eca17083.js"
   ]
 }
