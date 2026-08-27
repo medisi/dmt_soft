@@ -98,7 +98,10 @@
     /* transform: translateY(100px);
     opacity: 0; */
 }
-.footer_content_item_bottom_item:not(.copyright) span:hover {
+.footer_content_item_bottom_item_link {
+    text-decoration: none;
+}
+.footer_content_item_bottom_item_link:hover {
     text-decoration: underline;
     cursor: pointer;
 }

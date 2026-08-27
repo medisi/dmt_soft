@@ -189,12 +189,18 @@ const DownloadClient = () => {
                                 <div className="contact_data_item_image phone">
                                     <img src={require(`../../assets/icons/phoneContactUs_${theme}.png`)} alt="" />
                                 </div>
-                                <div className="contact_data_item_text text">
+                                {/* <div className="contact_data_item_text text">
                                     {lang === 'ru'
                                         ? '+7 (903) 270-11-77'
                                         : '+7 (903) 270-11-77'
                                     }
-                                </div>
+                                </div> */}
+                                <a href="tel:+79032701177" className="contact_data_item_text text">
+                                    {lang === 'ru'
+                                        ? '+7 (903) 270-11-77'
+                                        : '+7 (903) 270-11-77'
+                                    }
+                                </a>
                             </div>
                             <div className="contact_data_item">
                                 <div className="contact_data_item_image email">
@@ -206,6 +212,12 @@ const DownloadClient = () => {
                                         : 'info@dmt.soft'
                                     }
                                 </div>
+                                {/* <a href="mailto:info@dmt.soft?subject=Вопрос%20о%20платформе%20DMT%20Base" className="contact_data_item_text text">
+                                    {lang === 'ru'
+                                        ? 'info@dmt.soft'
+                                        : 'info@dmt.soft'
+                                    }
+                                </a> */}
                             </div>
                         </div>
 

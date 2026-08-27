@@ -2,6 +2,7 @@ import React from "react";
 import './Footer.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import { ScrollLink } from "../../hooks/ScrollLink";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     const { lang } = useLocalSettings();
@@ -81,13 +82,16 @@ const Footer = () => {
                                 </span>
                             </div>
                             <div className="footer_content_item_bottom_item">
-                                <span className="suptext">
+                                <Link
+                                    to={`/private_policy`}
+                                    className="footer_content_item_bottom_item_link suptext"
+                                >
                                     {lang === 'ru'
                                         ? 'Политика конфиденциальности'
                                         : 'Privacy policy'
                                     }
-                                </span>
-                                <span className="suptext">
+                                </Link>
+                                <span className="footer_content_item_bottom_item_link suptext">
                                     {lang === 'ru'
                                         ? 'Пользовательское соглашение'
                                         : 'User agreement'

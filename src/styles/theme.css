@@ -80,7 +80,10 @@
 .landing_page.dark .specifications_item_text,
 .landing_page.dark .specifications_item_value,
 .landing_page.dark .whyDMTBase_content_title,
-.landing_page.dark .whyDMTBase_content_cards_item_text
+.landing_page.dark .whyDMTBase_content_cards_item_text,
+.landing_page.dark .contentPrivatePolicy_content_title,
+.landing_page.dark .contentPrivatePolicy_content_content_title,
+.landing_page.dark .contentPrivatePolicy_content_content_texts_item
 
 {
     color: #fff;
@@ -88,14 +91,15 @@
 .landing_page.dark #mobile_menu,
 .landing_page.dark .preview_content_info_text,
 .landing_page.dark .footer_content_item_top_menu_item,
-.landing_page.dark .footer_content_item_bottom_item,
+.landing_page.dark .footer_content_item_bottom_item_link,
 .landing_page.dark .news_content_cards_item_time,
 .landing_page.dark .modileNews_content_cards_item_info_time,
 .landing_page.dark .news_content_cards_item_texts_item,
 .landing_page.dark .modileNews_content_cards_item_info_texts_item,
 .landing_page.dark .contentArticle_content_article_content_time,
 .landing_page.dark .allArticlesContent_content_cards_item_time,
-.landing_page.dark .download_client_block_data_item_text
+.landing_page.dark .download_client_block_data_item_text,
+.landing_page.dark .contentPrivatePolicy_content_time
 {
     color: #fff5;
 }
@@ -356,7 +360,10 @@
 .landing_page.light .specifications_item_text,
 .landing_page.light .specifications_item_value,
 .landing_page.light .whyDMTBase_content_title,
-.landing_page.light .whyDMTBase_content_cards_item_text
+.landing_page.light .whyDMTBase_content_cards_item_text,
+.landing_page.light .contentPrivatePolicy_content_title,
+.landing_page.light .contentPrivatePolicy_content_content_title,
+.landing_page.light .contentPrivatePolicy_content_content_texts_item
 {
     color: #1C1C1C;
 }
@@ -368,14 +375,15 @@
 .landing_page.light #mobile_menu,
 .landing_page.light .preview_content_info_text,
 .landing_page.light .footer_content_item_top_menu_item,
-.landing_page.light .footer_content_item_bottom_item,
+.landing_page.light .footer_content_item_bottom_item_link,
 .landing_page.light .news_content_cards_item_time,
 .landing_page.light .modileNews_content_cards_item_info_time,
 .landing_page.light .news_content_cards_item_texts_item,
 .landing_page.light .modileNews_content_cards_item_info_texts_item,
 .landing_page.light .contentArticle_content_article_content_time,
 .landing_page.light .allArticlesContent_content_cards_item_time,
-.landing_page.light .download_client_block_data_item_text
+.landing_page.light .download_client_block_data_item_text,
+.landing_page.light .contentPrivatePolicy_content_time
 {
     color: #1C1C1C50;
 }
