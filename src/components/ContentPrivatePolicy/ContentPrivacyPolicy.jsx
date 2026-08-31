@@ -32,7 +32,7 @@ const ContentPrivacyPolicy = () => {
                             <div className="contentPrivatePolicy_content_time">
                                 {lang === 'ru'
                                     ? 'Обновлено 24.08.2026'
-                                    : 'Updated on 24.08.2026'
+                                    : 'Updated on 24/08/2026'
                                 }
                             </div>
                             <div className="contentPrivatePolicy_content_title bold">

@@ -58,12 +58,15 @@ const FooterArticle = () => {
                                         : 'Privacy policy'
                                     }
                                 </Link>
-                                <span className="footer_content_item_bottom_item_link suptext">
+                                <Link
+                                    to={`/user_agreement`}
+                                    className="footer_content_item_bottom_item_link suptext"
+                                >
                                     {lang === 'ru'
                                         ? 'Пользовательское соглашение'
                                         : 'User agreement'
                                     }
-                                </span>
+                                </Link>
                             </div>
                         </div>
                     </div>

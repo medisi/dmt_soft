@@ -1,9 +1,9 @@
 import React from "react";
-import './FooterPrivacyPolicy.css';
+import './FooterUserAgreement.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import { Link } from "react-router-dom";
 
-const FooterPrivacyPolicy = () => {
+const FooterUserAgreement = () => {
     const { lang } = useLocalSettings();
 
     const cards = document.querySelectorAll('.anim');
@@ -50,12 +50,12 @@ const FooterPrivacyPolicy = () => {
                             </div>
                             <div className="footer_content_item_bottom_item">
                                 <Link
-                                    to={`/user_agreement`}
+                                    to={`/private_policy`}
                                     className="footer_content_item_bottom_item_link suptext"
                                 >
                                     {lang === 'ru'
-                                        ? 'Пользовательское соглашение'
-                                        : 'User agreement'
+                                        ? 'Политика конфиденциальности'
+                                        : 'Privacy policy'
                                     }
                                 </Link>
                             </div>
@@ -66,4 +66,4 @@ const FooterPrivacyPolicy = () => {
         </>
     )
 };
-export default FooterPrivacyPolicy;
+export default FooterUserAgreement;

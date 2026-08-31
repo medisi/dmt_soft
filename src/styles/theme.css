@@ -82,8 +82,13 @@
 .landing_page.dark .whyDMTBase_content_title,
 .landing_page.dark .whyDMTBase_content_cards_item_text,
 .landing_page.dark .contentPrivatePolicy_content_title,
+.landing_page.dark .contentUserAgreement_content_title,
 .landing_page.dark .contentPrivatePolicy_content_content_title,
-.landing_page.dark .contentPrivatePolicy_content_content_texts_item
+.landing_page.dark .contentUserAgreement_content_content_item_title,
+.landing_page.dark .contentPrivatePolicy_content_content_texts_item,
+.landing_page.dark .contentUserAgreement_content_content_item_texts_item,
+.landing_page.dark .contentUserAgreement_content_content_item_texts_item_subpoints_item,
+.landing_page.dark .contentUserAgreement_content_content_item_texts_item_list_item
 
 {
     color: #fff;
@@ -99,7 +104,8 @@
 .landing_page.dark .contentArticle_content_article_content_time,
 .landing_page.dark .allArticlesContent_content_cards_item_time,
 .landing_page.dark .download_client_block_data_item_text,
-.landing_page.dark .contentPrivatePolicy_content_time
+.landing_page.dark .contentPrivatePolicy_content_time,
+.landing_page.dark .contentUserAgreement_content_time
 {
     color: #fff5;
 }
@@ -362,8 +368,13 @@
 .landing_page.light .whyDMTBase_content_title,
 .landing_page.light .whyDMTBase_content_cards_item_text,
 .landing_page.light .contentPrivatePolicy_content_title,
+.landing_page.light .contentUserAgreement_content_title,
 .landing_page.light .contentPrivatePolicy_content_content_title,
-.landing_page.light .contentPrivatePolicy_content_content_texts_item
+.landing_page.light .contentUserAgreement_content_content_item_title,
+.landing_page.light .contentPrivatePolicy_content_content_texts_item,
+.landing_page.light .contentUserAgreement_content_content_item_texts_item,
+.landing_page.light .contentUserAgreement_content_content_item_texts_item_subpoints_item,
+.landing_page.light .contentUserAgreement_content_content_item_texts_item_list_item
 {
     color: #1C1C1C;
 }
@@ -383,7 +394,8 @@
 .landing_page.light .contentArticle_content_article_content_time,
 .landing_page.light .allArticlesContent_content_cards_item_time,
 .landing_page.light .download_client_block_data_item_text,
-.landing_page.light .contentPrivatePolicy_content_time
+.landing_page.light .contentPrivatePolicy_content_time,
+.landing_page.light .contentUserAgreement_content_time
 {
     color: #1C1C1C50;
 }
