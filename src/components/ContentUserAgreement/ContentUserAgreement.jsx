@@ -30,7 +30,7 @@ const ContentUserAgreement = () => {
                         <div className="contentUserAgreement_content_block">
                             <div className="contentUserAgreement_content_time">
                                 {lang === 'ru'
-                                    ? 'Обновлено 24.08.2926'
+                                    ? 'Обновлено 24.08.2026'
                                     : 'Updated on 24/08/2026'
                                 }
                             </div>

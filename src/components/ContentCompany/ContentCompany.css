@@ -1,0 +1,90 @@
+.contentCompany {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+    margin-bottom: 50px;
+}
+.contentCompany_content {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    height: 100%;
+}
+.contentCompany_content_title {
+    font-size: 34px;
+}
+.contentCompany_content_description {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 15px;
+}
+.contentCompany_content_description_item {
+    font-size: 18px;
+    line-height: 1.3em;
+}
+.contentCompany_content_contacts {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.contentCompany_content_contacts_title {
+    font-size: 24px;
+}
+.contentCompany_content_contacts_points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contentCompany_content_contacts_points_item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.contentCompany_content_contacts_points_item_name,
+.contentCompany_content_contacts_points_item_value {
+    font-size: 18px;
+}
+
+.contentCompany_content_title,
+.contentCompany_content_description_item,
+.contentCompany_content_contacts_title,
+.contentCompany_content_contacts_points_item_name,
+.contentCompany_content_contacts,
+.contentCompany_content_contacts_points_item_value
+{
+    color: #fff;
+}
+
+@media ( max-width: 767px ) {
+    .contentCompany_content_title {
+        font-size: 28px;
+    }
+    .contentCompany_content_contacts_title {
+        font-size: 18px;
+    }
+    .contentCompany_content_description_item,
+    .contentCompany_content_contacts_points_item_name,
+    .contentCompany_content_contacts_points_item_value {
+        font-size: 16px;
+    }
+}
+@media ( max-width: 450px ) {
+    .contentCompany_content_contacts_points {
+        gap: 25px;
+    }
+    .contentCompany_content_contacts_points_item {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: flex-start;
+    }
+}

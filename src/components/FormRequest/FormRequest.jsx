@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import './FormRequest.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
+import { Link } from "react-router-dom";
 
 const FormRequest = () => {
     const { lang } = useLocalSettings();
@@ -302,12 +303,17 @@ const FormRequest = () => {
                                             ? 'Даю согласие на обработку персональных данных и соглашаюсь '
                                             : 'I consent to the processing of personal data and agree '
                                         }
-                                        <span>
-                                            {lang === 'ru'
-                                                ? 'с политикой конфиденциальности'
-                                                : 'to the privacy policy'
-                                            }
-                                        </span>
+                                        <Link
+                                            to={`/private_policy`}
+                                            className="formRequest_content_form_checkbox_label_link"
+                                        >
+                                            <span>
+                                                {lang === 'ru'
+                                                    ? 'с политикой конфиденциальности'
+                                                    : 'to the privacy policy'
+                                                }
+                                            </span>
+                                        </Link>
                                     </label>
                                 </div>
                             </form>

@@ -167,7 +167,10 @@
     user-select: none;
     cursor: pointer;
 }
-.formRequest_content_form_checkbox_label span {
+.formRequest_content_form_checkbox_label_link {
+    text-decoration: none;
+}
+.formRequest_content_form_checkbox_label_link span {
     color: #E56131;
 }
 

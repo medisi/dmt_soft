@@ -5,6 +5,7 @@ import darkIcon from '../../assets/icons/dark.png';
 import lightIcon from '../../assets/icons/light.png';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { ScrollLink } from '../../hooks/ScrollLink';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const { theme, lang, updateTheme, updateLang, isSettingsLoaded } = useLocalSettings();
@@ -95,15 +96,15 @@ const Header = () => {
                                     : 'Clients'
                                 }
                             </ScrollLink>
-                            <ScrollLink
-                                to="#news"
+                            <Link
+                                to="/company-information"
                                 className="header_content_menu_item text"
                             >
                                 {lang === 'ru'
                                     ? 'Компания'
                                     : 'Company'
                                 }
-                            </ScrollLink>
+                            </Link>
                             <ScrollLink
                                 to="#downloadClient"
                                 className="header_content_menu_item text"

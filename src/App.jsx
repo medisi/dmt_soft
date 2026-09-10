@@ -7,6 +7,9 @@ import ArticlePage from "./pages/ArticlePage";
 import ArticlesPage from "./pages/ArticlesPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import UserAgreement from "./pages/UserAgreement";
+import AdminPanelLogin from "./pages/AdminPanel/AdminPanelLogin";
+import AdminPanel from "./pages/AdminPanel/AdminPanel";
+import CompanyPage from "./pages/CompanyPage";
 
 function App() {
   return (
@@ -18,6 +21,10 @@ function App() {
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/private_policy" element={<PrivacyPolicy />} />
           <Route path="/user_agreement" element={<UserAgreement />} />
+          <Route path="/company-information" element={<CompanyPage />} />
+          {/* admin panel */}
+          <Route path="/admin_panel-authorization" element={<AdminPanelLogin />} />
+          <Route path="/admin_panel" element={<AdminPanel />} />
         </Routes>
       </>
     </SettingsProvider>

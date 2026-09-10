@@ -36,6 +36,10 @@ const BaseModules = () => {
             el.scrollIntoView({ behavior: "smooth", block: "end" });
         }
     };
+    const handleBasePlatformClick = () => {
+        setActiveIndex(0);
+        handleClick();
+    };
 
     return (
         <>
@@ -73,7 +77,7 @@ const BaseModules = () => {
 
                         <div className="baseModules_content_main anim">
                             <div className="baseModules_content_main_line left"></div>
-                            <div className="baseModules_content_main_card">
+                            <div className={`baseModules_content_main_card ${activeIndex === 0 ? 'active' : ''}`} onClick={handleBasePlatformClick}>
                                 <div className="about_modules_content_modules_main_item_image">
                                     <img src={require('../../assets/images/dmt_base.png')} alt="" />
                                 </div>
@@ -94,18 +98,21 @@ const BaseModules = () => {
                         </span>
 
                         <div className="baseModules_content_modules">
-                            {MODULES.map((item, idx) => (
-                                <ModuleCard
-                                    key={item.id}
-                                    title={lang === 'ru' ? item.title_ru : item.title_en}
-                                    image={item.image}
-                                    isActive={activeIndex === idx}
-                                    onClick={() => {
-                                        setActiveIndex(idx);
-                                        handleClick();
-                                    }}
-                                />
-                            ))}
+                            {MODULES.slice(1).map((item, idx) => {
+                                const realIndex = idx + 1;
+                                return (
+                                    <ModuleCard
+                                        key={item.id}
+                                        title={lang === 'ru' ? item.title_ru : item.title_en}
+                                        image={item.image}
+                                        isActive={activeIndex === realIndex}
+                                        onClick={() => {
+                                            setActiveIndex(realIndex);
+                                            handleClick();
+                                        }}
+                                    />
+                                )
+                            })}
                         </div>
                         <div className="baseModules_content_slides">
                             <ModulesSlider

@@ -2,6 +2,7 @@ import './BlockForForm.css';
 import { ScrollLink } from "../../hooks/ScrollLink";
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const BlockForForm = () => {
     const { lang } = useLocalSettings();
@@ -296,12 +297,17 @@ const BlockForForm = () => {
                                             ? 'Даю согласие на обработку персональных данных и соглашаюсь '
                                             : 'I consent to the processing of personal data and agree '
                                         }
-                                        <span className='text'>
-                                            {lang === 'ru'
-                                                ? 'с политикой конфиденциальности'
-                                                : 'to the privacy policy'
-                                            }
-                                        </span>
+                                        <Link
+                                            to={`/private_policy`}
+                                            className='blockForForm_content_checks_label_link'
+                                        >
+                                            <span className='text'>
+                                                {lang === 'ru'
+                                                    ? 'с политикой конфиденциальности'
+                                                    : 'to the privacy policy'
+                                                }
+                                            </span>
+                                        </Link>
                                     </label>
                                 </div>
                                 <div className={`blockForForm_content_checks_button ${checked ? 'active' : 'noactive'}`}>

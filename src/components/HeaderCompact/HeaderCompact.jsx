@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import './HeaderPrivacyPolicy.css';
+import './HeaderCompact.css';
 import { useLocalSettings } from '../../hooks/useLocalSettings';
 import darkIcon from '../../assets/icons/dark.png';
 import lightIcon from '../../assets/icons/light.png';
 
-const HeaderPrivacyPolicy = () => {
+const HeaderCompact = () => {
     const { theme, lang, updateTheme, updateLang, isSettingsLoaded } = useLocalSettings();
     useEffect(() => {
         if (!isSettingsLoaded) return;
@@ -38,4 +38,4 @@ const HeaderPrivacyPolicy = () => {
         </>
     );
 };
-export default HeaderPrivacyPolicy;
+export default HeaderCompact;

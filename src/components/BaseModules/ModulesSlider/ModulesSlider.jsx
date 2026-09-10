@@ -76,14 +76,14 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
                 {MODULES.map((module) => (
                     <SwiperSlide key={module.id}>
                         <div className="moduleSlide" id="sliderCustom">
-                            <div className="moduleSlide_image anim">
+                            <div className="moduleSlide_image">
                                 <img
                                     src={require(`../../../assets/images/${theme === 'dark' ? module.image_dark : module.image_light}.png`)}
                                     alt={lang === 'ru' ? module.title_ru : module.title_en}
                                 />
                             </div>
 
-                            <div className="moduleSlide_info anim">
+                            <div className="moduleSlide_info">
                                 <h2 className='bold'>
                                     {lang === 'ru'
                                         ? module.title_ru
@@ -119,7 +119,7 @@ const ModulesSlider = ({ initialIndex = 0, onActiveIndexChange }) => {
                 ))}
             </Swiper>
 
-            <div className={`baseModules_next ${initialIndex === 4 ? 'disabled' : ''}`}>
+            <div className={`baseModules_next ${initialIndex === 5 ? 'disabled' : ''}`}>
                 <img src={require('../../../assets/icons/chevron.png')} alt="" />
             </div>
         </>

@@ -198,4 +198,8 @@
     }
 }
 @media ( max-width: 767px ) {
+    .header_content_btns_item.lang {
+        width: 50px;
+        font-size: 14px;
+    }
 }

@@ -137,7 +137,10 @@
     user-select: none;
     cursor: pointer;
 }
-.blockForForm_content_checks_label span {
+.blockForForm_content_checks_label_link {
+    text-decoration: none;
+}
+.blockForForm_content_checks_label_link span {
     color: #E56131;
 }
 .blockForForm_content_inputs_item_error {

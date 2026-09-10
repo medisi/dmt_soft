@@ -1,16 +1,16 @@
 export const MODULES = [
-    // {
-    //     id: 1,
-    //     title_ru: 'Базовая платформа',
-    //     title_en: 'The basic platform',
-    //     image: 'web',
-    //     image_light: 'base_light',
-    //     image_dark: 'base_dark',
-    //     about_ru: '',
-    //     about_en: ' ',
-    // },
     {
         id: 1,
+        title_ru: 'Базовая платформа',
+        title_en: 'The basic platform',
+        image: 'dmt_base',
+        image_light: 'base_light',
+        image_dark: 'base_dark',
+        about_ru: 'Обеспечивает централизованное хранение, управление и совместную работу с документами и данными проектов. Формирует единую информационную среду для сотрудников и внешних контрагентов. Включает инструменты управления организацией и администрирования, а также широкий набор функций для повышения эффективности работы с проектными данными.',
+        about_en: 'Provides centralized storage, management, and collaborative work with project documents and data. Creates a unified information environment for employees and external counterparties. Includes organizational management and administration tools, as well as a wide range of functions to improve the efficiency of working with project data.',
+    },
+    {
+        id: 2,
         title_ru: 'Веб-интерфейс',
         title_en: 'Web interface',
         image: 'web',
@@ -18,21 +18,9 @@ export const MODULES = [
         image_dark: 'web_interfase_dark',
         about_ru: 'Современный и интуитивно понятный интерфейс для работы с документами и данными проектов. Модуль обеспечивает удобную навигацию, быстрый поиск и доступ к актуальной информации в любое время. Все изменения отображаются в режиме реального времени, а гибкая система фильтрации и сортировки позволяет мгновенно находить необходимые проекты и документы, а также отслеживать историю и версии файлов. Веб-интерфейс не требует установки дополнительного программного обеспечения и не зависит от клиентского приложения, обеспечивает безопасную работу пользователей в соответствии с назначенными правами доступа и статусами документов.',
         about_en: 'A modern and intuitive interface for working with documents and project data. The module provides convenient navigation, quick search and access to up-to-date information at any time. All changes are displayed in real time, and a flexible filtering and sorting system allows you to instantly find the necessary projects and documents, as well as track the history and versions of files. The web interface does not require the installation of additional software and does not depend on the client application. It ensures the safe operation of users in accordance with the assigned access rights and document statuses.',
-        // features_ru: [
-        //     "Удобная работа с проектами",
-        //     "Гибкие настройки и фильтры",
-        //     "Адаптивный дизайн для любых устройств",
-        //     "Быстрый доступ к ключевой информации",
-        // ],
-        // features_en: [
-        //     "Convenient work with projects",
-        //     "Flexible settings and filters",
-        //     "Responsive design for all devices",
-        //     "Quick access to key information",
-        // ],
     },
     {
-        id: 2,
+        id: 3,
         title_ru: 'ЭЦП',
         title_en: 'The EDS',
         image: 'ecp',
@@ -42,7 +30,7 @@ export const MODULES = [
         about_en: 'The electronic digital signature module ensures the secure signing of documents using an enhanced qualified EDS. Batch signing of documents, support for attached and unpinned electronic signatures, as well as saving signed files with the ability to flexibly customize file names and extensions are implemented. The module also allows you to create a list of signatories to control the completeness of signing documents by all participants, as well as perform a quick search and filtering of documents by the last name of the signatory.',
     },
     {
-        id: 3,
+        id: 4,
         title_ru: 'Корреспонденция',
         title_en: 'Correspondence',
         image: 'corr',
@@ -52,7 +40,7 @@ export const MODULES = [
         about_en: 'The correspondence module provides centralized registration, storage and processing of incoming and outgoing correspondence. Thanks to the flexible search and powerful filtering mechanism, quick access to the correspondence history and necessary applications is provided. Support for resolutions with the appointment of performers and their automatic notification has been implemented, as well as the generation of letters using pre-prepared templates directly from the correspondence card. The module allows you to attach attachments to emails, assign incoming correspondence statuses, and monitor the progress of orders.',
     },
     {
-        id: 4,
+        id: 5,
         title_ru: 'Задания и планирование',
         title_en: 'The Tasks and Planning',
         image: 'tasks',
@@ -62,8 +50,8 @@ export const MODULES = [
         about_en: 'The technical specifications and Approvals module provides centralized management, storage and control of technical specifications and approvals for facilities. The integration of the register of technical specifications and approvals with the project composition module has been implemented, the assignment and tracking of approval statuses, the monitoring of the validity period of technical specifications with automatic reminders of their expiration, the transfer of technical specifications between projects, the maintenance of the history of documentation approval and the appointment of responsible executors at each stage of approval.',
     },
     {
-        id: 5,
-        title_ru: 'ТУ и согласования',
+        id: 6,
+        title_ru: 'Технические условия и согласования',
         title_en: 'Technical specifications and approvals',
         image: 'tachspec_approvals',
         image_light: 'tachspec_approvals_light',
@@ -691,5 +679,40 @@ export const USER_AGREEMENT = [
                 text: 'Если отдельные пункты Соглашения становятся недействительными, остальные пункты сохраняют свою юридическую силу.',
             },
         ],
+    },
+];
+
+export const BRIEF_SUMMARY = [
+    {
+        id: 1,
+        image: 'admin_views',
+        title_ru: 'Всего просмотров',
+        title_en: 'Total views',
+        count: '24 780',
+        procent: '12,5',
+    },
+    {
+        id: 2,
+        image: 'admin_articles',
+        title_ru: 'Всего статей',
+        title_en: 'Total articles',
+        count: '342',
+        procent: '8,1',
+    },
+    {
+        id: 3,
+        image: 'admin_users',
+        title_ru: 'Посетителей',
+        title_en: 'Visitors',
+        count: '18 780',
+        procent: '14,7',
+    },
+    {
+        id: 4,
+        image: 'admin_times',
+        title_ru: 'Среднее время чтения',
+        title_en: 'Average reading time',
+        count: '2:48',
+        procent: '6,3',
     },
 ];

@@ -198,7 +198,7 @@
     }
     .home_content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 20px;
         grid-template-areas:
             "image"
             "info"

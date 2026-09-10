@@ -6,7 +6,11 @@
 .landing_page.dark .header {
     background-color: #131B2570;
 }
-.landing_page.dark .footer {
+.landing_page.dark .footer,
+.landing_page.dark .adminPanelLoginForm_content_form,
+.landing_page.dark .adminPanel_layout_sidebar,
+.landing_page.dark .adminPanel_layout_sidebar.hidden #adminPanel_layout_sidebar_hidden_btn
+{
     background-color: #161E29;
 }
 .landing_page.dark .baseModules_content_slides,
@@ -88,8 +92,20 @@
 .landing_page.dark .contentPrivatePolicy_content_content_texts_item,
 .landing_page.dark .contentUserAgreement_content_content_item_texts_item,
 .landing_page.dark .contentUserAgreement_content_content_item_texts_item_subpoints_item,
-.landing_page.dark .contentUserAgreement_content_content_item_texts_item_list_item
-
+.landing_page.dark .contentUserAgreement_content_content_item_texts_item_list_item,
+.landing_page.dark .adminPanelLoginForm_content_title_one,
+.landing_page.dark .adminPanelLoginForm_content_form_input input,
+.landing_page.dark .adminPanel_layout_sidebar_logo span,
+.landing_page.dark .adminPanel_layout_sidebar_menu_item.active span,
+.landing_page.dark .adminPanel_layout_content_home_header_title,
+.landing_page.dark .adminPanel_layout_content_home_header_text,
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_info_count_value span,
+.landing_page.dark .contentCompany_content_title,
+.landing_page.dark .contentCompany_content_description_item,
+.landing_page.dark .contentCompany_content_contacts_title,
+.landing_page.dark .contentCompany_content_contacts_points_item_name,
+.landing_page.dark .contentCompany_content_contacts,
+.landing_page.dark .contentCompany_content_contacts_points_item_value
 {
     color: #fff;
 }
@@ -105,13 +121,17 @@
 .landing_page.dark .allArticlesContent_content_cards_item_time,
 .landing_page.dark .download_client_block_data_item_text,
 .landing_page.dark .contentPrivatePolicy_content_time,
-.landing_page.dark .contentUserAgreement_content_time
+.landing_page.dark .contentUserAgreement_content_time,
+.landing_page.dark .adminPanelLoginForm_content_form_input input::placeholder,
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_info_title,
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_info_text
 {
     color: #fff5;
 }
 .landing_page.dark .formRequest_content_form_description,
 .landing_page.dark .formRequest_content_form_inputs_item_input::placeholder,
-.landing_page.dark .blockForForm_content_inputs_item_input::placeholder
+.landing_page.dark .blockForForm_content_inputs_item_input::placeholder,
+.landing_page.dark .adminPanel_layout_sidebar_menu_item:not(.active) span
 {
     color: #fff7;
 }
@@ -285,6 +305,16 @@
 .landing_page.dark .whyDMTBase_content_cards_item {
     background-color: #161E29;
 }
+.landing_page.dark .adminPanelLoginForm_content_form_input input {
+    background-color: #fff2;
+}
+.landing_page.dark .adminPanel_layout_sidebar_menu_item:hover,
+.landing_page.dark .adminPanel_layout_sidebar_menu_item.active {
+    background-color: #252E3B;
+}
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item {
+    background-color: #16202D;
+}
 
 
 
@@ -297,6 +327,14 @@
 }
 .landing_page.light .footer {
     background-color: #EFEDFF;
+}
+.landing_page.light .adminPanelLoginForm_content_form,
+.landing_page.light .adminPanel_layout_sidebar
+{
+    background-color: #D7D7E670;
+}
+.landing_page.light .adminPanel_layout_sidebar.hidden #adminPanel_layout_sidebar_hidden_btn {
+    background-color: #E3E7F4;
 }
 .landing_page.light .baseModules_content_slides,
 .landing_page.light .preview_content,
@@ -374,7 +412,20 @@
 .landing_page.light .contentPrivatePolicy_content_content_texts_item,
 .landing_page.light .contentUserAgreement_content_content_item_texts_item,
 .landing_page.light .contentUserAgreement_content_content_item_texts_item_subpoints_item,
-.landing_page.light .contentUserAgreement_content_content_item_texts_item_list_item
+.landing_page.light .contentUserAgreement_content_content_item_texts_item_list_item,
+.landing_page.light .adminPanelLoginForm_content_title_one,
+.landing_page.light .adminPanelLoginForm_content_form_input input,
+.landing_page.light .adminPanel_layout_sidebar_logo span,
+.landing_page.light .adminPanel_layout_sidebar_menu_item.active span,
+.landing_page.light .adminPanel_layout_content_home_header_title,
+.landing_page.light .adminPanel_layout_content_home_header_text,
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_info_count_value span,
+.landing_page.light .contentCompany_content_title,
+.landing_page.light .contentCompany_content_description_item,
+.landing_page.light .contentCompany_content_contacts_title,
+.landing_page.light .contentCompany_content_contacts_points_item_name,
+.landing_page.light .contentCompany_content_contacts,
+.landing_page.light .contentCompany_content_contacts_points_item_value
 {
     color: #1C1C1C;
 }
@@ -395,13 +446,17 @@
 .landing_page.light .allArticlesContent_content_cards_item_time,
 .landing_page.light .download_client_block_data_item_text,
 .landing_page.light .contentPrivatePolicy_content_time,
-.landing_page.light .contentUserAgreement_content_time
+.landing_page.light .contentUserAgreement_content_time,
+.landing_page.light .adminPanelLoginForm_content_form_input input::placeholder,
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_info_title,
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_info_text
 {
     color: #1C1C1C50;
 }
 .landing_page.light .formRequest_content_form_description,
 .landing_page.light .formRequest_content_form_inputs_item_input::placeholder,
-.landing_page.light .blockForForm_content_inputs_item_input::placeholder
+.landing_page.light .blockForForm_content_inputs_item_input::placeholder,
+.landing_page.light .adminPanel_layout_sidebar_menu_item:not(.active) span
 {
     color: #1C1C1C70;
 }
@@ -542,7 +597,8 @@
     color: #1C1C1C;
 }
 .landing_page.light .formRequest_content_form_btn.active:hover button img,
-.landing_page.light .blockForForm_content_checks_button.active:hover button img
+.landing_page.light .blockForForm_content_checks_button.active:hover button img,
+.landing_page.light .adminPanel_layout_sidebar_menu_item img
 {
     filter: invert(100%);
 }
@@ -586,4 +642,14 @@
 }
 .landing_page.light .whyDMTBase_content_cards_item {
     background-color: #D7D7E6;
+}
+.landing_page.light .adminPanelLoginForm_content_form_input input {
+    background-color: #1C1C1C10;
+}
+.landing_page.light .adminPanel_layout_sidebar_menu_item:hover,
+.landing_page.light .adminPanel_layout_sidebar_menu_item.active {
+    background-color: #48464515;
+}
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item {
+    background-color: #D7D7E670;
 }

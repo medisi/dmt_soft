@@ -4,6 +4,7 @@ import { useLocalSettings } from "../../hooks/useLocalSettings";
 import darkIcon from '../../assets/icons/dark.png';
 import lightIcon from '../../assets/icons/light.png';
 import { ScrollLink } from "../../hooks/ScrollLink";
+import { Link } from "react-router-dom";
 
 const MobileMenu = ({ onTap }) => {
     const { lang, theme, updateTheme, updateLang, isSettingsLoaded } = useLocalSettings();
@@ -39,16 +40,15 @@ const MobileMenu = ({ onTap }) => {
                         : 'Clients'
                     }
                 </ScrollLink>
-                <ScrollLink
-                    to="#news"
+                <Link
+                    to="/company-information"
                     className="mobile_menu_item text"
-                    onClick={onTap}
                 >
                     {lang === 'ru'
                         ? 'Компания'
                         : 'Company'
                     }
-                </ScrollLink>
+                </Link>
                 <ScrollLink
                     to="#downloadClient"
                     className="mobile_menu_item text"

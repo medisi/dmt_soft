@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useLocalSettings } from "../hooks/useLocalSettings";
-import HeaderPrivacyPolicy from "../components/HeaderPrivacyPolicy/HeaderPrivacyPolicy";
 import ContentPrivacyPolicy from "../components/ContentPrivatePolicy/ContentPrivacyPolicy";
 import FooterPrivacyPolicy from "../components/FooterPrivacyPolicy/FooterPrivacyPolicy";
+import HeaderCompact from "../components/HeaderCompact/HeaderCompact";
 
 const PrivacyPolicy = () => {
     const { lang } = useLocalSettings();
-    document.title=`DMT Soft | ${lang === 'ru' ? 'Политика конфиденциальности персональных данных пользователей' : 'Privacy policy of personal data of users'}`;
+    document.title=`DMT ${lang === 'ru' ? 'Софт' : 'Soft'} | ${lang === 'ru' ? 'Политика конфиденциальности персональных данных пользователей' : 'Privacy policy of personal data of users'}`;
 
     useEffect(() => {
         // Сбрасываем скролл только один раз при входе на страницу
@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
 
     return (
         <>
-            <HeaderPrivacyPolicy />
+            <HeaderCompact />
             <ContentPrivacyPolicy />
             <FooterPrivacyPolicy />
         </>

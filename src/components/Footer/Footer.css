@@ -82,8 +82,24 @@
 }
 .footer_content_item_top_menu_item {
     text-decoration: none;
+    position: relative;
+    cursor: pointer;
 }
-
+.footer_content_item_top_menu_item::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #F8855B, #E56131);
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    transition: all .3s cubic-bezier(0.69, 0.73, 0, 0.98);
+}
+.footer_content_item_top_menu_item:hover::before {
+    width: 100%;
+}
 .footer_content_item_bottom {
     display: flex;
     justify-content: space-between;

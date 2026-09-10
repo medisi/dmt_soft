@@ -1,0 +1,73 @@
+.adminPanelLoginForm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    height: 100dvh;
+}
+.adminPanelLoginForm_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adminPanelLoginForm_content_form {
+    max-width: 600px;
+    width: 100%;
+    padding: 50px 40px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.adminPanelLoginForm_content_title {
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.adminPanelLoginForm_content_title_two {
+    color: #E56131;
+}
+.adminPanelLoginForm_content_form_inputs {
+    margin: 50px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.adminPanelLoginForm_content_form_input input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    border: none;
+}
+.adminPanelLoginForm_content_form_error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: red;
+}
+.adminPanelLoginForm_content_form_btn {
+    margin-top: 40px;
+    width: 100%;
+}
+.adminPanelLoginForm_content_form_btn_item {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 7px;
+    color: #fff;
+    background-color: #E56131;
+    border: 2px solid #E56131;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all .3s ease;
+}
+.adminPanelLoginForm_content_form_btn_item:hover {
+    background-color: transparent;
+}

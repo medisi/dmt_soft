@@ -91,12 +91,19 @@
     height: 100%;
     max-height: 230px;
     overflow: hidden;
-    background: linear-gradient(135deg, #F8855B, #E56131);
+    background: linear-gradient(135deg, #F8855B20, #E5613120);
     border-radius: 15px;
     padding: 10px 30px 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    cursor: pointer;
+}
+.baseModules_content_main_card:hover {
+    background: linear-gradient(135deg, #F8855B50, #E5613150);
+}
+.baseModules_content_main_card.active {
+    background: linear-gradient(135deg, #F8855B, #E56131);
 }
 .about_modules_content_modules_main_item_image {
     width: 100%;
@@ -209,6 +216,15 @@
     }
     .baseModules_content_main_description {
         font-size: 18px;
+    }
+}
+@media ( max-width: 700px ) {
+    .baseModules_content_main_line {
+        display: none;
+    }
+    .baseModules_content_main {
+        display: flex;
+        width: 100%;
     }
 }
 @media ( max-width: 570px ) {
