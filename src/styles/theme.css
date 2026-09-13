@@ -471,6 +471,12 @@
     color: #fff;
     background-color: #222A33;
 }
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online {
+    color: #24b97e;
+}
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online:hover {
+    color: #24b97e;
+}
 
 
 
@@ -967,4 +973,10 @@
 .landing_page.light .editing_content_form_input label {
     color: #1C1C1C;
     background-color: #D7DADD;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online {
+    color: #24b97e;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online:hover {
+    color: #24b97e;
 }

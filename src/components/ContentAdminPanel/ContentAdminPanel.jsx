@@ -51,11 +51,24 @@ const ContentAdminPanel = () => {
     const [ showEditingAdmins, setShowEditingAdmins ] = useState(false);
     const [ editingAdmins, setEditingAdmins ] = useState({ id: '', login: '', password: '', role: '', last: '', period: '', action: '' });
 
+    useEffect(() => {
+        if (!localStorage.getItem('currentAdmin')) {
+            navigate('/admin_panel-authorization');
+        } else {
+            if (localStorage.getItem('saveTab')) {
+                setTabContent(localStorage.getItem('saveTab'));
+            } else {
+                setTabContent('home');
+            }
+        }
+    }, []);
+
     const handleChangeSidebar = () => {
         setSidebarHidden((prev) => !prev);
     };
     const handleBack = () => {
         navigate('/admin_panel-authorization');
+        localStorage.removeItem('saveTab');
     };
 
     useEffect(() => {
@@ -199,7 +212,10 @@ const ContentAdminPanel = () => {
                                 <div
                                     className={`adminPanel_layout_sidebar_menu_item ${tabContent === 'home' ? 'active' : ''}`}
                                     title={sidebarHidden && (lang === 'ru' ? 'Главная' : 'Home')}
-                                    onClick={() => handleTabClick('home')}
+                                    onClick={() => {
+                                        handleTabClick('home');
+                                        localStorage.setItem('saveTab', 'home');
+                                    }}
                                 >
                                     <img src={require('../../assets/icons/home.png')} alt="" />
                                     <span>
@@ -212,7 +228,10 @@ const ContentAdminPanel = () => {
                                 <div
                                     className={`adminPanel_layout_sidebar_menu_item ${tabContent === 'articles' ? 'active' : ''}`}
                                     title={sidebarHidden && (lang === 'ru' ? 'Статьи' : 'Articles')}
-                                    onClick={() => handleTabClick('articles')}
+                                    onClick={() => {
+                                        handleTabClick('articles');
+                                        localStorage.setItem('saveTab', 'articles');
+                                    }}
                                 >
                                     <img src={require('../../assets/icons/articles.png')} alt="" />
                                     <span>
@@ -225,7 +244,10 @@ const ContentAdminPanel = () => {
                                 <div
                                     className={`adminPanel_layout_sidebar_menu_item ${tabContent === 'admins' ? 'active' : ''}`}
                                     title={sidebarHidden && (lang === 'ru' ? 'Администраторы' : 'Administrators')}
-                                    onClick={() => handleTabClick('admins')}
+                                    onClick={() => {
+                                        handleTabClick('admins');
+                                        localStorage.setItem('saveTab', 'admins');
+                                    }}
                                 >
                                     <img src={require('../../assets/icons/admins.png')} alt="" />
                                     <span>
@@ -786,7 +808,7 @@ const ContentAdminPanel = () => {
                                                         </td>
                                                         <td className="ad_col ad_col_last adminPanel_layout_content_admins_table_layout_table_tbody_tr_last">
                                                             {currentAdmin === item.id ? (
-                                                                <span>
+                                                                <span className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online">
                                                                     {lang === 'ru' ? 'В сети' : 'Online'}
                                                                 </span>
                                                             ) : (
@@ -839,7 +861,7 @@ const ContentAdminPanel = () => {
                                                     </td>
                                                     <td className="ad_col ad_col_last adminPanel_layout_content_admins_table_layout_table_tbody_tr_last">
                                                         {currentAdmin === infoCurrentAdmin.id ? (
-                                                            <span>
+                                                            <span className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online">
                                                                 {lang === 'ru' ? 'В сети' : 'Online'}
                                                             </span>
                                                         ) : (

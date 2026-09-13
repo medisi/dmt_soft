@@ -880,6 +880,7 @@
     height: 10px;
     border-radius: 50%;
 }
+/* колонка последнего входа */
 /* колонка кнопок */
 .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div {
     display: flex;
