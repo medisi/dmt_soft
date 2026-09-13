@@ -105,7 +105,22 @@
 .landing_page.dark .contentCompany_content_contacts_title,
 .landing_page.dark .contentCompany_content_contacts_points_item_name,
 .landing_page.dark .contentCompany_content_contacts,
-.landing_page.dark .contentCompany_content_contacts_points_item_value
+.landing_page.dark .contentCompany_content_contacts_points_item_value,
+.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item,
+.landing_page.dark .adminPanel_layout_content_home_static_popular_header_item:not(.link),
+.landing_page.dark .adminPanel_layout_content_home_static_popular_cards_item_number,
+.landing_page.dark .adminPanel_layout_content_home_static_popular_cards_item_info_title,
+.landing_page.dark .adminPanel_layout_content_articles_header_title,
+.landing_page.dark .adminPanel_layout_content_articles_header_btns_item.search input,
+.landing_page.dark .adminPanel_layout_content_articles_table_tools_choose_spans,
+.landing_page.dark .col,
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_span,
+.landing_page.dark .dropdown_button,
+.landing_page.dark .dropdown-item,
+.landing_page.dark .modal_text,
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
+.landing_page.dark .editing_content_title
 {
     color: #fff;
 }
@@ -124,7 +139,12 @@
 .landing_page.dark .contentUserAgreement_content_time,
 .landing_page.dark .adminPanelLoginForm_content_form_input input::placeholder,
 .landing_page.dark .adminPanel_layout_content_home_brief_summary_item_info_title,
-.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_info_text
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_info_text,
+.landing_page.dark .adminPanel_layout_content_home_static_popular_cards_item_info_views,
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link,
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_time_span,
+.landing_page.dark .dropdown_label,
+.landing_page.dark .editing_content_form_input_div span.period
 {
     color: #fff5;
 }
@@ -312,8 +332,144 @@
 .landing_page.dark .adminPanel_layout_sidebar_menu_item.active {
     background-color: #252E3B;
 }
-.landing_page.dark .adminPanel_layout_content_home_brief_summary_item {
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item,
+.landing_page.dark .adminPanel_layout_content_home_static_graph,
+.landing_page.dark .adminPanel_layout_content_home_static_popular
+{
     background-color: #16202D;
+}
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_image_span.admin_views {
+    background-color: #E5613128;
+}
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_image_span.admin_articles {
+    background-color: #B7ACE028;
+}
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_image_span.admin_users {
+    background-color: #5BACEA28;
+}
+.landing_page.dark .adminPanel_layout_content_home_brief_summary_item_image_span.admin_times {
+    background-color: #BBC9DC28;
+}
+.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item.select {
+    border: 1px solid #fff5;
+}
+.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item.select option {
+    background-color: #16202D;
+    color: #fff8;
+}
+.landing_page.dark .adminPanel_layout_content_home_static_popular_cards_item:hover {
+    background-color: #ffffff07;
+}
+.landing_page.dark .adminPanel_layout_content_home_static_popular_cards_item_number {
+    background-color: #1E2837;
+}
+.landing_page.dark .adminPanel_layout_content_home_static_popular_cards_item:not(:last-child)::before {
+    background: linear-gradient(to right, #fff0, #fff5, #fff0);
+}
+.landing_page.dark .adminPanel_layout_content_articles_header_btns_item.search,
+.landing_page.dark .adminPanel_layout_content_articles_table,
+.landing_page.dark .adminPanel_layout_content_articles_table_checkbox_btn:not(.checked),
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled),
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link,
+.landing_page.dark .adminPanel_layout_content_admins_table,
+.landing_page.dark .adminPanel_layout_content_articles_header_btn,
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete)
+{
+    border: 1px solid #fff3;
+}
+.landing_page.dark .adminPanel_layout_content_articles_header_btns_item.search input::placeholder {
+    color: #fff3;
+}
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_thead,
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_thead
+{
+    background-color: #19212A;
+}
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):hover,
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:hover,
+.landing_page.dark .adminPanel_layout_content_articles_header_btn:hover
+{
+    background-color: #fff2;
+}
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button.disabled {
+    border: 1px solid #fff1;
+}
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_tr:not(:last-child),
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:not(:last-child)
+{
+    border-bottom: 1px solid #fff3;
+}
+.landing_page.dark .dropdown_button {
+    border: 1px solid #333;
+}
+.landing_page.dark .dropdown_button:hover {
+    background-color: #0c1624;
+    border-color: #555;
+}
+.landing_page.dark .dropdown_button.active {
+    background-color: #2a2a2a;
+    border-color: #666;
+}
+.landing_page.dark .dropdown_menu {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.landing_page.dark .dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+.landing_page.dark .modal,
+.landing_page.dark .editing
+{
+    background-color: #1C1C1C50;
+}
+.landing_page.dark .modal_content,
+.landing_page.dark .editing_content
+{
+    background-color: #222a33;
+}
+.landing_page.dark .modal_btns_item.cancel,
+.landing_page.dark .editing_content_form_btns_item.cancel
+{
+    border: 1px solid #fff5;
+    color: #fff5;
+}
+.landing_page.dark .modal_btns_item.cancel:hover,
+.landing_page.dark .editing_content_form_btns_item.cancel:hover
+{
+    background-color: #fff1;
+}
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark_div span {
+    background-color: #fff2;
+    color: #fff5;
+}
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr .ad_col {
+    color: #fff7;
+}
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
+    background-color: #fff3;
+}
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
+    background-color: #fff7;
+} 
+.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):hover {
+    border: 1px solid #fff;
+}
+.landing_page.dark .editing_content_header {
+    background-color: #2a323b;
+}
+.landing_page.dark .editing_content_title {
+    border-bottom: 1px solid #fff2;
+}
+.landing_page.dark .editing_content_form input,
+.landing_page.dark .editing_content_form_input_div
+{
+    border: 1px solid #fff3;
+    color: #fff;
+}
+.landing_page.dark .editing_content_form_input label {
+    color: #fff;
+    background-color: #222A33;
 }
 
 
@@ -425,7 +581,22 @@
 .landing_page.light .contentCompany_content_contacts_title,
 .landing_page.light .contentCompany_content_contacts_points_item_name,
 .landing_page.light .contentCompany_content_contacts,
-.landing_page.light .contentCompany_content_contacts_points_item_value
+.landing_page.light .contentCompany_content_contacts_points_item_value,
+.landing_page.light .adminPanel_layout_content_home_static_graph_header_item,
+.landing_page.light .adminPanel_layout_content_home_static_popular_header_item:not(.link),
+.landing_page.light .adminPanel_layout_content_home_static_popular_cards_item_number,
+.landing_page.light .adminPanel_layout_content_home_static_popular_cards_item_info_title,
+.landing_page.light .adminPanel_layout_content_articles_header_title,
+.landing_page.light .adminPanel_layout_content_articles_header_btns_item.search input,
+.landing_page.light .adminPanel_layout_content_articles_table_tools_choose_spans,
+.landing_page.light .col,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_span,
+.landing_page.light .dropdown_button,
+.landing_page.light .dropdown-item,
+.landing_page.light .modal_text,
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
+.landing_page.light .editing_content_title
 {
     color: #1C1C1C;
 }
@@ -449,7 +620,12 @@
 .landing_page.light .contentUserAgreement_content_time,
 .landing_page.light .adminPanelLoginForm_content_form_input input::placeholder,
 .landing_page.light .adminPanel_layout_content_home_brief_summary_item_info_title,
-.landing_page.light .adminPanel_layout_content_home_brief_summary_item_info_text
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_info_text,
+.landing_page.light .adminPanel_layout_content_home_static_popular_cards_item_info_views,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_time_span,
+.landing_page.light .dropdown_label,
+.landing_page.light .editing_content_form_input_div span.period
 {
     color: #1C1C1C50;
 }
@@ -474,15 +650,6 @@
 .landing_page.light .baseModules_next img {
     filter: invert(100%);
 }
-/* .landing_page.light .baseModules_content_main_line {
-    border-top: 1px dashed #1C1C1C90;
-}
-.landing_page.light .baseModules_content_main_line.left {
-    border-left: 1px dashed #1C1C1C90;
-}
-.landing_page.light .baseModules_content_main_line.right {
-    border-right: 1px dashed #1C1C1C90;
-} */
 .landing_page.light .baseModules_content_main_line.left {
     background: linear-gradient(to right, #1C1C1C00 15%, #1C1C1C50);
 }
@@ -598,7 +765,15 @@
 }
 .landing_page.light .formRequest_content_form_btn.active:hover button img,
 .landing_page.light .blockForForm_content_checks_button.active:hover button img,
-.landing_page.light .adminPanel_layout_sidebar_menu_item img
+.landing_page.light .adminPanel_layout_sidebar_menu_item img,
+.landing_page.light .adminPanel_layout_content_articles_header_btns_item.search img,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button img,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link img,
+.landing_page.light .dropdown_icon_img,
+.landing_page.light .dropdown_arrow_img,
+.landing_page.light #adminPanel_layout_sidebar_hidden_btn img,
+.landing_page.light .adminPanel_layout_content_articles_header_btn img,
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete) img
 {
     filter: invert(100%);
 }
@@ -650,6 +825,146 @@
 .landing_page.light .adminPanel_layout_sidebar_menu_item.active {
     background-color: #48464515;
 }
-.landing_page.light .adminPanel_layout_content_home_brief_summary_item {
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item,
+.landing_page.light .adminPanel_layout_content_home_static_graph,
+.landing_page.light .adminPanel_layout_content_home_static_popular
+{
     background-color: #D7D7E670;
+}
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_image_span.admin_views {
+    background-color: #E5613128;
+}
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_image_span.admin_articles {
+    background-color: #B7ACE035;
+}
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_image_span.admin_users {
+    background-color: #5BACEA35;
+}
+.landing_page.light .adminPanel_layout_content_home_brief_summary_item_image_span.admin_times {
+    background-color: #bfc7d345;
+}
+
+.landing_page.light .adminPanel_layout_content_home_static_graph_header_item.select {
+    border: 1px solid #1C1C1C50;
+}
+.landing_page.light .adminPanel_layout_content_home_static_graph_header_item.select option {
+    background-color: #D7D7E6;
+    color: #1C1C1C80;
+}
+.landing_page.light .adminPanel_layout_content_home_static_popular_cards_item:hover {
+    background-color: #1C1C1C07;
+}
+.landing_page.light .adminPanel_layout_content_home_static_popular_cards_item_number {
+    background-color: #48464515;
+}
+.landing_page.light .adminPanel_layout_content_home_static_popular_cards_item:not(:last-child)::before {
+    background: linear-gradient(to right, #1C1C1C00, #1C1C1C50, #1C1C1C00);
+}
+.landing_page.light .adminPanel_layout_content_articles_header_btns_item.search,
+.landing_page.light .adminPanel_layout_content_articles_table,
+.landing_page.light .adminPanel_layout_content_articles_table_checkbox_btn:not(.checked),
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled),
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link,
+.landing_page.light .adminPanel_layout_content_admins_table,
+.landing_page.light .adminPanel_layout_content_articles_header_btn,
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete)
+{
+    border: 1px solid #1C1C1C30;
+}
+.landing_page.light .adminPanel_layout_content_articles_header_btns_item.search input::placeholder {
+    color: #1C1C1C30;
+}
+.landing_page.light .adminPanel_layout_content_articles_table_layout_thead,
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_thead
+{
+    background-color: #d7dbe0;
+}
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):hover,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:hover,
+.landing_page.light .adminPanel_layout_content_articles_header_btn:hover
+{
+    background-color: #1C1C1C20;
+}
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button.disabled {
+    border: 1px solid #1C1C1C10;
+}
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_tr:not(:last-child),
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:not(:last-child)
+{
+    border-bottom: 1px solid #1C1C1C30;
+}
+.landing_page.light .dropdown_button {
+    border: 1px solid #3335;
+}
+.landing_page.light .dropdown_button:hover {
+    background-color: #e7eaee;
+    border-color: #5555;
+}
+.landing_page.light .dropdown_button.active {
+    background-color: #d4d6da;
+    border-color: #6665;
+}
+.landing_page.light .dropdown_menu {
+    background-color: #e7eaee;
+    border: 1px solid #5553;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.landing_page.light .dropdown-item:hover {
+  background-color: #d4d6da;
+}
+.landing_page.light .modal,
+.landing_page.light .editing
+{
+    background-color: #fff5;
+}
+.landing_page.light .modal_content,
+.landing_page.light .editing_content
+{
+    background-color: #d7dadd;
+}
+.landing_page.light .modal_btns_item.cancel,
+.landing_page.light .editing_content_form_btns_item.cancel
+{
+    border: 1px solid #1C1C1C50;
+    color: #1C1C1C50;
+}
+.landing_page.light .modal_btns_item.cancel:hover,
+.landing_page.light .editing_content_form_btns_item.cancel:hover
+{
+    background-color: #1C1C1C10;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark_div span {
+    background-color: #1C1C1C20;
+    color: #1C1C1C50;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr .ad_col {
+    color: #1C1C1C70;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
+    background-color: #1C1C1C30;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
+    background-color: #1C1C1C70;
+}
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):hover {
+    border: 1px solid #1C1C1C;
+}
+.landing_page.light .editing_content_header {
+    background-color: #e5e7e9;
+}
+.landing_page.light .editing_content {
+    border: 1px solid #c4c5c7;
+}
+.landing_page.light .editing_content_title {
+    border-bottom: 1px solid #1C1C1C20;
+}
+.landing_page.light .editing_content_form input,
+.landing_page.light .editing_content_form_input_div
+{
+    border: 1px solid #1C1C1C30;
+    color: #1C1C1C;
+}
+.landing_page.light .editing_content_form_input label {
+    color: #1C1C1C;
+    background-color: #D7DADD;
 }

@@ -97,6 +97,7 @@ export const PROGRAMMS = [
     //     image: 'file',
     // },
 ];
+
 export const TASKS_SERVER = [
     {
         id: 1,
@@ -295,6 +296,8 @@ export const NEWS = [
                 article: 'В основном окне состава добавлены активные столбцы–ссылки на тома в формате PDF (Заказчик и Экспертиза). Документ привязывается к составу вручную, а вся дальнейшая история и новые версии привязываются автоматически.',
             },
         ],
+        views: 4892,
+        status: 'public',
     },
     {
         id: 3,
@@ -307,6 +310,8 @@ export const NEWS = [
                 article: 'Добавлена возможность подписания пакета документов электронной подписью. Расширена отображаемая информация подписываемых томов (шифр, назв низ/верх). Добавлена цветовая индикация статуса подписания тома и список подписантов.',
             },
         ],
+        views: 3056,
+        status: 'public',
     },
     {
         id: 2,
@@ -322,6 +327,8 @@ export const NEWS = [
                 article: 'Теперь у нас появился свой веб-интерфейс и для его работы нужен только интернет-браузер установленный на компьютер, телефон или планшет.',
             },
         ],
+        views: 3123,
+        status: 'public',
     },
     {
         id: 1,
@@ -334,8 +341,9 @@ export const NEWS = [
                 article: 'Идут работы над веб-интерфейсом. Функционал будет доступен сотрудникам Департамента управления проектами и Заказчикам.',
             },
         ],
+        views: 2875,
+        status: 'draft',
     },
-    
 ];
 
 export const CLIENTS = [
@@ -415,7 +423,6 @@ export const WHIESDMTBASE = [
         text_en: 'Time-tested reliability',
     },
 ];
-
 
 export const PRIVATE_POLICY = [
     {
@@ -714,5 +721,24 @@ export const BRIEF_SUMMARY = [
         title_en: 'Average reading time',
         count: '2:48',
         procent: '6,3',
+    },
+];
+
+export const ADMINS = [
+    {
+        id: 1,
+        login: 'admin',
+        password: 'admin',
+        role_ru: 'Главный администратор',
+        role_en: 'Main administrator',
+        last_login: '05.09.2026',
+    },
+    {
+        id: 2,
+        login: 'qwerty',
+        password: 'qwerty',
+        role_ru: 'Администратор',
+        role_en: 'Administrator',
+        last_login: '03.09.2026',
     },
 ];

@@ -23,11 +23,13 @@
     flex-direction: column;
 }
 .adminPanelLoginForm_content_title {
-    font-size: 34px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+.adminPanelLoginForm_content_title span {
+    font-size: 34px;
 }
 .adminPanelLoginForm_content_title_two {
     color: #E56131;
@@ -70,4 +72,39 @@
 }
 .adminPanelLoginForm_content_form_btn_item:hover {
     background-color: transparent;
+}
+
+@media ( max-width: 1300px ) {
+    .adminPanelLoginForm_content_title span {
+        font-size: 30px;
+    }
+}
+@media ( max-width: 767px ) {
+    .adminPanelLoginForm_content_title {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .adminPanelLoginForm_content_title span {
+        font-size: 26px;
+        text-align: center;
+    }
+    .adminPanelLoginForm_content_form_btn_item {
+        padding: 10px 15px;
+        font-size: 20px;
+    }
+    .adminPanelLoginForm {
+        padding: 0;
+    }
+    .adminPanelLoginForm_content_form {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+}
+@media ( max-width: 400px ) {
+    .adminPanelLoginForm_content_title span {
+        font-size: 22px;
+    }
+    .adminPanelLoginForm_content_form_btn_item {
+        font-size: 16px;
+    }
 }

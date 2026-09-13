@@ -2,20 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import './AdminPanelLoginForm.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
 import { useNavigate } from "react-router-dom";
+import { ADMINS } from "../../hooks/data";
 
 const AdminPanelLoginForm = () => {
     const { lang } = useLocalSettings();
-    const [ login, setLogin ] = useState(null);
-    const [ password, setPassword ] = useState(null);
+    const [ login, setLogin ] = useState("");
+    const [ password, setPassword ] = useState("");
     const [ error, setError ] = useState(null);
     const [ success, setSuccess ] = useState(false);
     const [ loading, setLoading ] = useState(false);
     const loginRef = useRef();
     const passwordRef = useRef();
     const navigate = useNavigate();
-
-    const LOGIN = 'admin';
-    const PASSWORD = 'admin';
 
     document.title = `DMT ${lang === 'ru' ? 'Софт' : 'Soft'} | ${lang === 'ru' ? 'Вход в панель администратора' : 'Login to admin panel'}`;
 
@@ -30,10 +28,15 @@ const AdminPanelLoginForm = () => {
         setLoading(true);
         setError(null);
 
-        const loginValue = loginRef.current.value;
-        const passwordValue = passwordRef.current.value;
+        const loginValue = loginRef.current.value || '';
+        const passwordValue = passwordRef.current.value || '';
 
-        if (loginValue === LOGIN && passwordValue === PASSWORD) {
+        // поиск совпадения с данными админов
+        const matchedAdmin = ADMINS.find(
+            (admin) => admin.login === loginValue && admin.password === passwordValue
+        );
+        if (matchedAdmin) {
+            localStorage.setItem('currentAdmin', JSON.stringify(matchedAdmin.id));
             setError(null);
             setSuccess(true);
             navigate('/admin_panel');
@@ -72,6 +75,7 @@ const AdminPanelLoginForm = () => {
                                         placeholder={lang === 'ru' ? 'Логин' : 'Login'}
                                         ref={loginRef}
                                         value={login}
+                                        onChange={(e) => setLogin(e.target.value)}
                                     />
                                 </div>
                                 <div className="adminPanelLoginForm_content_form_input two">
@@ -81,6 +85,7 @@ const AdminPanelLoginForm = () => {
                                         placeholder={lang === 'ru' ? 'Пароль' : 'Password'}
                                         ref={passwordRef}
                                         value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
                             </div>

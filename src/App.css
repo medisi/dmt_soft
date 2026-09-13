@@ -45,7 +45,13 @@
 ::-webkit-scrollbar-button {
     width: 8px;
     height: 10px;
-    background-color: #F8855B;
+    background-color: #313131;
+}
+::-webkit-scrollbar:vertical {
+  width: 5px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 5px;
 }
 
 @media ( max-width: 767px ) {
