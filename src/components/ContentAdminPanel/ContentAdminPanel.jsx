@@ -27,6 +27,16 @@ function getDaysSinceLogin(dateStr) {
 const ContentAdminPanel = () => {
     const { lang, theme, updateTheme, updateLang } = useLocalSettings();
     const navigate = useNavigate();
+
+    // Получаем ID из localStorage, сразу с дефолтным значением (например, 0 или null)
+    const savedId = localStorage.getItem('currentAdmin');
+    const currentAdminId = savedId ? Number(savedId) : 0;
+    // Вычисляем текущего админа напрямую — это всегда актуально
+    const infoCurrentAdmin = useMemo(
+        () => ADMINS.find((admin) => admin.id === currentAdminId) || {},
+        [currentAdminId]
+    );
+
     const [ sidebarHidden, setSidebarHidden ] = useState(true);
     const [ selectedRows, setSelectedRows ] = useState([]);
     const [ currentFilter, setCurrentFilter ] = useState(lang === 'ru' ? 'Все' : 'All');
@@ -36,8 +46,8 @@ const ContentAdminPanel = () => {
     const [ isSearchActive, setIsSearchActive ] = useState(false);
     const [ searchTerm, setSearchTerm ] = useState('');
     const [ tabContent, setTabContent ] = useState('home');
-    const [ currentAdmin, setCurrentAdmin ] = useState(Number(localStorage.getItem('currentAdmin')));
-    const [ infoCurrentAdmin, setInfoCurrentAdmin ] = useState({});
+    const [ currentAdmin, setCurrentAdmin ] = useState(currentAdminId);
+    // const [ infoCurrentAdmin, setInfoCurrentAdmin ] = useState({});
     const [ showEditingAdmins, setShowEditingAdmins ] = useState(false);
     const [ editingAdmins, setEditingAdmins ] = useState({ id: '', login: '', password: '', role: '', last: '', period: '', action: '' });
 
@@ -54,13 +64,6 @@ const ContentAdminPanel = () => {
         } else {
             setSidebarHidden(false);
         }
-    }, []);
-    
-    useEffect(() => {
-        setInfoCurrentAdmin(ADMINS.find(
-            (admin) => admin.id === currentAdmin
-        ));
-        console.log(infoCurrentAdmin);
     }, []);
 
     const handleClickRow = (e, rowId) => {
@@ -637,12 +640,14 @@ const ContentAdminPanel = () => {
                                                                 <span className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_span">
                                                                     {item.title}
                                                                 </span>
-                                                                <Link
-                                                                    to={`/article/${item.id}`}
-                                                                    className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link"
-                                                                >
-                                                                    /article/{item.id}
-                                                                </Link>
+                                                                {item.status !== 'draft' && (
+                                                                    <Link
+                                                                        to={`/article/${item.id}`}
+                                                                        className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link"
+                                                                    >
+                                                                        /article/{item.id}
+                                                                    </Link>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     </td>
@@ -665,7 +670,13 @@ const ContentAdminPanel = () => {
                                                         )}
                                                     </td>
                                                     <td className="col col-views adminPanel_layout_content_articles_table_layout_tbody_col_views">
-                                                        {item.views.toLocaleString('ru-RU')}
+                                                        {item.status !== 'draft' ? (
+                                                            item.views.toLocaleString('ru-RU')
+                                                        ) : (
+                                                            <span className="adminPanel_layout_content_articles_table_layout_tbody_col_time_span">
+                                                                —
+                                                            </span>
+                                                        )}
                                                     </td>
                                                     <td className="col col-time adminPanel_layout_content_articles_table_layout_tbody_col_time">
                                                         {item.status !== 'draft' ? (
@@ -740,31 +751,85 @@ const ContentAdminPanel = () => {
                                             </tr>
                                         </thead>
                                         <tbody className="adminPanel_layout_content_admins_table_layout_table_tbody">
-                                            {ADMINS.map((item) => (
+                                            {infoCurrentAdmin.id === 1 ? (
+                                                ADMINS.map((item) => (
+                                                    <tr className="adminPanel_layout_content_admins_table_layout_table_tbody_tr">
+                                                        <td className="ad_col ad_col_mark adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark">
+                                                            {currentAdmin === item.id && (
+                                                                <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark_div">
+                                                                    <span>
+                                                                        {lang === 'ru'
+                                                                            ? 'Вы'
+                                                                            : 'You'
+                                                                        }
+                                                                    </span>
+                                                                </div>
+                                                            )}
+                                                        </td>
+                                                        <td className="ad_col ad_col_id adminPanel_layout_content_admins_table_layout_table_tbody_tr_id">
+                                                            {item.id}
+                                                        </td>
+                                                        <td className="ad_col ad_col_role adminPanel_layout_content_admins_table_layout_table_tbody_tr_role">
+                                                            {lang === 'ru' ? item.role_ru : item.role_en}
+                                                        </td>
+                                                        <td className="ad_col ad_col_login adminPanel_layout_content_admins_table_layout_table_tbody_tr_login">
+                                                            {item.login}
+                                                        </td>
+                                                        <td className="ad_col ad_col_password adminPanel_layout_content_admins_table_layout_table_tbody_tr_password">
+                                                            {item.password && (
+                                                                <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div">
+                                                                    {Array.from({ length: 6 }).map((_, index) => (
+                                                                        <span></span>
+                                                                    ))}
+                                                                </div>
+                                                            )}
+                                                        </td>
+                                                        <td className="ad_col ad_col_last adminPanel_layout_content_admins_table_layout_table_tbody_tr_last">
+                                                            {currentAdmin === item.id ? (
+                                                                <span>
+                                                                    {lang === 'ru' ? 'В сети' : 'Online'}
+                                                                </span>
+                                                            ) : (
+                                                                <span>{item.last_login}</span>
+                                                            )}
+                                                        </td>
+                                                        <td className="ad_col ad_col_btns adminPanel_layout_content_admins_table_layout_table_tbody_tr_btns">
+                                                            <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div">
+                                                                <button
+                                                                    onClick={() => handleClickEditAdminBtn(item)}
+                                                                >
+                                                                    <img src={require('../../assets/icons/action_edit.png')} alt="" />
+                                                                </button>
+                                                                <button className="delete" onClick={handleClickDeleteAdminBtn}>
+                                                                    <img src={require('../../assets/icons/trash.png')} alt="" />
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            ) : (
                                                 <tr className="adminPanel_layout_content_admins_table_layout_table_tbody_tr">
                                                     <td className="ad_col ad_col_mark adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark">
-                                                        {currentAdmin === item.id && (
-                                                            <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark_div">
-                                                                <span>
-                                                                    {lang === 'ru'
-                                                                        ? 'Вы'
-                                                                        : 'You'
-                                                                    }
-                                                                </span>
-                                                            </div>
-                                                        )}
+                                                        <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark_div">
+                                                            <span>
+                                                                {lang === 'ru'
+                                                                    ? 'Вы'
+                                                                    : 'You'
+                                                                }
+                                                            </span>
+                                                        </div>
                                                     </td>
                                                     <td className="ad_col ad_col_id adminPanel_layout_content_admins_table_layout_table_tbody_tr_id">
-                                                        {item.id}
+                                                        {infoCurrentAdmin.id}
                                                     </td>
                                                     <td className="ad_col ad_col_role adminPanel_layout_content_admins_table_layout_table_tbody_tr_role">
-                                                        {lang === 'ru' ? item.role_ru : item.role_en}
+                                                        {lang === 'ru' ? infoCurrentAdmin.role_ru : infoCurrentAdmin.role_en}
                                                     </td>
                                                     <td className="ad_col ad_col_login adminPanel_layout_content_admins_table_layout_table_tbody_tr_login">
-                                                        {item.login}
+                                                        {infoCurrentAdmin.login}
                                                     </td>
                                                     <td className="ad_col ad_col_password adminPanel_layout_content_admins_table_layout_table_tbody_tr_password">
-                                                        {item.password && (
+                                                        {infoCurrentAdmin.password && (
                                                             <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div">
                                                                 {Array.from({ length: 6 }).map((_, index) => (
                                                                     <span></span>
@@ -773,18 +838,18 @@ const ContentAdminPanel = () => {
                                                         )}
                                                     </td>
                                                     <td className="ad_col ad_col_last adminPanel_layout_content_admins_table_layout_table_tbody_tr_last">
-                                                        {currentAdmin === item.id ? (
+                                                        {currentAdmin === infoCurrentAdmin.id ? (
                                                             <span>
                                                                 {lang === 'ru' ? 'В сети' : 'Online'}
                                                             </span>
                                                         ) : (
-                                                            <span>{item.last_login}</span>
+                                                            <span>{infoCurrentAdmin.last_login}</span>
                                                         )}
                                                     </td>
                                                     <td className="ad_col ad_col_btns adminPanel_layout_content_admins_table_layout_table_tbody_tr_btns">
                                                         <div className="adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div">
                                                             <button
-                                                                onClick={() => handleClickEditAdminBtn(item)}
+                                                                onClick={() => handleClickEditAdminBtn(infoCurrentAdmin)}
                                                             >
                                                                 <img src={require('../../assets/icons/action_edit.png')} alt="" />
                                                             </button>
@@ -794,7 +859,7 @@ const ContentAdminPanel = () => {
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            ))}
+                                            )}
                                         </tbody>
                                     </table>
                                 </div>
