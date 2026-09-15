@@ -39,7 +39,7 @@ const AllArticlesContent = () => {
                         </span>
                     </div>
                     <div className="allArticlesContent_content_cards">
-                        {NEWS.map((item) => (
+                        {NEWS.filter((item) => item.status === 'public').map((item) => (
                             !isMobile ? (
                                 <div className="allArticlesContent_content_cards_item" key={item.id}>
                                     <div className="allArticlesContent_content_cards_item_image">

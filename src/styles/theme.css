@@ -328,7 +328,16 @@
 .landing_page.dark .adminPanelLoginForm_content_form_input input {
     background-color: #fff2;
 }
-.landing_page.dark .adminPanel_layout_sidebar_menu_item:hover,
+@media ( hover: hover) {
+    .landing_page.dark .adminPanel_layout_sidebar_menu_item:hover {
+        background-color: #252E3B;
+    }
+}
+@media ( hover: active) {
+    .landing_page.dark .adminPanel_layout_sidebar_menu_item:active {
+        background-color: #252E3B;
+    }
+}
 .landing_page.dark .adminPanel_layout_sidebar_menu_item.active {
     background-color: #252E3B;
 }
@@ -385,11 +394,21 @@
 {
     background-color: #19212A;
 }
-.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):hover,
-.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:hover,
-.landing_page.dark .adminPanel_layout_content_articles_header_btn:hover
-{
-    background-color: #fff2;
+@media ( hover: hover ) {
+    .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):hover,
+    .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:hover,
+    .landing_page.dark .adminPanel_layout_content_articles_header_btn:hover
+    {
+        background-color: #fff2;
+    }
+}
+@media ( hover: active ) {
+    .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):active,
+    .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:active,
+    .landing_page.dark .adminPanel_layout_content_articles_header_btn:active
+    {
+        background-color: #fff2;
+    }
 }
 .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button.disabled {
     border: 1px solid #fff1;
@@ -451,9 +470,22 @@
 }
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
     background-color: #fff7;
-} 
-.landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):hover {
-    border: 1px solid #fff;
+}
+@media ( hover: hover ) {
+    .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):hover {
+        border: 1px solid #fff;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:hover img {
+        opacity: 1;
+    }
+}
+@media ( hover: active ) {
+    .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):active {
+        border: 1px solid #fff;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:active img {
+        opacity: 1;
+    }
 }
 .landing_page.dark .editing_content_header {
     background-color: #2a323b;
@@ -468,7 +500,7 @@
     color: #fff;
 }
 .landing_page.dark .editing_content_form_input label {
-    color: #fff;
+    color: #fff5;
     background-color: #222A33;
 }
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online {
@@ -476,6 +508,19 @@
 }
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online:hover {
     color: #24b97e;
+}
+.landing_page.dark .editing_content_form_btns_item.agree {
+    color: #fff;
+}
+@media ( hover: hover ) {
+    .landing_page.dark .editing_content_form_btns_item.agree:hover {
+        color: #fff;
+    }
+}
+@media ( hover: active ) {
+    .landing_page.dark .editing_content_form_btns_item.agree:active {
+        color: #fff;
+    }
 }
 
 
@@ -827,7 +872,16 @@
 .landing_page.light .adminPanelLoginForm_content_form_input input {
     background-color: #1C1C1C10;
 }
-.landing_page.light .adminPanel_layout_sidebar_menu_item:hover,
+@media ( hover: hover) {
+    .landing_page.light .adminPanel_layout_sidebar_menu_item:hover {
+        background-color: #48464515;
+    }
+}
+@media ( hover: active) {
+    .landing_page.light .adminPanel_layout_sidebar_menu_item:active {
+        background-color: #48464515;
+    }
+}
 .landing_page.light .adminPanel_layout_sidebar_menu_item.active {
     background-color: #48464515;
 }
@@ -885,11 +939,21 @@
 {
     background-color: #d7dbe0;
 }
-.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):hover,
-.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:hover,
-.landing_page.light .adminPanel_layout_content_articles_header_btn:hover
-{
-    background-color: #1C1C1C20;
+@media ( hover: hover ) {
+    .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):hover,
+    .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:hover,
+    .landing_page.light .adminPanel_layout_content_articles_header_btn:hover
+    {
+        background-color: #1C1C1C20;
+    }
+}
+@media ( hover: active ) {
+    .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button:not(.disabled):active,
+    .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link:active,
+    .landing_page.light .adminPanel_layout_content_articles_header_btn:active
+    {
+        background-color: #1C1C1C20;
+    }
 }
 .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button.disabled {
     border: 1px solid #1C1C1C10;
@@ -926,7 +990,7 @@
 .landing_page.light .modal_content,
 .landing_page.light .editing_content
 {
-    background-color: #d7dadd;
+    background-color: #e9ecf0;
 }
 .landing_page.light .modal_btns_item.cancel,
 .landing_page.light .editing_content_form_btns_item.cancel
@@ -952,11 +1016,24 @@
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
     background-color: #1C1C1C70;
 }
-.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):hover {
-    border: 1px solid #1C1C1C;
+@media ( hover: hover ) {
+    .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):hover {
+        border: 1px solid #1C1C1C;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:hover img {
+        opacity: 1;
+    }
+}
+@media ( hover: active ) {
+    .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete):active {
+        border: 1px solid #1C1C1C;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:active img {
+        opacity: 1;
+    }
 }
 .landing_page.light .editing_content_header {
-    background-color: #e5e7e9;
+    background-color: #dcdee0;
 }
 .landing_page.light .editing_content {
     border: 1px solid #c4c5c7;
@@ -971,12 +1048,25 @@
     color: #1C1C1C;
 }
 .landing_page.light .editing_content_form_input label {
-    color: #1C1C1C;
-    background-color: #D7DADD;
+    color: #1C1C1C50;
+    background-color: #e9ecf0;
 }
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online {
     color: #24b97e;
 }
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_online:hover {
     color: #24b97e;
+}
+.landing_page.light .editing_content_form_btns_item.agree {
+    color: #1C1C1C;
+}
+@media ( hover: hover ) {
+    .landing_page.light .editing_content_form_btns_item.agree:hover {
+        color: #fff;
+    }
+}
+@media ( hover: active ) {
+    .landing_page.light .editing_content_form_btns_item.agree:active {
+        color: #fff;
+    }
 }

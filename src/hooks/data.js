@@ -283,7 +283,7 @@ export const NECESSARY = [
 
 export const NEWS = [
     {
-        id: 4,
+        id: 5,
         image: 'Новость от 15.06.2026.png',
         time_ru: '15.06.2026',
         time_en: '15/06/2026',
@@ -300,7 +300,7 @@ export const NEWS = [
         status: 'public',
     },
     {
-        id: 3,
+        id: 4,
         image: 'ecp_light.png',
         time_ru: '17.05.2026',
         time_en: '17/05/2026',
@@ -312,6 +312,20 @@ export const NEWS = [
         ],
         views: 3056,
         status: 'public',
+    },
+    {
+        id: 3,
+        image: 'article1.jpg',
+        time_ru: '16.05.2026',
+        time_en: '16/05/2026',
+        title: 'Пешеходный надземный переход',
+        articles: [
+            { id: 1,
+                article: 'Реконструкция перехода на шоссе',
+            },
+        ],
+        views: 0,
+        status: 'draft',
     },
     {
         id: 2,
@@ -342,7 +356,7 @@ export const NEWS = [
             },
         ],
         views: 2875,
-        status: 'draft',
+        status: 'public',
     },
 ];
 

@@ -49,7 +49,8 @@ const ContentAdminPanel = () => {
     const [ currentAdmin, setCurrentAdmin ] = useState(currentAdminId);
     // const [ infoCurrentAdmin, setInfoCurrentAdmin ] = useState({});
     const [ showEditingAdmins, setShowEditingAdmins ] = useState(false);
-    const [ editingAdmins, setEditingAdmins ] = useState({ id: '', login: '', password: '', role: '', last: '', period: '', action: '' });
+    const [ editingAdmins, setEditingAdmins ] = useState({ id: '', login: '', password: '', role: '', last: '', period: '', action: '', etc: '' });
+    const [ activeContextArticle, setActiveContextArticle ] = useState(null);
 
     useEffect(() => {
         if (!localStorage.getItem('currentAdmin')) {
@@ -69,6 +70,7 @@ const ContentAdminPanel = () => {
     const handleBack = () => {
         navigate('/admin_panel-authorization');
         localStorage.removeItem('saveTab');
+        localStorage.removeItem('currentAdmin');
     };
 
     useEffect(() => {
@@ -152,7 +154,11 @@ const ContentAdminPanel = () => {
                 : 'Are you sure you want to delete the selected articles?'
             ,
             btn: lang === 'ru' ? 'Удалить' : 'Delete',
-            action: () => {},
+            action: () => {
+                setShowWarning(false);
+                setSelectedRows([]);
+            },
+            etc: '',
         });
     };
     const handleClickDeleteAdminBtn = () => {
@@ -163,7 +169,41 @@ const ContentAdminPanel = () => {
                 : 'Are you sure you want to delete all the data of the selected administrator?'
             ,
             btn: lang === 'ru' ? 'Удалить' : 'Delete',
-            action: () => {},
+            action: () => {
+                setShowWarning(false);
+                setSelectedRows([]);
+            },
+            etc: '',
+        });
+    };
+    const handleClickSaveNewInfoBtn = () => {
+        setShowWarning(true);
+        setWarning({
+            message: lang === 'ru'
+                ? 'Обнаружены изменения. Новая информация об администраторе будет сохранена. Продолжить?'
+                : 'Changes have been detected. The new information about the administrator will be saved. Continue?'
+            ,
+            btn: lang === 'ru' ? 'Подтвердить изменения' : 'Confirm the changes',
+            action: () => {
+                setShowEditingAdmins(false);
+                setShowWarning(false);
+            },
+            etc: 'adminCard',
+        });
+    };
+    const handleClickDeleteArticleBtn = () => {
+        setShowWarning(true);
+        setWarning({
+            message: lang === 'ru'
+                ? 'Подтвердите удаление статьи'
+                : 'Confirm the deletion of the article.'
+            ,
+            btn: lang === 'ru' ? 'Удалить' : 'Delete',
+            action: () => {
+                setShowEditingAdmins(false);
+                setShowWarning(false);
+            },
+            etc: 'adminCard',
         });
     };
     const handleClickEditAdminBtn = (person) => {
@@ -182,12 +222,29 @@ const ContentAdminPanel = () => {
         });
     };
 
-    
-
-
     const handleTabClick = (tab) => {
         setTabContent(tab);
-    }; 
+    };
+
+    const handleOpenContextArticle = (e, article) => {
+        e.stopPropagation();
+        setActiveContextArticle(prev => (prev === article.id ? null : article.id));
+    };
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (
+                !e.target.closest('.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more') &&
+                !e.target.closest('.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content'))
+            {
+                setActiveContextArticle(null);
+            };
+            setSelectedRows([]);
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
     
     return (
         <>
@@ -399,30 +456,61 @@ const ContentAdminPanel = () => {
                                         </span>
 
                                         <select className="adminPanel_layout_content_home_static_graph_header_item select">
-                                            <option value="thirty">
-                                                {lang === 'ru'
-                                                    ? 'Последние 30 дней'
-                                                    : 'The last 30 days'
-                                                }
-                                            </option>
-                                            <option value="fifteen">
-                                                {lang === 'ru'
-                                                    ? 'Последние 15 дней'
-                                                    : 'The last 15 days'
-                                                }
-                                            </option>
-                                            <option value="seven">
-                                                {lang === 'ru'
-                                                    ? 'Последние 7 дней'
-                                                    : 'The last 7 days'
-                                                }
-                                            </option>
-                                            <option value="one">
-                                                {lang === 'ru'
-                                                    ? 'Последний 1 дней'
-                                                    : 'The last 1 days'
-                                                }
-                                            </option>
+                                            {window.innerWidth > 380 ? (
+                                                <>
+                                                    <option value="thirty">
+                                                        {lang === 'ru'
+                                                            ? 'Последние 30 дней'
+                                                            : 'The last 30 days'
+                                                        }
+                                                    </option>
+                                                    <option value="fifteen">
+                                                        {lang === 'ru'
+                                                            ? 'Последние 15 дней'
+                                                            : 'The last 15 days'
+                                                        }
+                                                    </option>
+                                                    <option value="seven">
+                                                        {lang === 'ru'
+                                                            ? 'Последние 7 дней'
+                                                            : 'The last 7 days'
+                                                        }
+                                                    </option>
+                                                    <option value="one">
+                                                        {lang === 'ru'
+                                                            ? 'Последний 1 дней'
+                                                            : 'The last 1 days'
+                                                        }
+                                                    </option>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <option value="thirty">
+                                                        {lang === 'ru'
+                                                            ? '30 дней'
+                                                            : '30 days'
+                                                        }
+                                                    </option>
+                                                    <option value="fifteen">
+                                                        {lang === 'ru'
+                                                            ? '15 дней'
+                                                            : '15 days'
+                                                        }
+                                                    </option>
+                                                    <option value="seven">
+                                                        {lang === 'ru'
+                                                            ? '7 дней'
+                                                            : '7 days'
+                                                        }
+                                                    </option>
+                                                    <option value="one">
+                                                        {lang === 'ru'
+                                                            ? '1 дней'
+                                                            : '1 days'
+                                                        }
+                                                    </option>
+                                                </>
+                                            )}
                                         </select>
                                     </div>
 
@@ -467,18 +555,19 @@ const ContentAdminPanel = () => {
                                                     }
                                                 };
                                                 const viewsText = getViewsText(views);
-                                                return (
-                                                    <div className="adminPanel_layout_content_home_static_popular_cards_item" key={item.id}>
-                                                        <div className="adminPanel_layout_content_home_static_popular_cards_item_number">{index + 1}</div>
-                                                        <div className="adminPanel_layout_content_home_static_popular_cards_item_info">
-                                                            <div className="adminPanel_layout_content_home_static_popular_cards_item_info_title">{item.title}</div>
-                                                            <div className="adminPanel_layout_content_home_static_popular_cards_item_info_views">{formattedViews} {viewsText}</div>
-                                                        </div>
-                                                        <div className="adminPanel_layout_content_home_static_popular_cards_item_image">
-                                                            <img src={require(`../../assets/images/${item.image}`)} alt="" />
-                                                        </div>
-                                                    </div>
-                                                )
+                                                if (item.status === 'public')
+                                                    return (
+                                                        <Link to={`/article/${item.id}`} className="adminPanel_layout_content_home_static_popular_cards_item" key={item.id}>
+                                                            <div className="adminPanel_layout_content_home_static_popular_cards_item_number">{index + 1}</div>
+                                                            <div className="adminPanel_layout_content_home_static_popular_cards_item_info">
+                                                                <div className="adminPanel_layout_content_home_static_popular_cards_item_info_title">{item.title}</div>
+                                                                <div className="adminPanel_layout_content_home_static_popular_cards_item_info_views">{formattedViews} {viewsText}</div>
+                                                            </div>
+                                                            <div className="adminPanel_layout_content_home_static_popular_cards_item_image">
+                                                                <img src={require(`../../assets/images/${item.image}`)} alt="" />
+                                                            </div>
+                                                        </Link>
+                                                    )
                                         })}
                                     </div>
                                 </div>
@@ -731,8 +820,43 @@ const ContentAdminPanel = () => {
                                                                     <img src={require('../../assets/icons/action_view.png')} alt="" />
                                                                 </Link>
                                                             )}
-                                                            <button title={lang === 'ru' ? 'Другие действия' : 'Other actions'}>
+                                                            <button
+                                                                title={lang === 'ru' ? 'Другие действия' : 'Other actions'}
+                                                                className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more"
+                                                                onClick={(e) => {handleOpenContextArticle(e, item)}}
+                                                            >
                                                                 <img src={require('../../assets/icons/action_more.png')} alt="" />
+
+                                                                <div
+                                                                    key={item.id}
+                                                                    className={`
+                                                                        adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content
+                                                                        ${activeContextArticle === item.id ? 'active' : ''}
+                                                                    `}
+                                                                >
+                                                                    {item.status === 'draft' && (
+                                                                        <div className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item">
+                                                                            {lang === 'ru'
+                                                                                ? 'Опубликовать'
+                                                                                : 'To publish'
+                                                                            }
+                                                                        </div>
+                                                                    )}
+                                                                    {item.status === 'public' && (
+                                                                        <div className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item">
+                                                                            {lang === 'ru'
+                                                                                ? 'Отправить рассылку'
+                                                                                : 'Send a newsletter'
+                                                                            }
+                                                                        </div>
+                                                                    )}
+                                                                    <div
+                                                                        className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item"
+                                                                        onClick={handleClickDeleteArticleBtn}
+                                                                    >
+                                                                        {lang === 'ru' ? 'Удалить' : 'Delete'}
+                                                                    </div>
+                                                                </div>
                                                             </button>
                                                         </div>
                                                     </td>
@@ -896,10 +1020,12 @@ const ContentAdminPanel = () => {
                 {/* окно подтверждения */}
                 {showWarning && (
                     <div className="modal">
-                        <div className="modal_content">
+                        <div className={`modal_content ${warning.etc === 'adminCard' ? 'adminCard' : ''}`}>
                             <div className="modal_text">{warning.message}</div>
                             <div className="modal_btns">
-                                <button className='modal_btns_item agree' onClick={() => { setShowWarning(false); setSelectedRows([]); }}>{warning.btn}</button>
+                                <button className='modal_btns_item agree' onClick={warning.action}>
+                                    {warning.btn}
+                                </button>
                                 <button className='modal_btns_item cancel' onClick={() => setShowWarning(false)}>
                                     {lang === 'ru' ? 'Отмена' : 'Cancel'}
                                 </button>
@@ -978,7 +1104,7 @@ const ContentAdminPanel = () => {
                                     </label>
                                 </div>
                                 <div className="editing_content_form_btns">
-                                    <button className="editing_content_form_btns_item agree" onClick={() => setShowEditingAdmins(false)}>
+                                    <button className="editing_content_form_btns_item agree" onClick={handleClickSaveNewInfoBtn}>
                                         {lang === 'ru' ? 'Сохранить' : 'Save'}
                                     </button>
                                     <button className="editing_content_form_btns_item cancel" onClick={() => setShowEditingAdmins(false)}>

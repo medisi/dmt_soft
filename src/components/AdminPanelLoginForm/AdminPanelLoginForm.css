@@ -53,7 +53,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: red;
+    color: #cc4b4b;
+    font-size: 16px;
 }
 .adminPanelLoginForm_content_form_btn {
     margin-top: 40px;
@@ -74,6 +75,23 @@
     background-color: transparent;
 }
 
+@media ( min-width: 1800px ) {
+    .adminPanelLoginForm_content_form_inputs {
+        gap: 20px;
+    }
+    .adminPanelLoginForm_content_form_input input {
+        padding: 20px 25px;
+        font-size: 24px;
+    }
+    .adminPanelLoginForm_content_form_error {
+        font-size: 22px;
+    }
+    .adminPanelLoginForm_content_form_btn_item {
+        padding: 20px 20px;
+        border-radius: 10px;
+        font-size: 28px;
+    }
+}
 @media ( max-width: 1300px ) {
     .adminPanelLoginForm_content_title span {
         font-size: 30px;

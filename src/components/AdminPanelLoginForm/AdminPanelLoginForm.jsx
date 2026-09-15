@@ -75,7 +75,10 @@ const AdminPanelLoginForm = () => {
                                         placeholder={lang === 'ru' ? 'Логин' : 'Login'}
                                         ref={loginRef}
                                         value={login}
-                                        onChange={(e) => setLogin(e.target.value)}
+                                        onChange={(e) => {
+                                            setLogin(e.target.value);
+                                            setError(null);
+                                        }}
                                     />
                                 </div>
                                 <div className="adminPanelLoginForm_content_form_input two">
@@ -85,7 +88,10 @@ const AdminPanelLoginForm = () => {
                                         placeholder={lang === 'ru' ? 'Пароль' : 'Password'}
                                         ref={passwordRef}
                                         value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
+                                        onChange={(e) => {
+                                            setPassword(e.target.value);
+                                            setError(null);
+                                        }}
                                     />
                                 </div>
                             </div>

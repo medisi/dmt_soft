@@ -12,6 +12,7 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    max-width: 2200px;
 }
 .adminPanel_layout {
     width: 100%;
@@ -322,6 +323,7 @@
     position: relative;
     align-items: center;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 .adminPanel_layout_content_home_static_popular_cards_item_number {
@@ -590,14 +592,11 @@
 .adminPanel_layout_content_articles_table_layout_tbody_tr.selected {
     background-color: #E5613120;
 }
-.adminPanel_layout_content_articles_table_layout_tbody_tr .col {
-    white-space: nowrap;
-}
 .col {
     box-sizing: border-box;
-    white-space: nowrap;
+    /* white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
     padding: 18px 10px;
 }
 .col-check { width: 70px; min-width: 70px; }
@@ -631,11 +630,21 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+.adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_span {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 16px;
 }
 .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link {
     text-decoration: none;
     cursor: pointer;
     width: fit-content;
+    font-size: 16px;
 }
 .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link:hover {
     text-decoration: underline;
@@ -658,10 +667,12 @@
 /* колонка просмотров */
 .adminPanel_layout_content_articles_table_layout_tbody_col_views {
     text-align: left;
+    font-size: 16px;
 }
 /* колонка дат */
-.adminPanel_layout_content_articles_table_layout_tbody_col_views {
+.adminPanel_layout_content_articles_table_layout_tbody_col_time {
     text-align: left;
+    font-size: 16px;
 }
 /* колонка кнопок действий */
 .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div {
@@ -692,6 +703,48 @@
 .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button.disabled img {
     opacity: .1;
 }
+.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more {
+    position: relative;
+}
+.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content {
+    position: absolute;
+    bottom: -90px;
+    background-color: #222A33;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all .3s ease;
+    outline: none;
+    z-index: 20;
+}
+.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content.active {
+    display: flex;
+}
+.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item {
+    text-decoration: none;
+    white-space: nowrap;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    text-align: left;
+    padding: 10px;
+    position: relative;
+    border-radius: 7px;
+}
+.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0; right: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff1;
+}
+.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item:hover {
+    background-color: #fff1;
+}
 
 /* модальное окно предупреждения */
 .modal {
@@ -704,7 +757,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    z-index: 40;
+    z-index: 45;
 }
 .modal_content {
     padding: 20px;
@@ -714,7 +767,10 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
+}
+.modal_content.adminCard {
+    max-width: 500px;
 }
 .modal_text {
     width: 100%;
@@ -722,7 +778,8 @@
     font-size: 16px;
 }
 .modal_btns {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     align-items: center;
     width: 100%;
@@ -735,6 +792,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: all .3s ease;
+    height: 100%
 }
 .modal_btns_item.agree {
     border: 1px solid #ED7272;
@@ -931,7 +989,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     overflow: hidden;
 }
 .editing_content_header {
@@ -975,6 +1033,7 @@
     border-radius: 10px;
     padding: 10px 20px;
     outline: none;
+    font-size: 16px;
 }
 .editing_content_form_input label {
     position: absolute;
@@ -988,7 +1047,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-}
+}   
 .editing_content_form_input_div span.period {
     font-size: 12px;
     color: #fff5;
@@ -1009,13 +1068,80 @@
 }
 .editing_content_form_btns_item.agree {
     border: 1px solid #E56131;
-    color: #fff;
 }
 .editing_content_form_btns_item.agree:hover {
     background-color: #E56131;
 }
 
-@media ( min-width: 1800px ) {
+@media ( min-width: 2000px ) {
+    .adminPanel_layout_content_home_header_title,
+    .adminPanel_layout_content_articles_header_title
+    {
+        font-size: 30px;
+    }
+    .adminPanel_layout_content_home_header_text {
+        font-size: 22px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item {
+        border-radius: 12px;
+        padding: 20px;
+        gap: 20px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_image {
+        width: 55px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_image_span {
+        width: 55px;
+        height: 55px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_info_title {
+        font-size: 22px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_info_count {
+        gap: 30px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_info_count_value span {
+        font-size: 34px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_info_count_procent {
+        gap: 6px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_info_count_procent img {
+        height: 20px;
+    }
+    .adminPanel_layout_content_home_brief_summary_item_info_count_procent span,
+    .adminPanel_layout_content_home_brief_summary_item_info_text,
+    .adminPanel_layout_content_home_static_graph_header_item,
+    .adminPanel_layout_content_home_static_popular_header_item
+    {
+        font-size: 20px;
+    }
+    .adminPanel_layout_content_home_static_popular_cards_item {
+        gap: 20px;
+        grid-template-columns: 44px 1fr 48px;
+        padding: 15px 20px;
+    }
+    .adminPanel_layout_content_home_static_popular_cards_item_number {
+        font-size: 18px;
+        width: 44px;
+        height: 44px;
+    }
+    .adminPanel_layout_content_home_static_popular_cards_item_info {
+        gap: 7px;
+    }
+    .adminPanel_layout_content_home_static_popular_cards_item_info_title {
+        font-size: 22px;
+    }
+    .adminPanel_layout_content_home_static_popular_cards_item_info_views {
+        font-size: 18px;
+    }
+    .adminPanel_layout_content_home_static_popular_header_item.link {
+        font-size: 18px;
+        gap: 10px;
+    }
+    .adminPanel_layout_content_home_static_popular_header_item.link img {
+        width: 20px;
+    }
     .adminPanel_layout_content_articles_header_btns_item.adding img {
         width: 20px;
         height: 20px;
@@ -1028,14 +1154,11 @@
     }
     .adminPanel_layout_content_articles_header_btns_item.search input {
         padding: 15px 0 15px 15px;
-        font-size: 18px;
+        font-size: 20px;
     }
     .adminPanel_layout_content_articles_header_btns_item.search img {
         width: 20px;
         height: 20px;
-    }
-    .adminPanel_layout_content_articles_header_title {
-        font-size: 26px;
     }
     .adminPanel_layout_content_articles_table_tools_choose {
         gap: 20px;
@@ -1051,6 +1174,202 @@
     .adminPanel_layout_content_articles_table_tools_filter_btn {
         width: 45px;
         height: 45px;
+    }
+    .adminPanel_layout_content_articles_table_tools_choose_spans label,
+    .adminPanel_layout_content_articles_table_layout_thead tr .col,
+    .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
+    .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_span,
+    .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link,
+    .adminPanel_layout_content_articles_table_layout_tbody_col_views,
+    .adminPanel_layout_content_articles_table_layout_tbody_col_time,
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_id,
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_role,
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_login,
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last span
+    {
+        font-size: 22px;
+    }
+    .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_image {
+        width: 130px;
+        height: 70px;
+    }
+    .adminPanel_layout_content_articles_table_layout_tbody_col_status span {
+        border-radius: 10px;
+        padding: 10px 15px;
+        font-size: 20px;
+    }
+    .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button,
+    .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link {
+        border-radius: 7px;
+        padding: 10px;
+    }
+    .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div button img,
+    .adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link img {
+        height: 18px;
+        width: 18px;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div {
+        gap: 10px;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_password_div span {
+        width: 15px;
+        height: 15px;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_mark_div span {
+        font-size: 18px;
+        border-radius: 10px;
+        padding: 7px;
+    }
+    .adminPanel_layout_sidebar {
+        border-radius: 20px;
+        width: 320px;
+    }
+    .adminPanel_layout_sidebar.hidden {
+        width: 90px;
+    }
+    .adminPanel_layout_sidebar.hidden .adminPanel_layout_sidebar_menu_item {
+        justify-content: center;
+    }
+    .adminPanel_layout_sidebar_tools_bnt img {
+        height: 22px;
+    }
+    #adminPanel_layout_sidebar_hidden_btn {
+        width: 40px;
+        height: 40px;
+        padding: 12px;
+    }
+    .adminPanel_layout_sidebar.hidden #adminPanel_layout_sidebar_hidden_btn {
+        transform: translate(20px, 25px);
+    }
+    .adminPanel_layout_sidebar_menu_item {
+        gap: 15px;
+        padding: 10px 15px;
+        border-radius: 6px;
+    }
+    .adminPanel_layout_sidebar_menu_item img,
+    .adminPanel_layout_sidebar_tools_bnt_image
+    {
+        width: 25px;
+        height: 25px;
+    }
+    .adminPanel_layout_sidebar_menu_item span {
+        font-size: 22px;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div {
+        gap: 15px;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button {
+        border-radius: 8px;
+        padding: 6px;
+    }
+    .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button img {
+        height: 20px;
+        width: 20px;
+    }
+    .adminPanel_layout_content_articles_header_btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 7px;
+        padding: 13px;
+    }
+    .modal_content {
+        padding: 25px;
+        gap: 30px;
+        max-width: 500px;
+    }
+    .modal_text {
+        font-size: 24px;
+    }
+    .modal_btns_item {
+        font-size: 24px;
+    }
+    .editing_content {
+        border-radius: 15px;
+        max-width: 550px;
+    }
+    .editing_content_header {
+        padding: 10px;
+    }
+    .editing_content_header span {
+        width: 15px;
+        height: 15px;
+    }
+    .editing_content_title {
+        font-size: 24px;
+        padding: 20px 20px;
+    }
+    .editing_content_form {
+        gap: 30px;
+    }
+    .editing_content_form input,
+    .editing_content_form_input_div
+    {
+        border-radius: 15px;
+        padding: 15px 25px;
+        font-size: 22px;
+    }
+    .editing_content_form_input label {
+        font-size: 20px;
+        top: -20px;
+        left: 13px;
+    }
+    .editing_content_form_input_div {
+        gap: 20px;
+    }
+    .editing_content_form_input_div span.period {
+        font-size: 18px;
+    }
+    .editing_content_form_btns {
+        gap: 15px;
+    }
+    .editing_content_form_btns_item {
+        font-size: 22px;
+    }
+}
+@media ( min-width: 1800px ) and ( max-width: 1999px ) {
+    .adminPanel_layout_content_articles_header_title {
+        font-size: 26px;
+    }
+    .adminPanel_layout_content_articles_header_btns_item.search input {
+        padding: 15px 0 15px 15px;
+        font-size: 18px;
+    }
+}
+@media ( min-width: 1800px ) {
+    .adminPanel_layout_content_articles_header_btns_item.adding img {
+        width: 20px;
+        height: 20px;
+    }
+    .adminPanel_layout_content_articles_header_btns_item.adding span {
+        font-size: 20px;
+    }
+    .adminPanel_layout_content_articles_header_btns_item.search {
+        gap: 20px;
+    }
+    .adminPanel_layout_content_articles_header_btns_item.search img {
+        width: 20px;
+        height: 20px;
+    }
+    .adminPanel_layout_content_articles_table_tools_choose {
+        gap: 20px;
+    }
+    .adminPanel_layout_content_articles_table_checkbox_btn {
+        width: 22px;
+        height: 22px;
+        padding: 5px;
+    }
+    .adminPanel_layout_content_articles_table_checkbox_btn img {
+        height: 10px;
+    }
+    .adminPanel_layout_content_articles_table_tools_filter_btn {
+        width: 45px;
+        height: 45px;
+    }
+}
+@media ( min-width: 1700px ) {
+    .adminPanel_layout_content_home_static {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 }
 @media ( max-width: 1480px ) {

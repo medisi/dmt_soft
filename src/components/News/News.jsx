@@ -31,7 +31,10 @@ const News = () => {
                         </div>
 
                         <div className="news_content_cards">
-                            {NEWS.slice(0, countCards).map((item) => (
+                            {NEWS
+                            .filter((item) => item.status === 'public')
+                            .slice(0, countCards)
+                            .map((item) => (
                                 <NewCard
                                     key={item.id}
                                     id={item.id}
