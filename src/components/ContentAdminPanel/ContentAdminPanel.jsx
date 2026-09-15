@@ -140,6 +140,7 @@ const ContentAdminPanel = () => {
                 return idMatch || titleMatch || timeRuDate || timeEnDate;
             });
         }
+        result.sort((a, b) => b.id - a.id);
 
         return result;
     }, [currentFilter, searchTerm, NEWS]);
