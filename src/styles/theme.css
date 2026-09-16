@@ -9,7 +9,8 @@
 .landing_page.dark .footer,
 .landing_page.dark .adminPanelLoginForm_content_form,
 .landing_page.dark .adminPanel_layout_sidebar,
-.landing_page.dark .adminPanel_layout_sidebar.hidden #adminPanel_layout_sidebar_hidden_btn
+.landing_page.dark .adminPanel_layout_sidebar.hidden #adminPanel_layout_sidebar_hidden_btn,
+.landing_page.dark .text-editor_toolbar
 {
     background-color: #161E29;
 }
@@ -120,7 +121,8 @@
 .landing_page.dark .modal_text,
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
-.landing_page.dark .editing_content_title
+.landing_page.dark .editing_content_title,
+.landing_page.dark .adminPanelEditor_content_title
 {
     color: #fff;
 }
@@ -522,8 +524,38 @@
         color: #fff;
     }
 }
-
-
+/* editor */
+.landing_page.dark .text-editor {
+    border: 1px solid #ccc3;
+}
+.landing_page.dark .text-editor_toolbar button {
+    background-color: #fff1;
+    color: #fff;
+}
+.landing_page.dark .text-editor_toolbar button:hover {
+    background-color: #fff3;
+}
+.landing_page.dark .text-editor_toolbar_divider {
+    background: #ccc5;
+}
+.landing_page.dark .text-editor_content {
+    color: #fff;
+}
+.landing_page.dark .text-editor_content .public-DraftEditorPlaceholder-root {
+    color: #aaa;
+}
+.landing_page.dark .text-editor_footer {
+    border-top: 1px solid #ccc3;
+    background: #161E29;
+}
+.landing_page.dark .text-editor_footer_btn-cancel {
+    background-color: transparent;
+    border: 1px solid #fff5;
+    color: #fff5;
+}
+.landing_page.dark .text-editor_footer_btn-cancel:hover {
+    background-color: #fff2;
+}
 
 /* LIGHT STYLES */
 .landing_page.light {
@@ -549,7 +581,8 @@
 .landing_page.light .modileNews_content_cards_item,
 .landing_page.light .contentArticle_content_article,
 .landing_page.light .qrcode_content_qr,
-.landing_page.light .allArticlesContent_content_cards_item
+.landing_page.light .allArticlesContent_content_cards_item,
+.landing_page.light .text-editor_toolbar
 {
     background-color: #d7d7e670;
 }
@@ -647,7 +680,8 @@
 .landing_page.light .modal_text,
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
-.landing_page.light .editing_content_title
+.landing_page.light .editing_content_title,
+.landing_page.light .adminPanelEditor_content_title
 {
     color: #1C1C1C;
 }
@@ -1069,4 +1103,35 @@
     .landing_page.light .editing_content_form_btns_item.agree:active {
         color: #fff;
     }
+}
+.landing_page.light .text-editor {
+    border: 1px solid #1C1C1C20;
+}
+.landing_page.light .text-editor_toolbar button {
+    background-color: #1C1C1C10;
+    color: #1C1C1C;
+}
+.landing_page.light .text-editor_toolbar button:hover {
+    background-color: #1C1C1C30;
+}
+.landing_page.light .text-editor_toolbar_divider {
+    background: #1C1C1C30;
+}
+.landing_page.light .text-editor_content {
+    color: #1C1C1C;
+}
+.landing_page.light .text-editor_content .public-DraftEditorPlaceholder-root {
+    color: #1C1C1C70;
+}
+.landing_page.light .text-editor_footer {
+    border-top: 1px solid #ccc3;
+    background: #d7d7e670;
+}
+.landing_page.light .text-editor_footer_btn-cancel {
+    background-color: transparent;
+    border: 1px solid #1C1C1C50;
+    color: #1C1C1C50;
+}
+.landing_page.light .text-editor_footer_btn-cancel:hover {
+    background-color: #1C1C1C20;
 }

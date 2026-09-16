@@ -72,6 +72,9 @@ const ContentAdminPanel = () => {
         localStorage.removeItem('saveTab');
         localStorage.removeItem('currentAdmin');
     };
+    const handleOpenEditor = () => {
+        navigate('/admin_panel_editor');
+    };
 
     useEffect(() => {
         if (window.innerWidth <= 1350) {
@@ -601,7 +604,10 @@ const ContentAdminPanel = () => {
                                         />
                                         <img src={require('../../assets/icons/search.png')} alt="" />
                                     </div>
-                                    <button className="adminPanel_layout_content_articles_header_btns_item adding">
+                                    <button
+                                        className="adminPanel_layout_content_articles_header_btns_item adding"
+                                        onClick={handleOpenEditor}
+                                    >
                                         <img src={require('../../assets/icons/plus.png')} alt="" />
                                         <span>
                                             {lang === 'ru'

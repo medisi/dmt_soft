@@ -10,6 +10,7 @@ import UserAgreement from "./pages/UserAgreement";
 import AdminPanelLogin from "./pages/AdminPanel/AdminPanelLogin";
 import AdminPanel from "./pages/AdminPanel/AdminPanel";
 import CompanyPage from "./pages/CompanyPage";
+import AdminPanelEditor from "./pages/AdminPanel/AdminPanelEditor";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           {/* admin panel */}
           <Route path="/admin_panel-authorization" element={<AdminPanelLogin />} />
           <Route path="/admin_panel" element={<AdminPanel />} />
+          <Route path="/admin_panel_editor" element={<AdminPanelEditor />} />
         </Routes>
       </>
     </SettingsProvider>
