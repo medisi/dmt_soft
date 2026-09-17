@@ -52,16 +52,23 @@ const ContentAdminPanel = () => {
     const [ editingAdmins, setEditingAdmins ] = useState({ id: '', login: '', password: '', role: '', last: '', period: '', action: '', etc: '' });
     const [ activeContextArticle, setActiveContextArticle ] = useState(null);
 
+    // реф для хранения id таймера
+    const timerRef = useRef(null);
+    // реф для хранения времени истечения
+    const expiryTimeRef = useRef(null);
+
     useEffect(() => {
         if (!localStorage.getItem('currentAdmin')) {
             navigate('/admin_panel-authorization');
-        } else {
-            if (localStorage.getItem('saveTab')) {
-                setTabContent(localStorage.getItem('saveTab'));
-            } else {
-                setTabContent('home');
-            }
-        }
+        } 
+        
+        // else {
+        //     if (localStorage.getItem('saveTab')) {
+        //         setTabContent(localStorage.getItem('saveTab'));
+        //     } else {
+        //         setTabContent('home');
+        //     }
+        // }
     }, []);
 
     const handleChangeSidebar = () => {
@@ -71,6 +78,7 @@ const ContentAdminPanel = () => {
         navigate('/admin_panel-authorization');
         localStorage.removeItem('saveTab');
         localStorage.removeItem('currentAdmin');
+        localStorage.removeItem('tabExpiryTime');
     };
     const handleOpenEditor = () => {
         navigate('/admin_panel_editor');
@@ -228,7 +236,66 @@ const ContentAdminPanel = () => {
 
     const handleTabClick = (tab) => {
         setTabContent(tab);
+        localStorage.setItem('saveTab', tab);
+        // сброс таймера при ручном переключении вкладок
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+        }
+        // вычисление нового времени истечения (сейчас + 6 часов)
+        const newExpiryTime = Date.now() + (6 * 60 * 60 * 1000);
+        expiryTimeRef.current = newExpiryTime;
+        // сохранение времени истечения в лок. хранилище
+        localStorage.setItem('tabExpiryTime', newExpiryTime.toString());
+        // запуск нового таймера
+        startTimer(newExpiryTime);
     };
+    const startTimer = (expiryTime) => {
+        const timeLeft = expiryTime - Date.now();
+
+        if (timeLeft <= 0) {
+            // если время истекло
+            setTabContent('home');
+            localStorage.setItem('saveTab', 'home');
+            localStorage.removeItem('tabExpiryTime');
+            return;
+        }
+        // установка таймера на оставшееся время
+        timerRef.current = setTimeout(() => {
+            setTabContent('home');
+            localStorage.setItem('saveTab', 'home');
+            localStorage.removeItem('tabExpiryTime');
+            expiryTimeRef.current = null;
+        }, timeLeft);
+    };
+    useEffect(() => {
+        const savedTab = localStorage.getItem('saveTab');
+        const savedExpiryTime = localStorage.getItem('tabExpiryTime');
+
+        if (savedTab) {
+            setTabContent(savedTab);
+
+            if (savedExpiryTime) {
+                const expiryTime = parseInt(savedExpiryTime, 10);
+                expiryTimeRef.current = expiryTime;
+                // запуск таймера с сохранённым временем
+                startTimer(expiryTime);
+            } else {
+                // если время не сохранено (старый формат, ставим дефолтное + 6 часов)
+                const newExpiryTime = Date.now() + (6 * 60 * 60 * 1000);
+                expiryTimeRef.current = newExpiryTime;
+                localStorage.setItem('tabExpiryTime', newExpiryTime.toString());
+                startTimer(newExpiryTime);
+            }
+        } else {
+            setTabContent('home');
+        }
+        // очистка таймера при размонтировании компонента
+        return () => {
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
+        };
+    }, []);
 
     const handleOpenContextArticle = (e, article) => {
         e.stopPropagation();

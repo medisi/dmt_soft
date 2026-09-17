@@ -78,6 +78,9 @@
 {
     /* user-select: none; */
 }
+.moduleSlide_info_text {
+    text-align: justify;
+}
 .moduleSlide_info_text:not(.mobile) {
     margin-top: 25px;
 }
