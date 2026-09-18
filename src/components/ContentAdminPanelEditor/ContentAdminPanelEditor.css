@@ -56,10 +56,16 @@
     .adminPanelEditor_content_header_back {
         font-size: 22px;
     }
+    .adminPanelEditor_content_editor {
+        height: 100%;
+    }
 }
 @media ( max-width: 2000px ) {
     .adminPanelEditor .container {
         max-width: 1600px;
+    }
+    .adminPanelEditor_content_editor {
+        min-height: 500px;
     }
 }
 @media ( max-width: 1700px ) {

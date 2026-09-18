@@ -406,22 +406,22 @@ const TextEditor = ({ initialContent, onSave }) => {
                     </div>
                 ) : (
                     <div className="text-editor_split">
-                    {/* Левая панель — исходник Markdown */}
-                    <div className="text-editor_split_left">
-                        <textarea
-                            ref={markdownTextareaRef}
-                            className="text-editor_split_textarea"
-                            value={markdownText}
-                            onChange={(e) => setMarkdownText(e.target.value)}
-                            placeholder={lang === 'ru' ? 'Введите Markdown...' : 'Enter Markdown...'}
-                            spellCheck={false}
-                        />
+                        {/* Левая панель — исходник Markdown */}
+                        <div className="text-editor_split_left">
+                            <textarea
+                                ref={markdownTextareaRef}
+                                className="text-editor_split_textarea"
+                                value={markdownText}
+                                onChange={(e) => setMarkdownText(e.target.value)}
+                                placeholder={lang === 'ru' ? 'Введите Markdown...' : 'Enter Markdown...'}
+                                spellCheck={false}
+                            />
+                        </div>
+                        {/* Правая панель — превью */}
+                        <div className="text-editor_split_right">
+                            <div dangerouslySetInnerHTML={{ __html: marked.parse(markdownText) }} />
+                        </div>
                     </div>
-                    {/* Правая панель — превью */}
-                    <div className="text-editor_split_right">
-                        <div dangerouslySetInnerHTML={{ __html: marked.parse(markdownText) }} />
-                    </div>
-                </div>
                 )}
 
                 <div className="text-editor_footer">
