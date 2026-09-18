@@ -60,15 +60,7 @@ const ContentAdminPanel = () => {
     useEffect(() => {
         if (!localStorage.getItem('currentAdmin')) {
             navigate('/admin_panel-authorization');
-        } 
-        
-        // else {
-        //     if (localStorage.getItem('saveTab')) {
-        //         setTabContent(localStorage.getItem('saveTab'));
-        //     } else {
-        //         setTabContent('home');
-        //     }
-        // }
+        }
     }, []);
 
     const handleChangeSidebar = () => {
@@ -81,7 +73,10 @@ const ContentAdminPanel = () => {
         localStorage.removeItem('tabExpiryTime');
     };
     const handleOpenEditor = () => {
-        navigate('/admin_panel_editor');
+        navigate('/admin_panel_editor', { state: { article: null } });
+    };
+    const handleEditArticle = (article) => {
+        navigate('/admin_panel_editor', { state: { article } });
     };
 
     useEffect(() => {
@@ -117,11 +112,6 @@ const ContentAdminPanel = () => {
 
     // фильтрация таблицы
     const filteredNews = useMemo(() => {
-        // if (currentFilter === 'all') return NEWS;
-        // if (currentFilter === 'public') return NEWS.filter(item => item.status === 'public');
-        // if (currentFilter === 'draft') return NEWS.filter(item => item.status === 'draft');
-        // return NEWS;
-        
         // фильтр по статусу
         let result = '';
         if (currentFilter === 'all') {
@@ -874,7 +864,13 @@ const ContentAdminPanel = () => {
                                                     </td>
                                                     <td className="col col-actions adminPanel_layout_content_articles_table_layout_tbody_col_actions">
                                                         <div className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div">
-                                                            <button title={lang === 'ru' ? 'Редактировать' : 'Edit'}>
+                                                            <button
+                                                                title={lang === 'ru' ? 'Редактировать' : 'Edit'}
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    handleEditArticle(item);
+                                                                }}
+                                                            >
                                                                 <img src={require('../../assets/icons/action_edit.png')} alt="" />
                                                             </button>
                                                             {item.status === 'draft' ? (
@@ -1120,13 +1116,15 @@ const ContentAdminPanel = () => {
                                     : 'Administrator card'
                                 }
                             </div>
-                            <div className="editing_content_form">
+                            <form className="editing_content_form">
                                 <div className="editing_content_form_input">
                                     <input
                                         type="text"
                                         placeholder={lang === 'ru' ? 'ID' : 'ID'}
                                         id="editing_admin_id"
                                         value={editingAdmins.id}
+                                        readOnly
+                                        disabled
                                     />
                                     <label htmlFor="editing_admin_id">
                                         {lang === 'ru' ? 'ID' : 'ID'}
@@ -1135,33 +1133,54 @@ const ContentAdminPanel = () => {
                                 <div className="editing_content_form_input">
                                     <input
                                         type="text"
+                                        className={editingAdmins.role === '' ? 'empty' : ''}
                                         placeholder={lang === 'ru' ? 'Роль' : 'Role'}
                                         id="editing_admin_role"
                                         value={editingAdmins.role}
+                                        onChange={(e) => 
+                                            setEditingAdmins((prev) => ({ ...prev, role: e.target.value }))
+                                        }
                                     />
-                                    <label htmlFor="editing_admin_role">
+                                    <label
+                                        htmlFor="editing_admin_role"
+                                        className={editingAdmins.role === '' ? 'empty' : ''}
+                                    >
                                         {lang === 'ru' ? 'Роль' : 'Role'}
                                     </label>
                                 </div>
                                 <div className="editing_content_form_input">
                                     <input
                                         type="text"
+                                        className={editingAdmins.login === '' ? 'empty' : ''}
                                         placeholder={lang === 'ru' ? 'Логин' : 'Login'}
                                         id="editing_admin_login"
                                         value={editingAdmins.login}
+                                        onChange={(e) => 
+                                            setEditingAdmins((prev) => ({ ...prev, login: e.target.value}))
+                                        }
                                     />
-                                    <label htmlFor="editing_admin_login">
+                                    <label
+                                        htmlFor="editing_admin_login"
+                                        className={editingAdmins.login === '' ? 'empty' : ''}
+                                    >
                                         {lang === 'ru' ? 'Логин' : 'Login'}
                                     </label>
                                 </div>
                                 <div className="editing_content_form_input">
                                     <input
                                         type="password"
+                                        className={editingAdmins.password === '' ? 'empty' : ''}
                                         placeholder={lang === 'ru' ? 'Пароль' : 'Password'}
                                         id="editing_admin_password"
                                         value={editingAdmins.password}
+                                        onChange={(e) =>
+                                            setEditingAdmins((prev) => ({ ...prev, password: e.target.value }))
+                                        }
                                     />
-                                    <label htmlFor="editing_admin_password">
+                                    <label
+                                        htmlFor="editing_admin_password"
+                                        className={editingAdmins.password === '' ? 'empty' : ''}
+                                    >
                                         {lang === 'ru' ? 'Пароль' : 'Password'}
                                     </label>
                                 </div>
@@ -1186,7 +1205,7 @@ const ContentAdminPanel = () => {
                                     </button>
                                 </div>
                                 
-                            </div>
+                            </form>
                         </div>
                     </div>
                 )}

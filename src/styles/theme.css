@@ -122,7 +122,7 @@
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
 .landing_page.dark .editing_content_title,
-.landing_page.dark .adminPanelEditor_content_title
+.landing_page.dark .adminPanelEditor_content_header_title
 {
     color: #fff;
 }
@@ -556,6 +556,36 @@
 .landing_page.dark .text-editor_footer_btn-cancel:hover {
     background-color: #fff2;
 }
+.landing_page.dark .editing_content_form_input input.empty {
+    border: 1px solid #db4848;
+}
+.landing_page.dark .editing_content_form_input label.empty,
+.landing_page.dark .editing_content_form_input input.empty::placeholder
+{
+   color: #db4848;
+}
+.landing_page.dark .text-image-choose:not(.image) {
+    border: 1px dashed #fff3;
+}
+.landing_page.dark .text-image-choose:not(.image) span {
+    color: #fff3;
+}
+.landing_page.dark .text-image-choose:not(.image):hover {
+    border: 1px dashed #fff6;
+}
+.landing_page.dark .text-image-choose:not(.image):hover span {
+    color: #fff6;
+}
+.landing_page.dark .text-editor_split_textarea {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+
+
+
+
+
 
 /* LIGHT STYLES */
 .landing_page.light {
@@ -681,7 +711,7 @@
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
 .landing_page.light .editing_content_title,
-.landing_page.light .adminPanelEditor_content_title
+.landing_page.light .adminPanelEditor_content_header_title
 {
     color: #1C1C1C;
 }
@@ -858,7 +888,9 @@
 .landing_page.light .dropdown_arrow_img,
 .landing_page.light #adminPanel_layout_sidebar_hidden_btn img,
 .landing_page.light .adminPanel_layout_content_articles_header_btn img,
-.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete) img
+.landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete) img,
+.landing_page.light .text-editor_toolbar_btn-image img,
+.landing_page.light .text-image-choose:not(.image) img
 {
     filter: invert(100%);
 }
@@ -1134,4 +1166,29 @@
 }
 .landing_page.light .text-editor_footer_btn-cancel:hover {
     background-color: #1C1C1C20;
+}
+.landing_page.light .editing_content_form_input input.empty {
+    border: 1px solid #db4848;
+}
+.landing_page.light .editing_content_form_input label.empty,
+.landing_page.light .editing_content_form_input input.empty::placeholder
+{
+   color: #db4848;
+}
+
+.landing_page.light .text-image-choose:not(.image) {
+    border: 1px dashed #1C1C1C30;
+}
+.landing_page.light .text-image-choose:not(.image) span {
+    color: #1C1C1C30;
+}
+.landing_page.light .text-image-choose:not(.image):hover {
+    border: 1px dashed #1C1C1C60;
+}
+.landing_page.light .text-image-choose:not(.image):hover span {
+    color: #1C1C1C60;
+}
+.landing_page.light .text-editor_split_textarea {
+    background: #d6d6d6;
+    color: #1C1C1C;
 }
