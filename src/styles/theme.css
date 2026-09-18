@@ -122,7 +122,8 @@
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
 .landing_page.dark .editing_content_title,
-.landing_page.dark .adminPanelEditor_content_header_title
+.landing_page.dark .adminPanelEditor_content_header_title,
+.landing_page.dark .text-editor_split_right
 {
     color: #fff;
 }
@@ -711,7 +712,8 @@
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_thead_tr .ad_col,
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
 .landing_page.light .editing_content_title,
-.landing_page.light .adminPanelEditor_content_header_title
+.landing_page.light .adminPanelEditor_content_header_title,
+.landing_page.light .text-editor_split_right
 {
     color: #1C1C1C;
 }

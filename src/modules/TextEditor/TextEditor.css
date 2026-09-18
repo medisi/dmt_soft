@@ -267,6 +267,18 @@
         max-width: 400px;
     }
 }
+@media ( max-width: 600px ) {
+    .text-editor_split {
+        flex-direction: column;
+        overflow: auto;
+    }
+    .text-editor_split_left {
+        min-height: 500px;
+    }
+    .text-editor_split_right {
+        min-height: 500px;
+    }
+}
 @media ( max-width: 550px ) {
     .text-image {
         height: 150px;
