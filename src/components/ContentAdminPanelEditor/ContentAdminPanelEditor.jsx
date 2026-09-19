@@ -88,7 +88,7 @@ const ContentAdminPanelEditor = () => {
 
         try {
             const parsed = JSON.parse(raw);
-            return Array.isArray(parsed) ? parsed : ; // Если не массив - возвращаем пустой массив
+            return Array.isArray(parsed) ? parsed : ''; // Если не массив - возвращаем пустой массив
         } catch (e) {
             console.error('Ошибка парсинга localStorage:', e);
             return ; // Даже при ошибке возвращаем пустой массив, чтобы код не ломался
