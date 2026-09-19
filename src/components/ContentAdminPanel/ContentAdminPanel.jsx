@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import './ContentAdminPanel.css';
 import { useLocalSettings } from "../../hooks/useLocalSettings";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ADMINS, BRIEF_SUMMARY, NEWS } from "../../hooks/data";
 import DropdownButtonFilter from "../DropdownButtonFilter/DropdownButtonFilter";
+import { useAllArticles } from "../../hooks/useAllArticles";
 
 function parseDDMMYYYY(dateStr) {
     if (!dateStr) return null;
@@ -27,6 +28,7 @@ function getDaysSinceLogin(dateStr) {
 const ContentAdminPanel = () => {
     const { lang, theme, updateTheme, updateLang } = useLocalSettings();
     const navigate = useNavigate();
+    const location = useLocation();
 
     // Получаем ID из localStorage, сразу с дефолтным значением (например, 0 или null)
     const savedId = localStorage.getItem('currentAdmin');
@@ -52,16 +54,33 @@ const ContentAdminPanel = () => {
     const [ editingAdmins, setEditingAdmins ] = useState({ id: '', login: '', password: '', role: '', last: '', period: '', action: '', etc: '' });
     const [ activeContextArticle, setActiveContextArticle ] = useState(null);
 
+    const { allArticles: articlesData, refresh: refreshArticles } = useAllArticles();
+    const PLACEHOLDER_IMAGE = require('../../assets/icons/image.png');
+
     // реф для хранения id таймера
     const timerRef = useRef(null);
     // реф для хранения времени истечения
     const expiryTimeRef = useRef(null);
 
     useEffect(() => {
+        refreshArticles();
+    }, [location.pathname]);
+
+    useEffect(() => {
         if (!localStorage.getItem('currentAdmin')) {
             navigate('/admin_panel-authorization');
         }
     }, []);
+
+    const getArticleImage = (image) => {
+        if (!image) return PLACEHOLDER_IMAGE;
+        if (image.startsWith('data:image')) return image;
+        try {
+            return require(`../../assets/images/${image}`);
+        } catch {
+            return PLACEHOLDER_IMAGE;
+        }
+};
 
     const handleChangeSidebar = () => {
         setSidebarHidden((prev) => !prev);
@@ -99,11 +118,12 @@ const ContentAdminPanel = () => {
         );
     };
     const handleSelectedAll = () => {
-        if (selectedRows.length < NEWS.length || selectedRows.length === 0) {
-            const allRows = [];
-            for (let i = 0; allRows.length < NEWS.length; i++) {
-                allRows.push(NEWS[i].id);
-            }
+        if (selectedRows.length < articlesData.length || selectedRows.length === 0) {
+            // const allRows = [];
+            // for (let i = 0; allRows.length < NEWS.length; i++) {
+            //     allRows.push(NEWS[i].id);
+            // }
+            const allRows = articlesData.map(item => item.id);
             setSelectedRows(allRows);
         } else {
             setSelectedRows([]);
@@ -115,13 +135,13 @@ const ContentAdminPanel = () => {
         // фильтр по статусу
         let result = '';
         if (currentFilter === 'all') {
-            result = [...NEWS];
+            result = [...articlesData];
         } else if (currentFilter === 'public') {
-            result = NEWS.filter(item => item.status === 'public');
+            result = articlesData.filter(item => item.status === 'public');
         } else if (currentFilter === 'draft') {
-            result = NEWS.filter(item => item.status === 'draft');
+            result = articlesData.filter(item => item.status === 'draft');
         } else {
-            result = [...NEWS];
+            result = [...articlesData];
         }
         // фильтрация по поисковому запросу, если он есть
         if (searchTerm) {
@@ -144,7 +164,7 @@ const ContentAdminPanel = () => {
         result.sort((a, b) => b.id - a.id);
 
         return result;
-    }, [currentFilter, searchTerm, NEWS]);
+    }, [currentFilter, searchTerm, articlesData]);
     
 
     const handleClickDeleteBtn = () => {
@@ -193,7 +213,7 @@ const ContentAdminPanel = () => {
             etc: 'adminCard',
         });
     };
-    const handleClickDeleteArticleBtn = () => {
+    const handleClickDeleteArticleBtn = (articleId) => {
         setShowWarning(true);
         setWarning({
             message: lang === 'ru'
@@ -202,11 +222,27 @@ const ContentAdminPanel = () => {
             ,
             btn: lang === 'ru' ? 'Удалить' : 'Delete',
             action: () => {
+                deleteArticle(articleId);
                 setShowEditingAdmins(false);
                 setShowWarning(false);
             },
             etc: 'adminCard',
         });
+    };
+    const deleteArticle = (articleId) => {
+        const stored = localStorage.getItem('ArticlesDMTSoft');
+        if (!stored) return;
+
+        let articles;
+        try {
+            articles = JSON.parse(stored);
+        } catch (err) {
+            console.log('Некорректный JSON в allArticles: ', err);
+            return;
+        }
+        const updatedArticles = articles.filter((item) => item.id !== articleId);
+        localStorage.setItem('ArticlesDMTSoft', JSON.stringify(updatedArticles));
+        refreshArticles();
     };
     const handleClickEditAdminBtn = (person) => {
         const days = getDaysSinceLogin(person.last_login);
@@ -293,19 +329,23 @@ const ContentAdminPanel = () => {
     };
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (
-                !e.target.closest('.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more') &&
-                !e.target.closest('.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content'))
-            {
+            // Проверяем, кликнули ли мы вне кнопки "Ещё действия" и её выпадающего меню
+            const isMoreActionsButton = e.target.closest('.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more');
+            const isMoreActionsContent = e.target.closest('.adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content');
+
+            if (!isMoreActionsButton && !isMoreActionsContent) {
+                // Сбрасываем только контекстное меню действий
                 setActiveContextArticle(null);
-            };
-            setSelectedRows([]);
+            }
+            // УДАЛИЛИ: setSelectedRows();
         };
+
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, );
+
     
     return (
         <>
@@ -625,7 +665,7 @@ const ContentAdminPanel = () => {
                                                                 <div className="adminPanel_layout_content_home_static_popular_cards_item_info_views">{formattedViews} {viewsText}</div>
                                                             </div>
                                                             <div className="adminPanel_layout_content_home_static_popular_cards_item_image">
-                                                                <img src={require(`../../assets/images/${item.image}`)} alt="" />
+                                                                <img src={getArticleImage(item.image)} alt="" />
                                                             </div>
                                                         </Link>
                                                     )
@@ -808,8 +848,8 @@ const ContentAdminPanel = () => {
                                                     </td>
                                                     <td className="col col-name adminPanel_layout_content_articles_table_layout_tbody_col_name">
                                                         <div className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div">
-                                                            <div className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div_image">
-                                                                <img src={require(`../../assets/images/${item.image}`)} alt="imag" />
+                                                            <div className={`adminPanel_layout_content_articles_table_layout_tbody_col_name_div_image ${!item.image ? 'noImage' : ''}`}>
+                                                                <img src={getArticleImage(item.image)} alt="imag" />
                                                             </div>
                                                             <div className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info">
                                                                 <span className="adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_span">
@@ -922,7 +962,7 @@ const ContentAdminPanel = () => {
                                                                     )}
                                                                     <div
                                                                         className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_more_content_item"
-                                                                        onClick={handleClickDeleteArticleBtn}
+                                                                        onClick={() => handleClickDeleteArticleBtn(item.id)}
                                                                     >
                                                                         {lang === 'ru' ? 'Удалить' : 'Delete'}
                                                                     </div>

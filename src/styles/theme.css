@@ -581,6 +581,9 @@
     background: #1e1e1e;
     color: #fff;
 }
+.landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_image.noImage {
+    background-color: #fff1;
+}
 
 
 
@@ -892,7 +895,8 @@
 .landing_page.light .adminPanel_layout_content_articles_header_btn img,
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr_last_div button:not(.delete) img,
 .landing_page.light .text-editor_toolbar_btn-image img,
-.landing_page.light .text-image-choose:not(.image) img
+.landing_page.light .text-image-choose:not(.image) img,
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_image.noImage img
 {
     filter: invert(100%);
 }
@@ -1177,7 +1181,6 @@
 {
    color: #db4848;
 }
-
 .landing_page.light .text-image-choose:not(.image) {
     border: 1px dashed #1C1C1C30;
 }
@@ -1193,4 +1196,7 @@
 .landing_page.light .text-editor_split_textarea {
     background: #d6d6d6;
     color: #1C1C1C;
+}
+.landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_image.noImage {
+    background-color: #1C1C1C10;
 }

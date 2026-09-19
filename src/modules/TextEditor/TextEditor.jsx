@@ -10,7 +10,7 @@ import { stateFromMarkdown } from 'draft-js-import-markdown';
 // Проще и надёжнее использовать marked:
 import { marked } from 'marked';
 
-const TextEditor = ({ initialContent, onSave }) => {
+const TextEditor = ({ initialContent, initialImage, onSave, onDraft }) => {
     const { lang } = useLocalSettings();
     const navigate = useNavigate();
 
@@ -41,6 +41,25 @@ const TextEditor = ({ initialContent, onSave }) => {
             setEditorState(EditorState.createEmpty());
         }
     }, [initialContent]);
+
+    useEffect(() => {
+        if (!initialImage) {
+            setImage('');
+            return;
+        }
+        // если base64
+        if (initialImage.startsWith('data:image')) {
+            setImage(initialImage);
+        } else {
+            try {
+                const imgSrc = require(`../../assets/images/${initialImage}`);
+                setImage(imgSrc);
+            } catch (err) {
+                console.log('Изображение не найдено: ', initialImage);
+                setImage('');
+            }
+        }
+    }, [initialImage]);
 
     // переключение режимов
     const handleToggleMarkdown = () => {
@@ -92,40 +111,58 @@ const TextEditor = ({ initialContent, onSave }) => {
     };
     // Вставка картинки через base64 (заглушка; в проде — загрузка на сервер)
     const handleImageChoose = (e) => {
-        if (e.target.closest('.text-image-choose_image-span')) return;
-        e.preventDefault();
-        e.stopPropagation();
-
         const file = e.target.files[0];
         if (!file) return;
 
         const reader = new FileReader();
         reader.onload = () => {
-            // Сохраняем base64 в стейт для превью
-            setImage(reader.result);
+            // Создаём изображение для сжатия
+            const img = new Image();
+            img.onload = () => {
+                // Максимальная ширина — 800px (достаточно для превью)
+                const MAX_WIDTH = 800;
+                let width = img.width;
+                let height = img.height;
 
-            // Вставляем в редактор в зависимости от режима
-            if (mode === 'wysiwyg') {
-                const contentState = editorState.getCurrentContent();
-                const newContent = contentState.createEntity('IMAGE', 'IMMUTABLE', {
-                    src: reader.result,
-                });
-                const entityKey = contentState.getLastCreatedEntityKey();
-                const newEditorState = EditorState.set(editorState, {
-                    currentContent: newContent,
-                });
-                setEditorState(
-                    RichUtils.toggleBlockType(newEditorState, 'atomic', entityKey)
-                );
-            } else {
-                // В Markdown-режиме вставляем синтаксис
-                const md = `![${file.name}](${reader.result})`;
-                setMarkdownText((prev) => prev + '\n\n' + md);
-            }
+                if (width > MAX_WIDTH) {
+                    height = Math.round((height * MAX_WIDTH) / width);
+                    width = MAX_WIDTH;
+                }
+
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                // Сжимаем в JPEG с качеством 0.7 (мало заметно, но сильно меньше)
+                const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+
+                setImage(compressedBase64);
+
+                if (mode === 'wysiwyg') {
+                    const contentState = editorState.getCurrentContent();
+                    const newContent = contentState.createEntity('IMAGE', 'IMMUTABLE', {
+                        src: compressedBase64,
+                    });
+                    const entityKey = contentState.getLastCreatedEntityKey();
+                    const newEditorState = EditorState.set(editorState, {
+                        currentContent: newContent,
+                    });
+                    setEditorState(
+                        RichUtils.toggleBlockType(newEditorState, 'atomic', entityKey)
+                    );
+                } else {
+                    const md = `![${file.name}](${compressedBase64})`;
+                    setMarkdownText((prev) => prev + '\n\n' + md);
+                }
+            };
+            img.src = reader.result;
         };
         reader.readAsDataURL(file);
         e.target.value = '';
     };
+
 
 
     const handleImageUpload = (e) => {
@@ -190,21 +227,37 @@ const TextEditor = ({ initialContent, onSave }) => {
         return convertToRaw(editorState.getCurrentContent());
     };
 
-    // сохранение
-    const handleSave = () => {
-        // if (onSave) onSave(getEditorContent());
+    // сохранение и публикация
+    const handleSavePublish = () => {
         if (mode === 'markdown') {
             try {
                 const contentState = stateFromMarkdown(markdownText);
                 const raw = convertToRaw(contentState);
-                if (onSave) onSave(raw);
+                if (onSave) onSave(raw, image);
             } catch (err) {
                 console.log('Ошибка конвертации markdown: ', err);
                 if (onSave) onSave(markdownText);
             }
         } else {
-            if (onSave) onSave(convertToRaw(editorState.getCurrentContent()));
+            if (onSave) onSave(convertToRaw(editorState.getCurrentContent()), image);
         }
+        navigate('/admin_panel');
+    };
+    // сохранение в черновиках
+    const handleSaveDraft = () => {
+        if (mode === 'markdown') {
+            try {
+                const contentState = stateFromMarkdown(markdownText);
+                const raw = convertToRaw(contentState);
+                if (onDraft) onDraft(raw, image);
+            } catch (err) {
+                console.log('Ошибка конвертации markdown: ', err);
+                if (onDraft) onDraft(markdownText);
+            }
+        } else {
+            if (onDraft) onDraft(convertToRaw(editorState.getCurrentContent()), image);
+        }
+        navigate('/admin_panel');
     };
 
     // Проверка активного стиля для подсветки кнопок
@@ -426,10 +479,10 @@ const TextEditor = ({ initialContent, onSave }) => {
 
                 <div className="text-editor_footer">
                     <div className="text-editor_footer_btn">
-                        <button type="button" onClick={handleSave} className='text-editor_footer_btn-agree'>
+                        <button type="button" onClick={handleSavePublish} className='text-editor_footer_btn-agree'>
                             {lang === 'ru' ? 'Сохранить и опубликовать' : 'Save and publish'}
                         </button>
-                        <button type="button" onClick={handleSave} className='text-editor_footer_btn-draft'>
+                        <button type="button" onClick={handleSaveDraft} className='text-editor_footer_btn-draft'>
                             {lang === 'ru' ? 'Сохранить как черновик' : 'Save as a draft'}
                         </button>
                     </div>
