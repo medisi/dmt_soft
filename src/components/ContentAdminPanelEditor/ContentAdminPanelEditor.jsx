@@ -78,6 +78,27 @@ const ContentAdminPanelEditor = () => {
         return firstTextBlock ? firstTextBlock.text.trim() : '';
     };
 
+    // Вспомогательная функция для безопасного получения массива из localStorage
+    const getSafeArticlesList = () => {
+        const raw = localStorage.getItem('ArticlesDMTSoft');
+        
+        // Если нет данных или это пустая строка — возвращаем пустой массив
+        if (!raw || raw.trim() === '') {
+            return ;
+        }
+
+        try {
+            const parsed = JSON.parse(raw);
+            // Если вдруг там не массив (например, объект), тоже возвращаем пустой массив
+            return Array.isArray(parsed) ? parsed : '';
+        } catch (e) {
+            console.error('Ошибка парсинга localStorage, сбрасываем данные:', e);
+            // В случае битых данных — начинаем с чистого листа, чтобы приложение не падало
+            return ;
+        }
+    };
+
+
     const handleSaveDraft = (rawContent, image) => {
         setContent(rawContent);
         const title = exrtactTitle(rawContent);
@@ -98,7 +119,8 @@ const ContentAdminPanelEditor = () => {
                 status: status, // <--- ДОБАВЛЕНО: принудительно ставим статус
             };
 
-            const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            const stored = getSafeArticlesList();
             const existingIndex = stored.findIndex((item) => item.id === currentId);
 
             if (existingIndex !== -1) {
@@ -114,7 +136,8 @@ const ContentAdminPanelEditor = () => {
             localStorage.setItem('ArticlesDMTSoft', JSON.stringify(stored));
         } else {
             // Логика для новой статьи (первое сохранение)
-            const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            const stored = getSafeArticlesList();
             const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
             const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
             const newId = Math.max(maxNewsId, maxStoredId) + 1;
@@ -155,7 +178,8 @@ const ContentAdminPanelEditor = () => {
                 status: status, // <--- ДОБАВЛЕНО: принудительно ставим статус
             };
 
-            const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            const stored = getSafeArticlesList();
             const existingIndex = stored.findIndex((item) => item.id === currentId);
 
             if (existingIndex !== -1) {
@@ -172,7 +196,8 @@ const ContentAdminPanelEditor = () => {
             localStorage.setItem('ArticlesDMTSoft', JSON.stringify(stored));
         } else {
             // Логика для новой статьи (первое сохранение)
-            const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
+            const stored = getSafeArticlesList();
             const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
             const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
             const newId = Math.max(maxNewsId, maxStoredId) + 1;
