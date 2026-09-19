@@ -81,22 +81,20 @@ const ContentAdminPanelEditor = () => {
     // Вспомогательная функция для безопасного получения массива из localStorage
     const getSafeArticlesList = () => {
         const raw = localStorage.getItem('ArticlesDMTSoft');
-        
-        // Если нет данных или это пустая строка — возвращаем пустой массив
+
         if (!raw || raw.trim() === '') {
-            return ;
+            return ; // ВАЖНО: всегда возвращаем массив, никогда не undefined
         }
 
         try {
             const parsed = JSON.parse(raw);
-            // Если вдруг там не массив (например, объект), тоже возвращаем пустой массив
-            return Array.isArray(parsed) ? parsed : '';
+            return Array.isArray(parsed) ? parsed : ; // Если не массив - возвращаем пустой массив
         } catch (e) {
-            console.error('Ошибка парсинга localStorage, сбрасываем данные:', e);
-            // В случае битых данных — начинаем с чистого листа, чтобы приложение не падало
-            return ;
+            console.error('Ошибка парсинга localStorage:', e);
+            return ; // Даже при ошибке возвращаем пустой массив, чтобы код не ломался
         }
     };
+
 
 
     const handleSaveDraft = (rawContent, image) => {
@@ -138,9 +136,17 @@ const ContentAdminPanelEditor = () => {
             // Логика для новой статьи (первое сохранение)
             // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
             const stored = getSafeArticlesList();
-            const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
-            const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
+            // Безопасное получение массивов
+            const safeStored = getSafeArticlesList() || '';
+            const safeNews = NEWS || ''; 
+
+            const maxNewsId = safeNews.length > 0 ? Math.max(...safeNews.map((n) => n.id)) : 0;
+            const maxStoredId = safeStored.length > 0 ? Math.max(...safeStored.map((s) => s.id)) : 0;
             const newId = Math.max(maxNewsId, maxStoredId) + 1;
+
+            // const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
+            // const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
+            // const newId = Math.max(maxNewsId, maxStoredId) + 1;
 
             const newArticle = {
                 id: newId,
@@ -198,9 +204,16 @@ const ContentAdminPanelEditor = () => {
             // Логика для новой статьи (первое сохранение)
             // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
             const stored = getSafeArticlesList();
-            const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
-            const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
+            // Безопасное получение массивов
+            const safeStored = getSafeArticlesList() || '';
+            const safeNews = NEWS || ''; 
+
+            const maxNewsId = safeNews.length > 0 ? Math.max(...safeNews.map((n) => n.id)) : 0;
+            const maxStoredId = safeStored.length > 0 ? Math.max(...safeStored.map((s) => s.id)) : 0;
             const newId = Math.max(maxNewsId, maxStoredId) + 1;
+            // const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
+            // const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
+            // const newId = Math.max(maxNewsId, maxStoredId) + 1;
 
             const newArticle = {
                 id: newId,
