@@ -293,6 +293,9 @@
     .text-editor_footer {
         flex-direction: column;
     }
+    .text-editor_content {
+        min-height: 150px;
+    }
 }
 @media ( max-width: 380px ) {
     .text-editor_footer {

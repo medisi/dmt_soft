@@ -47,6 +47,7 @@
 .adminPanelEditor_content_editor {
     display: flex;
     gap: 20px;
+    height: 100%;
 }
 
 @media ( min-width: 2001px ) {
@@ -76,5 +77,10 @@
 @media ( max-width: 1000px ) {
     .adminPanelEditor_content_editor {
         flex-direction: column-reverse;
+    }
+}
+@media ( max-width: 550px ) {
+    .adminPanelEditor_content_editor {
+        min-height: 150px;
     }
 }
