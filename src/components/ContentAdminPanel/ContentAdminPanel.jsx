@@ -362,6 +362,25 @@ const ContentAdminPanel = () => {
         };
     }, );
 
+    const handleAddView = (articleId) => {
+        const stored = localStorage.getItem('ArticlesDMTSoft');
+        if (!stored) return;
+
+        let articles;
+        try {
+            articles = JSON.parse(stored);
+        } catch (err) {
+            console.log('Некорректный JSON в allArticles: ', err);
+            return;
+        }
+        const currentArticle = articles.find((item) => item.id === articleId);
+        if (!currentArticle) return;
+        const viewsArticle = currentArticle.views ?? 0;
+        currentArticle.views = viewsArticle + 1;
+        localStorage.setItem('ArticlesDMTSoft', JSON.stringify(articles));
+        refreshArticles();
+    }; 
+
     
     return (
         <>
@@ -942,6 +961,9 @@ const ContentAdminPanel = () => {
                                                                     to={`/article/${item.id}`}
                                                                     className="adminPanel_layout_content_articles_table_layout_tbody_col_actions_div_link"
                                                                     title={lang === 'ru' ? 'Перейти на страницу' : 'Go to page'}
+                                                                    onClick={() => {
+                                                                        handleAddView(item.id);
+                                                                    }}
                                                                 >
                                                                     <img src={require('../../assets/icons/action_view.png')} alt="" />
                                                                 </Link>

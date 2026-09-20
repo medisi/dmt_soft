@@ -123,7 +123,42 @@ const ContentArticle = () => {
                                 {lang === 'ru' ? 'Назад' : 'Back'}
                             </button>
                         </div>
-                        <div className="contentArticle_content_article">
+                        <div className="article-layout-wrapper">
+                            {/* Блок с контентом (слева) */}
+                            <div className="article-layout-content">
+                                <div className="contentArticle_content_article_content_item contentArticle_content_article_content_title bold">
+                                    {dataArticle.title}
+                                </div>
+                                <div className="contentArticle_content_article_content_time text">
+                                    {lang === 'ru'
+                                        ? dataArticle.time_ru
+                                        : dataArticle.time_en}
+                                </div>
+                                
+                                <div className="contentArticle_content_article_content_parags">
+                                    {bodyParagraphs.map((item) => (
+                                        <p
+                                            key={item.id || item.article}
+                                            className="contentArticle_content_article_content_item contentArticle_content_article_content_parags_item text"
+                                        >
+                                            {item.article}
+                                        </p>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Блок с картинкой (справа) */}
+                            {dataArticle.image && (
+                                <div className="article-layout-image-wrapper">
+                                    <img
+                                        src={getArticleImage(dataArticle.image)}
+                                        alt={dataArticle.title}
+                                        className="article-layout-image"
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        {/* <div className="contentArticle_content_article">
                             <div className="contentArticle_content_article_content">
                                 <div className="contentArticle_content_article_content_item contentArticle_content_article_content_title bold">
                                     {dataArticle.title}
@@ -138,7 +173,7 @@ const ContentArticle = () => {
                                         <img
                                             src={getArticleImage(dataArticle.image)}
                                             alt=""
-                                            className={!dataArticle.image ? 'noImage' : ''}
+                                            className={`${!dataArticle.image ? 'noImage' : ''}`}
                                         />
                                     </div>
                                 )}
@@ -153,7 +188,7 @@ const ContentArticle = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
