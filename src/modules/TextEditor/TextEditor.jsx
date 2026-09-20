@@ -23,6 +23,7 @@ const TextEditor = ({ initialContent, initialImage, onSave, onDraft }) => {
         return EditorState.createEmpty();
     });
     const [ image, setImage ] = useState('');
+    const [ isMobile, setIsMobile ] = useState(false);
 
     const fileInputRef = useRef(null);
     const editorRef = useRef(null);
@@ -33,6 +34,14 @@ const TextEditor = ({ initialContent, initialImage, onSave, onDraft }) => {
     const handleBack = () => {
         navigate('/admin_panel');
     };
+
+    useEffect(() => {
+        if (window.innerWidth <= 767) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    }, []);
 
     useEffect(() => {
         if (initialContent) {
@@ -240,6 +249,10 @@ const TextEditor = ({ initialContent, initialImage, onSave, onDraft }) => {
             }
         } else {
             if (onSave) onSave(convertToRaw(editorState.getCurrentContent()), image);
+            const data = convertToRaw(editorState.getCurrentContent());
+            if (data.blocks.length <= 1 && data.blocks[0].text === '') {
+                return;
+            }
         }
         navigate('/admin_panel');
     };
@@ -256,6 +269,11 @@ const TextEditor = ({ initialContent, initialImage, onSave, onDraft }) => {
             }
         } else {
             if (onDraft) onDraft(convertToRaw(editorState.getCurrentContent()), image);
+            const data = convertToRaw(editorState.getCurrentContent());
+            if (data.blocks.length <= 1 && data.blocks[0].text === '') {
+                return;
+            }
+            
         }
         navigate('/admin_panel');
     };
@@ -289,157 +307,344 @@ const TextEditor = ({ initialContent, initialImage, onSave, onDraft }) => {
                 {/* Тулбар */}
                 <div className="text-editor_toolbar">
                     {mode === 'wysiwyg' ? (
-                        <>
-                            <button
-                                type="button"
-                                className={isStyleActive('BOLD') ? 'active' : ''}
-                                onClick={() => toggleInlineStyle('BOLD')}
-                                title="Жирный"
-                            >
-                                <b>B</b>
-                            </button>
-                            <button
-                                type="button"
-                                className={isStyleActive('ITALIC') ? 'active' : ''}
-                                onClick={() => toggleInlineStyle('ITALIC')}
-                                title="Курсив"
-                            >
-                                <i>I</i>
-                            </button>
-                            <button
-                                type="button"
-                                className={isStyleActive('UNDERLINE') ? 'active' : ''}
-                                onClick={() => toggleInlineStyle('UNDERLINE')}
-                                title="Подчёркнутый"
-                            >
-                                <u>U</u>
-                            </button>
-                            <span className="text-editor_toolbar_divider" />
-                            <button
-                                type="button"
-                                className={isBlockActive('unordered-list-item') ? 'active' : ''}
-                                onClick={() => toggleBlockType('unordered-list-item')}
-                                title="Маркированный список"
-                            >
-                                •
-                            </button>
-                            <button
-                                type="button"
-                                className={isBlockActive('ordered-list-item') ? 'active' : ''}
-                                onClick={() => toggleBlockType('ordered-list-item')}
-                                title="Нумерованный список"
-                            >
-                                1.
-                            </button>
-                            <span className="text-editor_toolbar_divider" />
-                            <button
-                                type="button"
-                                className={isBlockActive('header-one') ? 'active' : ''}
-                                onClick={() => toggleBlockType('header-one')}
-                                title="Заголовок 1"
-                            >
-                                H1
-                            </button>
-                            <button
-                                type="button"
-                                className={isBlockActive('header-two') ? 'active' : ''}
-                                onClick={() => toggleBlockType('header-two')}
-                                title="Заголовок 2"
-                            >
-                                H2
-                            </button>
-                            <span className="text-editor_toolbar_divider" />
-                            <button
-                                type="button"
-                                onClick={() => fileInputRef.current?.click()}
-                                title="Вставить изображение"
-                                className='text-editor_toolbar_btn-image'
-                            >
-                                {/* 🖼 */}
-                                <img src={require('../../assets/icons/image.png')} alt="" />
-                            </button>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                ref={fileInputRef}
-                                onChange={handleImageUpload}
-                                style={{ display: 'none' }}
-                            />
-                        </>
+                        isMobile ? (
+                            <>
+                                <div className="text-editor_toolbar_row one">
+                                    <button
+                                        type="button"
+                                        className={isStyleActive('BOLD') ? 'active' : ''}
+                                        onClick={() => toggleInlineStyle('BOLD')}
+                                        title="Жирный"
+                                    >
+                                        <b>B</b>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isStyleActive('ITALIC') ? 'active' : ''}
+                                        onClick={() => toggleInlineStyle('ITALIC')}
+                                        title="Курсив"
+                                    >
+                                        <i>I</i>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isStyleActive('UNDERLINE') ? 'active' : ''}
+                                        onClick={() => toggleInlineStyle('UNDERLINE')}
+                                        title="Подчёркнутый"
+                                    >
+                                        <u>U</u>
+                                    </button>
+                                    <span className="text-editor_toolbar_divider one" />
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('unordered-list-item') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('unordered-list-item')}
+                                        title="Маркированный список"
+                                    >
+                                        •
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('ordered-list-item') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('ordered-list-item')}
+                                        title="Нумерованный список"
+                                    >
+                                        1.
+                                    </button>
+                                    <span className="text-editor_toolbar_divider two" />
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('header-one') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('header-one')}
+                                        title="Заголовок 1"
+                                    >
+                                        H1
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('header-two') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('header-two')}
+                                        title="Заголовок 2"
+                                    >
+                                        H2
+                                    </button>
+                                </div>
+                                <div className="text-editor_toolbar_row two">
+                                    <button
+                                        type="button"
+                                        onClick={() => fileInputRef.current?.click()}
+                                        title="Вставить изображение"
+                                        className='text-editor_toolbar_btn-image'
+                                    >
+                                        <img src={require('../../assets/icons/image.png')} alt="" />
+                                    </button>
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        ref={fileInputRef}
+                                        onChange={handleImageUpload}
+                                        style={{ display: 'none' }}
+                                    />
+                                    <span className="text-editor_toolbar_divider four" />
+                                    <button
+                                        type="button"
+                                        className={`text-editor_toolbar_md-btn ${mode === 'markdown' ? 'active' : ''}`}
+                                        onClick={handleToggleMarkdown}
+                                        title={lang === 'ru' ? 'Режим Markdown' : 'Markdown mode'}
+                                    >
+                                        M↓
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <button
+                                    type="button"
+                                    className={isStyleActive('BOLD') ? 'active' : ''}
+                                    onClick={() => toggleInlineStyle('BOLD')}
+                                    title="Жирный"
+                                >
+                                    <b>B</b>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isStyleActive('ITALIC') ? 'active' : ''}
+                                    onClick={() => toggleInlineStyle('ITALIC')}
+                                    title="Курсив"
+                                >
+                                    <i>I</i>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isStyleActive('UNDERLINE') ? 'active' : ''}
+                                    onClick={() => toggleInlineStyle('UNDERLINE')}
+                                    title="Подчёркнутый"
+                                >
+                                    <u>U</u>
+                                </button>
+                                <span className="text-editor_toolbar_divider" />
+                                <button
+                                    type="button"
+                                    className={isBlockActive('unordered-list-item') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('unordered-list-item')}
+                                    title="Маркированный список"
+                                >
+                                    •
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isBlockActive('ordered-list-item') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('ordered-list-item')}
+                                    title="Нумерованный список"
+                                >
+                                    1.
+                                </button>
+                                <span className="text-editor_toolbar_divider" />
+                                <button
+                                    type="button"
+                                    className={isBlockActive('header-one') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('header-one')}
+                                    title="Заголовок 1"
+                                >
+                                    H1
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isBlockActive('header-two') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('header-two')}
+                                    title="Заголовок 2"
+                                >
+                                    H2
+                                </button>
+                                <span className="text-editor_toolbar_divider" />
+                                <button
+                                    type="button"
+                                    onClick={() => fileInputRef.current?.click()}
+                                    title="Вставить изображение"
+                                    className='text-editor_toolbar_btn-image'
+                                >
+                                    {/* 🖼 */}
+                                    <img src={require('../../assets/icons/image.png')} alt="" />
+                                </button>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    ref={fileInputRef}
+                                    onChange={handleImageUpload}
+                                    style={{ display: 'none' }}
+                                />
+                                <button
+                                    type="button"
+                                    className={`text-editor_toolbar_md-btn ${mode === 'markdown' ? 'active' : ''}`}
+                                    onClick={handleToggleMarkdown}
+                                    title={lang === 'ru' ? 'Режим Markdown' : 'Markdown mode'}
+                                >
+                                    M↓
+                                </button>
+                            </>
+                        )
                     ) : (
-                        <>
-                            <button
-                                type="button"
-                                className={isMdSyntaxAround('**') ? 'active' : ''}
-                                onClick={() => insertMarkdownSyntax('**', '**', 'текст')}
-                                title="Жирный"
-                            >
-                                <b>B</b>
-                            </button>
-                            <button
-                                type="button"
-                                className={isMdSyntaxAround('*') ? 'active' : ''}
-                                onClick={() => insertMarkdownSyntax('*', '*', 'текст')}
-                                title="Курсив"
-                            >
-                                <i>I</i>
-                            </button>
-                            <span className="text-editor_toolbar_divider" />
-                            <button
-                                type="button"
-                                onClick={() => insertMarkdownSyntax('- ', '', 'пункт')}
-                                title="Маркированный список"
-                            >
-                                •
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => insertMarkdownSyntax('1. ', '', 'пункт')}
-                                title="Нумерованный список"
-                            >
-                                1.
-                            </button>
-                            <span className="text-editor_toolbar_divider" />
-                            <button
-                                type="button"
-                                onClick={() => insertMarkdownSyntax('# ', '', 'Заголовок')}
-                                title="Заголовок 1"
-                            >
-                                H1
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => insertMarkdownSyntax('## ', '', 'Заголовок')}
-                                title="Заголовок 2"
-                            >
-                                H2
-                            </button>
-                            <span className="text-editor_toolbar_divider" />
-                            <button
-                                type="button"
-                                onClick={() => fileInputRef.current?.click()}
-                                title="Вставить изображение"
-                                className='text-editor_toolbar_btn-image'
-                            >
-                                <img src={require('../../assets/icons/image.png')} alt="" />
-                            </button>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                ref={fileInputRef}
-                                onChange={handleImageUploadMarkdown}
-                                style={{ display: 'none' }}
-                            />
-                        </>
+                        isMobile ? (
+                            <>
+                                <div className="text-editor_toolbar_row one">
+                                    <button
+                                        type="button"
+                                        className={isStyleActive('BOLD') ? 'active' : ''}
+                                        onClick={() => toggleInlineStyle('BOLD')}
+                                        title="Жирный"
+                                    >
+                                        <b>B</b>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isStyleActive('ITALIC') ? 'active' : ''}
+                                        onClick={() => toggleInlineStyle('ITALIC')}
+                                        title="Курсив"
+                                    >
+                                        <i>I</i>
+                                    </button>
+                                    <span className="text-editor_toolbar_divider one" />
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('unordered-list-item') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('unordered-list-item')}
+                                        title="Маркированный список"
+                                    >
+                                        •
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('ordered-list-item') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('ordered-list-item')}
+                                        title="Нумерованный список"
+                                    >
+                                        1.
+                                    </button>
+                                    <span className="text-editor_toolbar_divider two" />
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('header-one') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('header-one')}
+                                        title="Заголовок 1"
+                                    >
+                                        H1
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={isBlockActive('header-two') ? 'active' : ''}
+                                        onClick={() => toggleBlockType('header-two')}
+                                        title="Заголовок 2"
+                                    >
+                                        H2
+                                    </button>
+                                </div>
+                                <div className="text-editor_toolbar_row two">
+                                    <button
+                                        type="button"
+                                        onClick={() => fileInputRef.current?.click()}
+                                        title="Вставить изображение"
+                                        className='text-editor_toolbar_btn-image'
+                                    >
+                                        <img src={require('../../assets/icons/image.png')} alt="" />
+                                    </button>
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        ref={fileInputRef}
+                                        onChange={handleImageUpload}
+                                        style={{ display: 'none' }}
+                                    />
+                                    <span className="text-editor_toolbar_divider four" />
+                                    <button
+                                        type="button"
+                                        className={`text-editor_toolbar_md-btn ${mode === 'markdown' ? 'active' : ''}`}
+                                        onClick={handleToggleMarkdown}
+                                        title={lang === 'ru' ? 'Режим Markdown' : 'Markdown mode'}
+                                    >
+                                        M↓
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <button
+                                    type="button"
+                                    className={isStyleActive('BOLD') ? 'active' : ''}
+                                    onClick={() => toggleInlineStyle('BOLD')}
+                                    title="Жирный"
+                                >
+                                    <b>B</b>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isStyleActive('ITALIC') ? 'active' : ''}
+                                    onClick={() => toggleInlineStyle('ITALIC')}
+                                    title="Курсив"
+                                >
+                                    <i>I</i>
+                                </button>
+                                <span className="text-editor_toolbar_divider" />
+                                <button
+                                    type="button"
+                                    className={isBlockActive('unordered-list-item') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('unordered-list-item')}
+                                    title="Маркированный список"
+                                >
+                                    •
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isBlockActive('ordered-list-item') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('ordered-list-item')}
+                                    title="Нумерованный список"
+                                >
+                                    1.
+                                </button>
+                                <span className="text-editor_toolbar_divider" />
+                                <button
+                                    type="button"
+                                    className={isBlockActive('header-one') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('header-one')}
+                                    title="Заголовок 1"
+                                >
+                                    H1
+                                </button>
+                                <button
+                                    type="button"
+                                    className={isBlockActive('header-two') ? 'active' : ''}
+                                    onClick={() => toggleBlockType('header-two')}
+                                    title="Заголовок 2"
+                                >
+                                    H2
+                                </button>
+                                <span className="text-editor_toolbar_divider" />
+                                <button
+                                    type="button"
+                                    onClick={() => fileInputRef.current?.click()}
+                                    title="Вставить изображение"
+                                    className='text-editor_toolbar_btn-image'
+                                >
+                                    {/* 🖼 */}
+                                    <img src={require('../../assets/icons/image.png')} alt="" />
+                                </button>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    ref={fileInputRef}
+                                    onChange={handleImageUpload}
+                                    style={{ display: 'none' }}
+                                />
+                                <button
+                                    type="button"
+                                    className={`text-editor_toolbar_md-btn ${mode === 'markdown' ? 'active' : ''}`}
+                                    onClick={handleToggleMarkdown}
+                                    title={lang === 'ru' ? 'Режим Markdown' : 'Markdown mode'}
+                                >
+                                    M↓
+                                </button>
+                            </>
+                        )
                     )}
-                    <button
-                        type="button"
-                        className={`text-editor_toolbar_md-btn ${mode === 'markdown' ? 'active' : ''}`}
-                        onClick={handleToggleMarkdown}
-                        title={lang === 'ru' ? 'Режим Markdown' : 'Markdown mode'}
-                    >
-                        M↓
-                    </button>
                 </div>
 
                 {/* Область редактирования */}

@@ -11,39 +11,21 @@ const ContentAdminPanelEditor = () => {
     const [content, setContent] = useState(null);
     const [initialImage, setInitialImage] = useState(null);
     const [savedArticleId, setSavedArticleId] = useState(null);
+    const [ showWarning, setShowWarning ] = useState(false);
+    const [ warning, setWarning ] = useState({ message: '',  btn:'', action: '' });
     const navigate = useNavigate();
     const location = useLocation();
 
-    // получение статьи из стейта
     const article = location.state?.article || null;
     const pageTitle = article
         ? (lang === 'ru' ? 'Редактирование статьи' : 'Edit article')
         : (lang === 'ru' ? 'Новая статья' : 'New article');
-    
-    // useEffect(() => {
-    //     if (article) {
-    //         if (article.articles) {
-    //             // setContent(article.rawContent);
-    //             // console.log('Редактируем статью: ', article);
-    //             const fullText = article.articles
-    //                 .map((a) => a.article)
-    //                 .join('\n\n');
-    //             const contentState = ContentState.createFromText(fullText);
-    //             const rawContent = convertToRaw(contentState);
-    //             setContent(rawContent);
-    //         }
-    //         if (article.image) {
-    //             setInitialImage(article.image);
-    //         }
-    //     }
-    // }, [article]);
+
     useEffect(() => {
         if (article) {
-            // Если у статьи есть content (raw Draft.js) — используем напрямую
             if (article.content) {
                 setContent(article.content);
             } else if (article.articles) {
-                // Статья из data.js — собираем текст
                 const fullText = article.articles
                     .map((a) => a.article)
                     .join('\n\n');
@@ -57,8 +39,6 @@ const ContentAdminPanelEditor = () => {
         }
     }, [article]);
 
-
-    // форматирование даты сохранения
     const formatSaveDate = (isRu) => {
         const now = new Date();
         const dd = String(now.getDate()).padStart(2, '0');
@@ -66,45 +46,89 @@ const ContentAdminPanelEditor = () => {
         const yyyy = now.getFullYear();
         return isRu ? `${dd}.${mm}.${yyyy}` : `${dd}/${mm}/${yyyy}`;
     };
-    // извлечение заголовка из текста (первая строка)
+
     const exrtactTitle = (rawContent) => {
-        if (!rawContent || !rawContent.blocks || rawContent.blocks.length === 0) {
+        if (!rawContent || !rawContent.blocks || !Array.isArray(rawContent.blocks)) {
             return '';
         }
-        // берём первый блок
         const firstTextBlock = rawContent.blocks.find(
             (block) => block.text && block.text.trim() !== ""
         );
         return firstTextBlock ? firstTextBlock.text.trim() : '';
     };
 
-    // Вспомогательная функция для безопасного получения массива из localStorage
+    // ГАРАНТИРОВАННО возвращает массив. Никаких исключений, никаких undefined.
     const getSafeArticlesList = () => {
-        const raw = localStorage.getItem('ArticlesDMTSoft');
-
-        if (!raw || raw.trim() === '') {
-            return ; // ВАЖНО: всегда возвращаем массив, никогда не undefined
-        }
-
         try {
+            const raw = localStorage.getItem('ArticlesDMTSoft');
+            
+            // Если нет данных или не строка — возвращаем пустой массив
+            if (!raw || typeof raw !== 'string') {
+                return ;
+            }
+
             const parsed = JSON.parse(raw);
-            return Array.isArray(parsed) ? parsed : ''; // Если не массив - возвращаем пустой массив
+
+            // Если распарсилось, но это не массив — возвращаем пустой массив
+            if (!Array.isArray(parsed)) {
+                console.warn('В localStorage лежит не массив, сбрасываем в ', parsed);
+                return ;
+            }
+
+            return parsed;
         } catch (e) {
-            console.error('Ошибка парсинга localStorage:', e);
-            return ; // Даже при ошибке возвращаем пустой массив, чтобы код не ломался
+            // Если JSON битый — возвращаем пустой массив
+            console.error('Ошибка парсинга localStorage, возвращаем пустой массив', e);
+            return ;
         }
     };
 
-
+    const getMaxIdFromArray = (arr) => {
+        if (!Array.isArray(arr) || arr.length === 0) {
+            return 0;
+        }
+        const validIds = arr
+            .map(item => item.id)
+            .filter(id => typeof id === 'number');
+        
+        return validIds.length > 0 ? Math.max(...validIds) : 0;
+    };
 
     const handleSaveDraft = (rawContent, image) => {
+        if (!rawContent.blocks[0].text || (rawContent.blocks[0].text === '' && rawContent.blocks.length <= 1)) {
+            setShowWarning(true);
+            setWarning({
+                message: lang === 'ru'
+                    ? 'Пустое поле ввода'
+                    : 'Empty input field'
+                ,
+                btn: lang === 'ru' ? 'Выйти' : 'Quit',
+                action: () => {
+                    setShowWarning(false);
+                    navigate('/admin_panel');
+                },
+                etc: '',
+            });
+            return;
+        };
+        
         setContent(rawContent);
         const title = exrtactTitle(rawContent);
         const timeRu = formatSaveDate(true);
         const timeEn = formatSaveDate(false);
-
+        const status = 'draft';
         const currentId = article ? article.id : savedArticleId;
-        const status = 'draft'; // Явно задаем статус
+
+        // Получаем список. Благодаря getSafeArticlesList это ВСЕГДА массив.
+        let stored = getSafeArticlesList();
+
+        // ДОПОЛНИТЕЛЬНАЯ СТРАХОВКА: если вдруг stored не массив (на всякий случай)
+        if (!Array.isArray(stored)) {
+            console.error('Критическая ошибка: stored не массив!', stored);
+            stored = [];
+        }
+
+        const safeNews = Array.isArray(NEWS) ? NEWS : '';
 
         if (currentId) {
             const payload = {
@@ -114,17 +138,14 @@ const ContentAdminPanelEditor = () => {
                 title: title || (article?.title || ''),
                 time_ru: timeRu,
                 time_en: timeEn,
-                status: status, // <--- ДОБАВЛЕНО: принудительно ставим статус
+                status: status,
             };
 
-            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
-            const stored = getSafeArticlesList();
             const existingIndex = stored.findIndex((item) => item.id === currentId);
 
             if (existingIndex !== -1) {
                 stored[existingIndex] = { ...stored[existingIndex], ...payload };
             } else {
-                // Если статьи еще нет в localStorage (была только в data.js)
                 stored.push({
                     ...article,
                     ...payload,
@@ -133,45 +154,59 @@ const ContentAdminPanelEditor = () => {
             }
             localStorage.setItem('ArticlesDMTSoft', JSON.stringify(stored));
         } else {
-            // Логика для новой статьи (первое сохранение)
-            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
-            const stored = getSafeArticlesList();
-            // Безопасное получение массивов
-            const safeStored = getSafeArticlesList() || '';
-            const safeNews = NEWS || ''; 
-
-            const maxNewsId = safeNews.length > 0 ? Math.max(...safeNews.map((n) => n.id)) : 0;
-            const maxStoredId = safeStored.length > 0 ? Math.max(...safeStored.map((s) => s.id)) : 0;
+            // Логика для новой статьи
+            const maxNewsId = getMaxIdFromArray(safeNews);
+            const maxStoredId = getMaxIdFromArray(stored);
             const newId = Math.max(maxNewsId, maxStoredId) + 1;
-
-            // const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
-            // const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
-            // const newId = Math.max(maxNewsId, maxStoredId) + 1;
 
             const newArticle = {
                 id: newId,
                 content: rawContent,
                 image: image || null,
-                status: status, // <--- ДОБАВЛЕНО
+                status: status,
                 title: title,
                 views: 0,
                 time_ru: timeRu,
                 time_en: timeEn,
             };
+
+            // ЭТА СТРОКА ТЕПЕРЬ БЕЗОПАСНА, так как stored гарантированно массив
             stored.push(newArticle);
+            
             localStorage.setItem('ArticlesDMTSoft', JSON.stringify(stored));
             setSavedArticleId(newId);
         }
     };
 
     const handleSavePublish = (rawContent, image) => {
+        if (!rawContent.blocks[0].text && rawContent.blocks[0].text === '' && rawContent.blocks.length <= 1) {
+            setShowWarning(true);
+            setWarning({
+                message: lang === 'ru'
+                    ? 'Пустое поле ввода'
+                    : 'Empty input field'
+                ,
+                btn: lang === 'ru' ? 'Выйти' : 'Quit',
+                action: () => {
+                    setShowWarning(false);
+                    navigate('/admin_panel');
+                },
+                etc: '',
+            });
+            return;
+        };
+
         setContent(rawContent);
         const title = exrtactTitle(rawContent);
         const timeRu = formatSaveDate(true);
         const timeEn = formatSaveDate(false);
-
+        const status = 'public';
         const currentId = article ? article.id : savedArticleId;
-        const status = 'public'; // Явно задаем статус
+
+        let stored = getSafeArticlesList();
+        if (!Array.isArray(stored)) stored = [];
+        
+        const safeNews = Array.isArray(NEWS) ? NEWS : '';
 
         if (currentId) {
             const payload = {
@@ -181,18 +216,14 @@ const ContentAdminPanelEditor = () => {
                 title: title || (article?.title || ''),
                 time_ru: timeRu,
                 time_en: timeEn,
-                status: status, // <--- ДОБАВЛЕНО: принудительно ставим статус
+                status: status,
             };
 
-            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
-            const stored = getSafeArticlesList();
             const existingIndex = stored.findIndex((item) => item.id === currentId);
 
             if (existingIndex !== -1) {
-                // Теперь статус точно станет 'public'
                 stored[existingIndex] = { ...stored[existingIndex], ...payload };
             } else {
-                // Если статьи еще нет в localStorage (была только в data.js)
                 stored.push({
                     ...article,
                     ...payload,
@@ -201,37 +232,26 @@ const ContentAdminPanelEditor = () => {
             }
             localStorage.setItem('ArticlesDMTSoft', JSON.stringify(stored));
         } else {
-            // Логика для новой статьи (первое сохранение)
-            // const stored = JSON.parse(localStorage.getItem('ArticlesDMTSoft') || '');
-            const stored = getSafeArticlesList();
-            // Безопасное получение массивов
-            const safeStored = getSafeArticlesList() || '';
-            const safeNews = NEWS || ''; 
-
-            const maxNewsId = safeNews.length > 0 ? Math.max(...safeNews.map((n) => n.id)) : 0;
-            const maxStoredId = safeStored.length > 0 ? Math.max(...safeStored.map((s) => s.id)) : 0;
+            const maxNewsId = getMaxIdFromArray(safeNews);
+            const maxStoredId = getMaxIdFromArray(stored);
             const newId = Math.max(maxNewsId, maxStoredId) + 1;
-            // const maxNewsId = NEWS.length > 0 ? Math.max(...NEWS.map((n) => n.id)) : 0;
-            // const maxStoredId = stored.length > 0 ? Math.max(...stored.map((s) => s.id)) : 0;
-            // const newId = Math.max(maxNewsId, maxStoredId) + 1;
 
             const newArticle = {
                 id: newId,
                 content: rawContent,
                 image: image || null,
-                status: status, // <--- ДОБАВЛЕНО
+                status: status,
                 title: title,
                 views: 0,
                 time_ru: timeRu,
                 time_en: timeEn,
             };
+
             stored.push(newArticle);
             localStorage.setItem('ArticlesDMTSoft', JSON.stringify(stored));
             setSavedArticleId(newId);
         }
     };
-
-
 
     const handleBack = () => {
         navigate('/admin_panel');
@@ -247,14 +267,17 @@ const ContentAdminPanelEditor = () => {
                                 className='adminPanelEditor_content_header_back'
                                 onClick={handleBack}
                             >
-                                {lang === 'ru'
-                                    ? 'Назад'
-                                    : 'Back'
-                                }
+                                {lang === 'ru' ? 'Назад' : 'Back'}
                             </button>
                             <div className="adminPanelEditor_content_header_title bold">
                                 {pageTitle}
                             </div>
+                        </div>
+                        <div className="adminPanelEditor_content_description">
+                            {lang === 'ru'
+                                ? 'Используйте первую строку как заголовок статьи'
+                                : 'Use the first line as the article title'
+                            }
                         </div>
                         <div className="adminPanelEditor_content_editor">
                             <TextEditor
@@ -267,8 +290,25 @@ const ContentAdminPanelEditor = () => {
                     </div>
                 </div>
             </div>
+
+            {/* окно подтверждения и уведомления */}
+            {showWarning && (
+                <div className="modal">
+                    <div className={`modal_content ${warning.etc === 'adminCard' ? 'adminCard' : ''}`}>
+                        <div className="modal_text">{warning.message}</div>
+                        <div className="modal_btns">
+                            <button className='modal_btns_item agree' onClick={warning.action}>
+                                {warning.btn}
+                            </button>
+                            <button className='modal_btns_item cancel' onClick={() => setShowWarning(false)}>
+                                {lang === 'ru' ? 'Отмена' : 'Cancel'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
-}
+};
 
 export default ContentAdminPanelEditor;

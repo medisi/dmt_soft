@@ -147,7 +147,8 @@
 .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link,
 .landing_page.dark .adminPanel_layout_content_articles_table_layout_tbody_col_time_span,
 .landing_page.dark .dropdown_label,
-.landing_page.dark .editing_content_form_input_div span.period
+.landing_page.dark .editing_content_form_input_div span.period,
+.landing_page.dark .adminPanelEditor_content_description
 {
     color: #fff5;
 }
@@ -745,7 +746,8 @@
 .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_name_div_info_link,
 .landing_page.light .adminPanel_layout_content_articles_table_layout_tbody_col_time_span,
 .landing_page.light .dropdown_label,
-.landing_page.light .editing_content_form_input_div span.period
+.landing_page.light .editing_content_form_input_div span.period,
+.landing_page.light .adminPanelEditor_content_description
 {
     color: #1C1C1C50;
 }

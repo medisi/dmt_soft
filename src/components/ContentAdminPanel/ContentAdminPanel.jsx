@@ -177,6 +177,22 @@ const ContentAdminPanel = () => {
             ,
             btn: lang === 'ru' ? 'Удалить' : 'Delete',
             action: () => {
+                const newsIds = NEWS.map(item => item.id);
+                const raw = localStorage.getItem('ArticlesDMTSoft');
+                if (raw) {
+                    try {
+                        const stored = JSON.parse(raw);
+                        if (Array.isArray(stored)) {
+                            const updated = stored.filter(
+                                item => !selectedRows.includes(item.id) || newsIds.includes(item.id)
+                            );
+                            localStorage.setItem('ArticlesDMTSoft', JSON.stringify(updated));
+                            refreshArticles();
+                        }
+                    } catch (err) {
+                        console.error('Ошибка при удалении статей:', err);
+                    }
+                }
                 setShowWarning(false);
                 setSelectedRows([]);
             },
@@ -1127,7 +1143,7 @@ const ContentAdminPanel = () => {
 
 
 
-                {/* окно подтверждения */}
+                {/* окно подтверждения и уведомления */}
                 {showWarning && (
                     <div className="modal">
                         <div className={`modal_content ${warning.etc === 'adminCard' ? 'adminCard' : ''}`}>

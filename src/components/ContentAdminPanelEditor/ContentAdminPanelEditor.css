@@ -44,6 +44,15 @@
 .adminPanelEditor_content_header_back:hover {
     color: #E5613180;
 }
+.adminPanelEditor_content_description {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    user-select: none;
+}
 .adminPanelEditor_content_editor {
     display: flex;
     gap: 20px;
