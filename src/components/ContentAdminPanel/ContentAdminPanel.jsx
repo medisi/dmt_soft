@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ADMINS, BRIEF_SUMMARY, NEWS } from "../../hooks/data";
 import DropdownButtonFilter from "../DropdownButtonFilter/DropdownButtonFilter";
 import { useAllArticles } from "../../hooks/useAllArticles";
+import ViewsChart from "../../modules/ViewsChart/ViewsChart";
 
 function parseDDMMYYYY(dateStr) {
     if (!dateStr) return null;
@@ -583,7 +584,7 @@ const ContentAdminPanel = () => {
 
                             <div className="adminPanel_layout_content_home_static">
                                 <div className="adminPanel_layout_content_home_static_graph">
-                                    <div className="adminPanel_layout_content_home_static_graph_header">
+                                    {/* <div className="adminPanel_layout_content_home_static_graph_header">
                                         <span className="adminPanel_layout_content_home_static_graph_header_item bold" translate="no">
                                             {lang === 'ru'
                                                 ? 'Динамика просмотров'
@@ -648,8 +649,10 @@ const ContentAdminPanel = () => {
                                                 </>
                                             )}
                                         </select>
+                                    </div> */}
+                                    <div className="adminPanel_layout_content_home_static_graph_chart">
+                                        <ViewsChart allArticles={articlesData} />
                                     </div>
-
                                 </div>
 
                                 <div className="adminPanel_layout_content_home_static_popular">
@@ -1275,7 +1278,7 @@ const ContentAdminPanel = () => {
                                     </label>
                                 </div>
                                 <div className="editing_content_form_btns">
-                                    <button className="editing_content_form_btns_item agree" onClick={handleClickSaveNewInfoBtn}>
+                                    <button className="editing_content_form_btns_item agree" onClick={() => handleClickSaveNewInfoBtn()}>
                                         {lang === 'ru' ? 'Сохранить' : 'Save'}
                                     </button>
                                     <button className="editing_content_form_btns_item cancel" onClick={() => setShowEditingAdmins(false)}>

@@ -254,9 +254,10 @@
 
 .adminPanel_layout_content_home_static {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 20px;
     margin-top: 20px;
+    height: 100%;
 }
 
 .adminPanel_layout_content_home_static_graph {
@@ -274,18 +275,23 @@
 .adminPanel_layout_content_home_static_graph_header_item {
     font-size: 16px;
 }
-.adminPanel_layout_content_home_static_graph_header_item.select {
+.adminPanel_layout_content_home_static_graph_header_item.select
+{
     border-radius: 10px;
     background-color: transparent;
     padding: 10px 20px;
     font-size: 14px;
     cursor: pointer;
 }
+.adminPanel_layout_content_home_static_graph_chart {
+    height: 100%;
+}
 
 .adminPanel_layout_content_home_static_popular {
     width: 100%;
     border-radius: 9px;
     padding: 25px 10px;
+    min-width: 100%;
 }
 .adminPanel_layout_content_home_static_popular_header {
     display: flex;

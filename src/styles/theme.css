@@ -123,7 +123,8 @@
 .landing_page.dark .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
 .landing_page.dark .editing_content_title,
 .landing_page.dark .adminPanelEditor_content_header_title,
-.landing_page.dark .text-editor_split_right
+.landing_page.dark .text-editor_split_right,
+.landing_page.dark .views-chart-title
 {
     color: #fff;
 }
@@ -364,10 +365,15 @@
 .landing_page.dark .adminPanel_layout_content_home_brief_summary_item_image_span.admin_times {
     background-color: #BBC9DC28;
 }
-.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item.select {
+.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item.select,
+.landing_page.dark .views-chart-select
+{
     border: 1px solid #fff5;
+    color: #fff7;
 }
-.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item.select option {
+.landing_page.dark .adminPanel_layout_content_home_static_graph_header_item.select option,
+.landing_page.dark .views-chart-select option
+{
     background-color: #16202D;
     color: #fff8;
 }
@@ -721,7 +727,8 @@
 .landing_page.light .adminPanel_layout_content_admins_table_layout_table_tbody_tr:hover .ad_col,
 .landing_page.light .editing_content_title,
 .landing_page.light .adminPanelEditor_content_header_title,
-.landing_page.light .text-editor_split_right
+.landing_page.light .text-editor_split_right,
+.landing_page.light .views-chart-title
 {
     color: #1C1C1C;
 }
@@ -982,10 +989,15 @@
     background-color: #bfc7d345;
 }
 
-.landing_page.light .adminPanel_layout_content_home_static_graph_header_item.select {
+.landing_page.light .adminPanel_layout_content_home_static_graph_header_item.select,
+.landing_page.light .views-chart-select
+{
     border: 1px solid #1C1C1C50;
+    color: #1C1C1C70;
 }
-.landing_page.light .adminPanel_layout_content_home_static_graph_header_item.select option {
+.landing_page.light .adminPanel_layout_content_home_static_graph_header_item.select option,
+.landing_page.light .views-chart-select option
+{
     background-color: #D7D7E6;
     color: #1C1C1C80;
 }
