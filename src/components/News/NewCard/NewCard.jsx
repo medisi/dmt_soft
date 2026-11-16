@@ -1,23 +1,79 @@
 import React, { useEffect, useState } from "react";
 import './NewCard.css';
 import { useLocalSettings } from "../../../hooks/useLocalSettings";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
 
-const NewCard = ({ id, image, time, title, articles }) => {
+const NewCard = ({ id, image, time, title, article, views }) => {
     const { lang } = useLocalSettings();
+    const navigate = useNavigate();
     const [ isMobile, setIsMobile ] = useState(false);
 
+    // useEffect(() => {
+    //     if (window.innerWidth <= 1050) {
+    //         setIsMobile(true);
+    //     } else {
+    //         setIsMobile(false);
+    //     }
+    // }, []);
     useEffect(() => {
-        if (window.innerWidth <= 1050) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-        }
+        const handleResize = () => setIsMobile(window.innerWidth <= 1050);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
         <>
-            {!isMobile ? (
+            <div className={isMobile ? 'mobile-article-card' : 'desktop-article-card'}>
+                {image && (
+                    <div className="article-card-image-wrapper">
+                        <img
+                            src={image}
+                            alt={title}
+                            className="article-card-image"
+                            loading="lazy"
+                        />
+                    </div>
+                )}
+                <div className="article-card-meta">
+                    <span className="article-card-time">{new Date(time).toLocaleString()}</span>
+                    {views !== undefined && (
+                        <span className="article-card-views">
+                            {lang === 'ru' ? 'Просмотры: ' : 'Views: '} {views}
+                        </span>
+                    )}
+                </div>
+
+                <h2 className="article-card-title bold">{title}</h2>
+
+                <div className="article-card-content">
+                    <ReactMarkdown components={{
+                        img: ({ node, ...props }) => (
+                            <img
+                                src={props.src}
+                                alt={props.alt || 'Иллюстрация'}
+                                className="markdown-image"
+                                loading="lazy"
+                            />
+                        ),
+                        a: ({ node, href, children, ...props }) => (
+                            <a href={href}>
+                                {children}
+                            </a>
+                        )
+                    }}
+                    >
+                        {article}
+                    </ReactMarkdown>
+                </div>
+                <Link
+                    to="/news"
+                    className="article-card-back-link text"
+                >
+                    {lang === 'ru' ? '← Назад к новостям' : '← Back to news'}
+                </Link>
+            </div>
+            {/* {!isMobile ? (
                 <div className="news_content_cards_item">
                     <div className="news_content_cards_item_image">
                         <img src={require(`../../../assets/images/${image}`)} alt="" />
@@ -64,7 +120,7 @@ const NewCard = ({ id, image, time, title, articles }) => {
                         <img src={require('../../../assets/icons/arrow.png')} alt="" />
                     </Link>
                 </div>
-            )}
+            )} */}
         </>
     )
 };

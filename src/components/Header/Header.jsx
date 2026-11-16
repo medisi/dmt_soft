@@ -139,7 +139,7 @@ const Header = () => {
                                 }
                             </div>
                             <a
-                                href="https://base.dmtsoft.com/"
+                                href="#"
                                 className="header_content_btns_item login text"
                                 target="_blank"
                             >

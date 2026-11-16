@@ -66,7 +66,7 @@ const MobileMenu = ({ onTap }) => {
                     }
                 </div>
                 <a 
-                    href="https://base.dmtsoft.com/"
+                    href="#"
                     className="mobile_menu_login text"
                     target="_blank"
                 >
