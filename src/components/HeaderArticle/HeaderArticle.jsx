@@ -43,7 +43,7 @@ const HeaderArticle = () => {
                             <a
                                 href="#"
                                 className="header_content_btns_item login text"
-                                target="_blank"
+                                // target="_blank"
                             >
                                 {lang === 'ru'
                                     ? 'Войти'

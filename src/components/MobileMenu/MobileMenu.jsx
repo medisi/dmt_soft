@@ -68,7 +68,7 @@ const MobileMenu = ({ onTap }) => {
                 <a 
                     href="#"
                     className="mobile_menu_login text"
-                    target="_blank"
+                    // target="_blank"
                 >
                     {lang === 'ru'
                         ? 'Войти'
